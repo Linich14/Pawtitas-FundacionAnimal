@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Fundacion Animal - Pawtitas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+![Icono de la Fundacion](https://i.imgur.com/SXlGvvS.png)
 
-In the project directory, you can run:
+Creditos de la imagen: <a href="https://www.freepik.es/vector-gratis/lindo-shiba-inu-sonriendo-dibujos-animados-vector-icono-ilustracion-animal-naturaleza-icono-concepto-aislado-premium_25172325.htm">Imagen de catalyststuff</a> en Freepik
 
-### `npm start`
+## ¿Que es Pawtitas?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Pawtitas es una Fundacion ficticia creada con el fin de responder una problematica para aplicar conocimientos de desarrollo web en el contexto del curso "Taller de Integracion 2" del año 2023 en la Universidad Catolica de Temuco. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Conexto de la Problematica:
 
-### `npm test`
+Es sabido que en gran parte de Chile existen animales en situación de calle o sin dueños, muchos de estos animales se encuentran en una situación bastante desfavorable por lo que se nos planteó la idea de poder crear una fundación la cual pueda ayudar prevenir y/o disminuir este problema. La fundación “PawTitas” tendría como objetivo el bienestar animal tanto de gatos como perros. Para ello, hemos planteado la idea de crear una página web la cual nos ayude en dar soluciones en las que los usuarios puedan interactuar y aportar con el objetivo. dentro de esta página existirá la posibilidad de adoptar a estos animales que se encuentran en espera para tener un hogar, para esto, existirá un proceso de selección de usuario o potencial adaptador, también existirá la posibilidad de que los usuarios puedan mandarnos los casos de aquellos animales que se encuentren en un mal estado y de esta forma poder darles a estos animales una segunda oportunidad. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Herramientas que usaremos para esta pagina:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React,Node.js y MySQL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Vista Previa de la pagina usando Figma
+### Index/Home
+![Index-Home](https://i.imgur.com/2Dzurzr.png)
+### Login
+![Login](https://i.imgur.com/F5PEVet.png)
+### Preguntas Frecuentes
+![FAQ](https://i.imgur.com/6ZSLIOO.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
