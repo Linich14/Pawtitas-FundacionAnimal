@@ -1,85 +1,80 @@
-import React from 'react'
-import styled from 'styled-components';
-import logoPerro from '../imgs/perrologoV1.png'
-import  'boxicons'
+import React from "react";
+import styled from "styled-components";
+import "boxicons";
+import PerroLogo from "../assets/perrologoV1.png";
 
-function Navbar() {
+function navbar() {
   return (
     <>
       <NavContainer>
-        <header>
-          <nav className='nav'>
-            <ul>
-              <li><a href="#1">Informaciones</a></li>
-              <li><a href="#2">Adoptar</a></li>
-              <li><a href="#3">Ayuda</a></li>
-              <li><a href="#INDEX"><img src={logoPerro} alt="Logo de la fundacion" /></a></li>
-              <li><a href="#3">Galeria</a></li>
-              <li><a href="#4">Donar</a></li>
-              <li><a href="#4">Testimonios</a></li>
-            </ul>
+        <header className="navscroll">
+          <nav className="nav">
+            <a href="#info">Informaciones</a>
+            <a href="#Adoptar">Adoptar</a>
+            <a href="#Ayuda">Ayuda</a>
+            <a href="#INDEX">
+              <img src={PerroLogo} alt="Logo de la fundacion" />
+            </a>
+            <a href="#Galeria">Galeria</a>
+            <a href="#Donar">Donar</a>
+            <a href="#Comentario">Comentario</a>
           </nav>
-
-          <div className='user'>
-            <a href="#Iniciosecion"><box-icon name='user-circle' size='md' color='#F2E3C9' type='solid' animation='tada-hover' ></box-icon></a>
+          <div className="UserRL">
+            <a href="#Iniciosecion">
+              <box-icon
+                className="iconuser"
+                name="user-circle"
+                size="md"
+                color="#F2E3C9"
+                type="solid"
+                animation="tada-hover"
+              ></box-icon>
+            </a>
           </div>
         </header>
-
       </NavContainer>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default navbar;
 
 const NavContainer = styled.nav`
-  :root{
-    --rojo-principal:#EF4B4B;
-    --blanco-crema: #F2E3C9;
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
   }
-  *{
-    padding:0px;
-    margin:0px;
-    background-color:#EF4B4B; 
+  header {
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 0 1.2rem 0;
+    background-color: #ef4b4b;
   }
-
-  header{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:20px 0 20px 0;
+  header nav {
+    padding: 0 12rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a {
+      text-decoration: none;
+      padding-inline: 1rem;
+      color: #f2e3c9;
+      img {
+        width: 80px;
+        border-radius: 50%;
+      }
+      img:hover {
+        background-color: #f2e3c9;
+      }
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   }
-
-  a,span{
-    color:#F2E3C9;
-  }
-  .nav {
-    padding:0 200px;
-  }
-  .nav ul{
-    list-style: none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .nav ul li{
-    padding-inline:20px;
-  }
-  .nav ul li a{
-    text-decoration:none;
-  }
-
-  .nav ul li a:hover{
-    text-decoration:underline;
-  }
-
-
-  .nav ul li a img{
-    max-width:80px;
-    border-radius:50%;
-  }
-  .nav ul li a img:hover{
-    background-color:#F2E3C9;
-  }
-`
+`;
