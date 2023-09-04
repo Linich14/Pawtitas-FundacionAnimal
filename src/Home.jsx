@@ -1,12 +1,19 @@
-
+import React from 'react'
 import './Home.css';
+import NavBar from './components/navbar.jsx'
+import Footer from './components/Footer'
 
-function App() {
+function Home() {
   return (
     <div className="App">
-      <p>asd</p>
+        <NavBar></NavBar>
+        <div>
+          <p>asd</p>
+        </div>
+        <Footer></Footer>
+      
     </div>
   );
 }
 
-export default App;
+export default Home;

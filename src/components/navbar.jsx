@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from 'react-router-dom'
 import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
@@ -12,15 +13,15 @@ function navbar() {
             <a href="#info">Informaciones</a>
             <a href="#Adoptar">Adoptar</a>
             <a href="#Ayuda">Ayuda</a>
-            <a href="#INDEX">
+            <Link to="/">
               <img src={PerroLogo} alt="Logo de la fundacion" />
-            </a>
+            </Link>
             <a href="#Galeria">Galeria</a>
             <a href="#Donar">Donar</a>
             <a href="#Comentario">Comentario</a>
           </nav>
           <div className="UserRL">
-            <a href="#Iniciosecion">
+            <Link to="/Login">
               <box-icon
                 className="iconuser"
                 name="user-circle"
@@ -29,7 +30,7 @@ function navbar() {
                 type="solid"
                 animation="tada-hover"
               ></box-icon>
-            </a>
+            </Link>
           </div>
         </header>
       </NavContainer>
