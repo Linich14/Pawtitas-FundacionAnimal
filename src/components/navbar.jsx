@@ -16,7 +16,9 @@ function navbar() {
             <Link to="/">
               <img src={PerroLogo} alt="Logo de la fundacion" />
             </Link>
-            <a href="#Galeria">Galeria</a>
+            <Link to="/Galeria">
+              Galeria
+            </Link>
             <a href="#Donar">Donar</a>
             <a href="#Comentario">Comentario</a>
           </nav>
