@@ -1,0 +1,142 @@
+.background-image {
+    background-image: url('fondo1.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-image {
+    /* Estilos para la imagen de perfil, por ejemplo, tamaño y bordes */
+}
+
+.user-form {
+    background-color: #7bcc7082;
+    padding: 5px;
+    border-radius: 10px;
+    width: 25%;
+    margin: 0 auto;
+}
+
+.user-form input[type="text"],
+.user-form input[type="email"],
+.user-form input[type="tel"],
+.user-form textarea {
+    width: 90%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 0px solid #ccc;
+    border-radius: 15px;
+}
+
+.user-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.user-form .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.user-form .btn-primary input[type="file"] {
+    display: none;
+}
+
+.pet-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pet-list li {
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    background-color: #ffdf7fae;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+}
+
+.pet-list li button {
+    background-color: #ebcf19;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pet-list li input[type="text"] {
+    width: 10%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-pet-form {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 30%;
+}
+
+.add-pet-form label {
+    font-weight: bold;
+}
+
+.add-pet-form input[type="text"],
+.add-pet-form input[type="number"],
+.add-pet-form textarea {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-pet-form button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.add-pet-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.add-pet-form .btn-cancel {
+    background-color: #dc3545;
+}
+
+.add-pet-form .btn-cancel:hover {
+    background-color: #bd2130;
+}
+
+.add-pet-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.add-pet-button:hover {
+    background-color: #218838;
+}
