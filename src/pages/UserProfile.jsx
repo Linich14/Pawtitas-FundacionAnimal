@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card, Form, Image, Button, Container, Row, Col } from "react-bootstrap";
-import './UserProfile.css';
+import '../components/css/UserProfile.css'
 
 function UserProfile(props) {
   const { name, rut, email, phoneNumber, photo, bio, pets } = props;

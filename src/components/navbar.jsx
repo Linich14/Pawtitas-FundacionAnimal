@@ -21,6 +21,7 @@ function navbar() {
             </Link>
             <a href="#Donar">Donar</a>
             <a href="#Comentario">Comentario</a>
+            <Link to='/user'>TemporalPerfil</Link>  {/*perdon nacho despues lo borro pq desplazo toda la barra att:jorge */}
           </nav>
           <div className="UserRL">
             <Link to="/Login">

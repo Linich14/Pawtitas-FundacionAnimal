@@ -11,16 +11,16 @@ function Footer() {
               <div className='contacto'>
                 <h3>Contacto</h3>
                 <ul>
-                  <li><a href="#a"><box-icon name='envelope' color='#F2E3C9'animation='tada-hover' ></box-icon>correo@ejemplo.cl</a></li>
-                  <li><a href="#a"><box-icon name='location-plus' color='#F2E3C9' type='solid' animation='tada-hover' ></box-icon>Ubicacion Random</a></li>
+                  <li><a href="/"><box-icon name='envelope' color='#F2E3C9'animation='tada-hover' ></box-icon>correo@ejemplo.cl</a></li>
+                  <li><a href="/"><box-icon name='location-plus' color='#F2E3C9' type='solid' animation='tada-hover' ></box-icon>Ubicacion Random</a></li>
                 </ul>
               </div>
               <div className='otros'>
                 <h3>Otros apartados</h3>
                 <ul>
-                  <li><a href="#">Donaciones</a></li>
-                  <li><a href="#">Adopta</a></li>
-                  <li><a href="#">Preguntas Frecuentes</a></li>
+                  <li><a href="/">Donaciones</a></li>
+                  <li><a href="/">Adopta</a></li>
+                  <li><a href="/">Preguntas Frecuentes</a></li>
                 </ul>                
               </div>
             </div>

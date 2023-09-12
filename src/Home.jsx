@@ -11,11 +11,11 @@ function Home() {
       <div>
         <body>
           <ul className="navbar">
-            <li><a href="">Pagina 1</a></li>
-            <li><a href="">Pagina 2</a></li>
-            <li><a href="">Pagina 3</a></li>
-            <li><a href="">Pagina 4</a></li>
-            <li><a href="">Pagina 5</a></li>
+            <li><a href="/">Pagina 1</a></li>
+            <li><a href="/">Pagina 2</a></li>
+            <li><a href="/">Pagina 3</a></li>
+            <li><a href="/">Pagina 4</a></li>
+            <li><a href="/">Pagina 5</a></li>
           </ul>
 
           <div id="section1" className="section">
@@ -33,7 +33,7 @@ function Home() {
                 </h5>
               </section>
 
-              <Link to="/user">Ir a la página de usuario</Link> {/* Enlace a la página de usuario */}
+
             </div>
           </div>
 
