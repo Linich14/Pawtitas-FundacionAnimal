@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import 'boxicons'
+import 'boxicons';
 
 function Footer() {
   return (
