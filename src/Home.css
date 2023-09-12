@@ -1,223 +1,246 @@
 
+
 .App {
     text-align: center;
-    margin-top: 122px;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-       
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #282c34;
-}
-
-
-ul.navbar {
-  background-color: crimson;
-  height: 70px;
-  width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: fixed;
-}
-
-ul.navbar li {
-  position: relative;
-  left: 250px;
-  display: inline-block;
-}
-
-ul.navbar li a {
-  display: block;
-  color: white;
-  text-align: center;
+  }
   
-  padding: 14px 16px;
-  text-decoration: none;
+  .App-logo {
+    height: 40vmin;
+    pointer-events: none;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+  
+  .App-header {
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-ul.navbar li a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-
-.section {
-  height: 100vh; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2em;
-}
-
-#section1 {
-  position: relative; 
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: white;
-  font-size: 24px;
-}
-
-
-
-#fondo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('assets/fondo2.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-  filter: blur(10px);
-  z-index: -1; 
-}
 
 
 
 
 
-.texto1 {
-  z-index: 1; /* Coloca el contenido encima del fondo */
+
+
+
+
+#seccion1{
+
+    background-image: url('./assets/fondo1.png');
+    align-items: start;
+    color: white;
+    font-size: large;
+   
+    
 
 }
 
-
-.texto1 h1{
+#seccion1 .cont{
  
-  outline: none;
-  position: relative;
-  top: 70px;
-  
-  
+    display: flex;
+    flex-direction: row  ;
+   padding: 150px;
+    gap: 100px;
+    align-items: center;
+   
+    
 
-  
-  
-  
 }
 
 
+#seccion1 .cont .texto{
+    height: 400px;
+    width: 400px;
+    color: white ;
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    justify-content: center;
+    padding: 40px;
 
-.texto1 section{
+   
+    
+
+}
+
+
+#seccion1 .cont .carrusel{
+
+    height: 400px;
+    width: 500px;
+    
  
-  outline: none;
-  position: relative;
-  width: 650px;
-  height: 500px;    
-  right: 300px;
-  top: 120px;
-  
-}
+    display: flex;
+    flex-direction: column; 
 
-.texto1 button{
-  width: 150px;
-  height: 50px;
-  border-radius: 16px;
-  position: relative;
-  right: 520px;
-  background-color: crimson;
-  color: white;
-  font-size: medium;
-  cursor: pointer;
-  
+    text-align: center; 
+    padding: 50px;
 
-}
-
-#section2 {
-  position: relative; 
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: black;
-  font-size: 24px;
+    
 
 
 }
 
-#section2 .texto2 h1{
-  position: relative;
-  bottom: 300px;
 
 
-}
 
-#section2 .texto2 .sec1 h5{
-  position: absolute; 
-  bottom: 0;
-  left: 300px; 
-  padding: 20px; 
-  width: 400px;
-  bottom: 120px;
 
+#seccion2{
+    background-color: white;
+    display: flex;
+    justify-content: space-between; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    background-image: url('./assets/fondo2.png');
   
 
 }
 
-#section2 .texto2 .sec2{
-  position: absolute; 
-  bottom: 0;
-  right: 300px;
-  padding: 20px; 
-  width: 400px;
-  bottom: 120px;
+
+
+#seccion2 .opciones {
+    display: flex;
+    flex-direction: row  ;
+   padding: 150px;
+    gap: 200px;
+    align-items: center;
+
+}
+
+#seccion2 .donar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    width: 250px;
+  
+    
+}
+
+
+#seccion2 .ayudar {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    width: 250px;
+
+    
+}
+
+
+
+#seccion3{
+
+    background-image: url('./assets/fondo2.png');
+    display: flex;
+    flex-direction: row; 
+    text-align: center;
+    align-items: center;    
+    gap: 30px;
+    flex-wrap: wrap;
+    
+    
+  
+    
+}
+
+#seccion3 h1{
+    display: flex;
+    gap: 40px;
+
+}
+
+
+#seccion3 .cards{
+    display: flex;
+    flex-direction: row; 
+    text-align: center;
+    align-items: center;  
+    justify-content: center;  
+    gap: 30px;
+    flex-wrap: wrap;
+    
+
+}
+#seccion3 .card{
+   
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center; 
+    justify-content: center;
+
+        
+}
+
+#seccion3 img{
+    
+    width: 100px; 
+    height: 100px; 
+    border-radius: 100%;
+      
 }
 
 
 
 
 
-
-
-
-
-
-#fondo2{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('assets/fondito.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-
-  z-index: -1; 
+.seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; 
+    padding: 20px;
 
 }
-
-
-#section3 {
-  background-color: darkcyan;
-}
-
-#section3 section{
-  height: 100px;
-  width: 100px;
-  background-color: aliceblue;
-  display: flex;
-}
-
-
-
 
 
 

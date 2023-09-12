@@ -9,6 +9,13 @@ import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
 import 'animate.css/animate.min.css'
 
+
+
+// ...
+
+
+
+
 const App = () => {
   return (
     <BrowserRouter>

@@ -1,15 +1,18 @@
 import React from 'react';
 import './Home.css';
+import React from 'react';
 import NavBar from './components/navbar.jsx';
 import Footer from './components/Footer.jsx';
 import { Link } from 'react-router-dom';
+import ImageCarousel from './components/ImageCarousel';
 
 function Home() {
   return (
     <div className="App">
       <NavBar />
-      <div>
-        <body>
+          <div>
+            
+
           <ul className="navbar">
             <li><a href="/">Pagina 1</a></li>
             <li><a href="/">Pagina 2</a></li>
@@ -17,32 +20,126 @@ function Home() {
             <li><a href="/">Pagina 4</a></li>
             <li><a href="/">Pagina 5</a></li>
           </ul>
+          <section id="seccion1" class="seccion">
 
-          <div id="section1" className="section">
-            <div id="fondo"></div>
+        <h2>Fundacion Pawtitas</h2>
 
-            <div className="texto1">
-              <h1>Fundacion Pawtitas</h1>
-
-              <section className="sec1">
-                <h5>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias blanditiis sit soluta laudantium vero iusto possimus tempora suscipit laboriosam atque ea, cum eum facere eligendi earum sed obcaecati dolore, temporibus excepturi esse. Consectetur quod aperiam, magni delectus nam dolorum animi, hic sit architecto doloremque repudiandae enim dolore. Repellat, est.
-                  <br />
-                  <br />
-                  Voluptas minus impedit dolore ad culpa nisi sunt expedita odit, vel voluptatem aperiam minima ipsam atque sed harum ea voluptatibus? Veritatis, odio laborum impedit rem recusandae perferendis repellendus temporibus quidem molestiae. Quod odit quasi saepe ipsum accusantium illo? Accusantium aut natus alias quo unde, eius deleniti incidunt. Dignissimos voluptas ex commodi.
-                </h5>
-              </section>
-
+        <div class="cont">
+            <div class="texto">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam praesentium architecto earum excepturi nemo omnis rerum, ipsa dolorum soluta quibusdam cupiditate aliquid enim dignissimos officiis. Cumque dolores quidem enim? Dolor fuga nesciunt aperiam praesentium nihil animi autem reprehenderit. Nisi et quae harum aut eum voluptate illo amet aperiam eveniet! Ipsum fugiat aperiam molestiae officiis sapiente perspiciatis ducimus explicabo soluta? Magnam molestiae suscipit itaque in fugit temporibus hic dolor voluptatum, quibusdam nam. Excepturi laboriosam quibusdam odit? Est, mollitia voluptatum vitae quos debitis a maiores cumque molestiae quis in eligendi, nemo aperiam exercitationem rem placeat repellendus at. Mollitia optio temporibus earum veniam.
 
             </div>
-          </div>
+    
+            <div class="carrusel">
+
+              <ImageCarousel/>
+
+    
+            </div>
+        </div>
 
 
 
-        </body>
-      </div>
-      <Footer />
+    </section>
+
+
+
+
+    <section id="seccion2" class="seccion">
+        <h2>Como Ayudar </h2>
+
+
+        <div class="opciones">
+
+            <div class="donar">
+                <h3>Donando</h3>
+                <img src="./assets/icon _dollar_.png" alt=""/>
+                <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, deleniti.</h4>
+
+            </div >
+
+            <div class= "ayudar">
+                <h3>Adoptando</h3>
+                <img src="./assets/icon _heart_.png" alt=""/>
+                <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium.</h4>
+
+            </div>
+
+        </div>
+            
+    </section>
+
+
+
+
+    <section id="seccion3" class="seccion">
+
+
+        <h1>nuestro equipo</h1>
+
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="textos"> 
+                    <img src="./assets/perrologo3.png" alt=""/>
+                    <p>text</p>
+                </div>
+            </div>    
+            
+            
+            <div class="card">
+                <div class="textos">
+                    <img src="./assets/perrologo3.png" alt=""/>
+                    <p>text</p>
+                </div>
+            </div>   
+    
+            <div class="card">
+                <div class="textos">
+                    <img src="./assets/perrologo3.png" alt=""/>
+                    <p>text</p>
+                </div>
+            </div>   
+    
+            <div class="card">
+                <div class="textos">
+                    <img src="./assets/perrologo3.png" alt=""/>
+                    <p>text</p>
+                </div>
+            </div>
+    
+            <div class="card">
+                <div class="textos">
+                    <img src="./assets/perrologo3.png" alt=""/>
+                    <p>text</p>
+                </div>
+            </div>   
+    
+            <div class="card">
+                <div class="textos">
+                    <img src="./assets/perrologo3.png" alt="" />
+                    <p>text</p>
+                </div>
+            </div>  
+        </div>
+
+
+
+
+    
+        
+       
+    </section>
+
+    
     </div>
+    <Footer />
+
+    </div>
+
+
+    
   );
 }
 
