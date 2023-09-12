@@ -1,13 +1,12 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 
-function Home() {
+import './Home.css';
+
+function App() {
   return (
-    <div>
-      <h1>Pag inicio ejemplo</h1>
-      <Link to="/user">Profile</Link>
+    <div className="App">
+      <p>asd</p>
     </div>
   );
 }
 
-export default Home;
+export default App;
