@@ -1,12 +1,25 @@
-
+import React from 'react';
 import './Home.css';
 import React from 'react';
+import NavBar from './components/navbar.jsx';
+import Footer from './components/Footer.jsx';
+import { Link } from 'react-router-dom';
 import ImageCarousel from './components/ImageCarousel';
 
-function App() {
+function Home() {
   return (
     <div className="App">
+      <NavBar />
           <div>
+            
+
+          <ul className="navbar">
+            <li><a href="/">Pagina 1</a></li>
+            <li><a href="/">Pagina 2</a></li>
+            <li><a href="/">Pagina 3</a></li>
+            <li><a href="/">Pagina 4</a></li>
+            <li><a href="/">Pagina 5</a></li>
+          </ul>
           <section id="seccion1" class="seccion">
 
         <h2>Fundacion Pawtitas</h2>
@@ -121,6 +134,7 @@ function App() {
 
     
     </div>
+    <Footer />
 
     </div>
 
@@ -129,4 +143,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
