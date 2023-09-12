@@ -7,6 +7,7 @@ import UserProfile from './pages/UserProfile';
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
+import 'animate.css/animate.min.css'
 
 const App = () => {
   return (
