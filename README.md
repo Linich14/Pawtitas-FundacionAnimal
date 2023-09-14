@@ -8,7 +8,6 @@ Creditos de la imagen: <a href="https://www.freepik.es/vector-gratis/lindo-shiba
 ## ¿Que es Pawtitas?
 
 Pawtitas es una Fundacion ficticia creada con el fin de responder una problematica para aplicar conocimientos de desarrollo web en el contexto del curso "Taller de Integracion 2" del año 2023 en la Universidad Catolica de Temuco. 
-![UCT](https://i.imgur.com/t2mAiqc.png)
 
 ### Conexto de la Problematica:
 
