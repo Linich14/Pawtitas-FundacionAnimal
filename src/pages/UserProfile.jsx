@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Form, Image, Button, Container, Row, Col } from "react-bootstrap";
+import { Card, Form, Image, Button } from "react-bootstrap";
 import '../components/css/UserProfile.css'
 
 function UserProfile(props) {
@@ -14,6 +14,7 @@ function UserProfile(props) {
 
   const [petsData, setPetsData] = useState(pets);
   const [isAddPetFormVisible, setIsAddPetFormVisible] = useState(false);
+  const [activeSection, setActiveSection] = useState("profile");
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -43,99 +44,128 @@ function UserProfile(props) {
     console.log(event.target.files[0]);
   };
 
+  const showPets = () => {
+    setActiveSection("pets");
+  };
+
+  const showHistory = () => {
+    setActiveSection("history");
+  };
+
+  const showActiveRequests = () => {
+    setActiveSection("activeRequests");
+  };
+
+  let content;
+  if (activeSection === "pets") {
+    content = (
+      <>
+        <h4>Mis Mascotas</h4>
+        <Button
+          variant="info"
+          className="add-pet-button"
+          onClick={() => setIsAddPetFormVisible(!isAddPetFormVisible)}
+        >
+          Agregar Mascota
+        </Button>
+        {isAddPetFormVisible && (
+          <AddPetForm onAddPet={handleAddPet} />
+        )}
+        <ul className="pet-list">
+          {petsData && petsData.map((pet, index) => (
+            <PetInfo
+              key={index}
+              pet={pet}
+              onEdit={(editedPet) => handleEditPet(index, editedPet)}
+            />
+          ))}
+        </ul>
+      </>
+    );
+  } else if (activeSection === "history") {
+    // Lógica para mostrar Historial de Solicitudes
+  } else if (activeSection === "activeRequests") {
+    // Lógica para mostrar Solicitudes Activas
+  }
+
   return (
     <Card className="background-image">
-      <Card.Header>
-        <Image
-          src={photo}
-          roundedCircle
-          width="100"
-          height="100"
-          className="profile-image"
-        />
-        <Button variant="primary" size="sm" className="ml-3">
-          Subir foto
-          <input type="file" onChange={handleUpload} hidden />
-        </Button>
-      </Card.Header>
       <Card.Body>
-        <Form onSubmit={handleSubmit} className="user-form">
-          <Form.Group controlId="name">
-            <Form.Label>Nombre</Form.Label>
-            <Form.Control
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
+        <div className="user-profile-container">
+          <div className="user-avatar">
+            <Image
+              src={photo}
+              roundedCircle
+              width="100"
+              height="100"
+              className="profile-image"
             />
-          </Form.Group>
-          <Form.Group controlId="rut">
-            <Form.Label>RUT</Form.Label>
-            <Form.Control type="text" name="rut" value={rut} readOnly />
-          </Form.Group>
-          <Form.Group controlId="email">
-            <Form.Label>Correo</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="phoneNumber">
-            <Form.Label>Número de Teléfono</Form.Label>
-            <Form.Control
-              type="tel"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Form.Group controlId="bio">
-            <Form.Label>Biografía</Form.Label>
-            <Form.Control
-              as="textarea"
-              name="bio"
-              value={formData.bio}
-              onChange={handleChange}
-            />
-          </Form.Group>
-          <Button variant="success" type="submit">
-            Guardar cambios
-          </Button>
-        </Form>
+            <Button variant="primary" size="sm" className="ml-3">
+              Subir foto
+              <input type="file" onChange={handleUpload} hidden />
+            </Button>
+          </div>
+          <div className="user-profile">
+            <Form onSubmit={handleSubmit} className="user-form">
+              <Form.Group controlId="name">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="rut">
+                <Form.Label>RUT</Form.Label>
+                <Form.Control type="text" name="rut" value={rut} readOnly />
+              </Form.Group>
+              <Form.Group controlId="email">
+                <Form.Label>Correo</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="phoneNumber">
+                <Form.Label>Número de Teléfono</Form.Label>
+                <Form.Control
+                  type="tel"
+                  name="phoneNumber"
+                  value={formData.phoneNumber}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Form.Group controlId="bio">
+                <Form.Label>Biografía</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  name="bio"
+                  value={formData.bio}
+                  onChange={handleChange}
+                />
+              </Form.Group>
+              <Button variant="success" type="submit">
+                Guardar cambios
+              </Button>
+            </Form>
+            <div className="button-container">
+              <Button variant="primary" onClick={showPets}>
+                Mis Mascotas
+              </Button>
+              <Button variant="primary" onClick={showHistory}>
+                Historial de Solicitudes
+              </Button>
+              <Button variant="primary" onClick={showActiveRequests}>
+                Solicitudes Activas
+              </Button>
+            </div>
+            {content}
+          </div>
+        </div>
       </Card.Body>
-      <Card.Footer>
-        <Container>
-          <Row>
-            <Col>
-              <h4>Mascotas</h4>
-              <ul className="pet-list">
-                {petsData && petsData.map((pet, index) => (
-                  <PetInfo
-                    key={index}
-                    pet={pet}
-                    onEdit={(editedPet) => handleEditPet(index, editedPet)}
-                  />
-                ))}
-              </ul>
-            </Col>
-            <Col>
-              <h4>Agregar Mascota</h4>
-              <div>
-                <Button
-                  variant="info"
-                  className="add-pet-button"
-                  onClick={() => setIsAddPetFormVisible(!isAddPetFormVisible)}
-                >
-                  Agregar Mascota
-                </Button>
-                {isAddPetFormVisible && <AddPetForm onAddPet={handleAddPet} />}
-              </div>
-            </Col>
-          </Row>
-        </Container>
-      </Card.Footer>
     </Card>
   );
 }
