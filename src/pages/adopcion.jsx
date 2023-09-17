@@ -108,36 +108,32 @@ const dataPerros = [
     Salud:'Poner toda la informacion necesaria y que se deba saber del anima para no tener probleamas, vacunas, operacioens, si esta esterilizado o no, etc',
   },
 ];
-const perrosPorPagina = 2 ;
+
 
 function Adopcion() {
-  const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
-
-  // Filtrar los perros según el término de búsqueda
-  const filteredPerros = dataPerros
-  .filter((perro) =>
-    perro.Nombre.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // Manejar cambios en el input de búsqueda
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-  };
-
-
+  const [searchTerm, setSearchTerm] = useState("");
   const [currentPage, setCurrentPage] = useState(0);
 
-  // Función para manejar el cambio de página
+  const perrosPorPagina = 2;
+
+  const handleSearchChange = (event) => {
+    setSearchTerm(event.target.value);
+    setCurrentPage(0); // Reiniciar la página a la primera cuando se realiza una nueva búsqueda
+  };
+
+  const filteredPerros = dataPerros.filter((perro) =>
+    perro.Nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    perro.Genero.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    perro.Edad.toLowerCase().includes(searchTerm.toLowerCase()),
+  );
+
+  const startIndex = currentPage * perrosPorPagina;
+  const endIndex = startIndex + perrosPorPagina;
+  const perrosEnPagina = filteredPerros.slice(startIndex, endIndex);
+
   const handlePageChange = ({ selected }) => {
     setCurrentPage(selected);
   };
-
-  // Calcula el índice de inicio y fin para la paginación
-  const startIndex = currentPage * perrosPorPagina;
-  const endIndex = startIndex + perrosPorPagina;
-
-  // Filtra la lista de perros según la página actual
-  const perrosEnPagina = dataPerros.slice(startIndex, endIndex);
 
   return (
     <>
@@ -160,7 +156,7 @@ function Adopcion() {
             <TarjetaPerro key={perro.id} perro={perro} />
           ))}
           
-          <ReactPaginate className="paginationAdop"
+          <PaginationCss
             previousLabel ={<box-icon name='first-page' animation='fade-left-hover' color='#164b60' ></box-icon>}
             nextLabel={<box-icon name='last-page' animation='fade-right-hover' color='#164b60' ></box-icon>}
             breakLabel={"..."}
@@ -210,4 +206,28 @@ const AdopcionCss = styled.main`
   }
 `;
 
-const 
+const PaginationCss = styled(ReactPaginate)`
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  list-style:none;
+  color:#164b60;
+  a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-inline:0.4rem;
+    max-width:3.1rem;
+    min-width:3rem;
+    max-height:3.1rem;
+    min-height:3rem;
+    border:1px solid #164b60;
+    border-radius:0.5rem;
+    background-color:#F2F3F4;
+  }
+  .active a{
+    color:#f2e3c9;
+    background-color:#164b60;
+  }
+
+`

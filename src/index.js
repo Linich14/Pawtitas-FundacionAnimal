@@ -10,6 +10,7 @@ import Galeria from './pages/galeria';
 import Preguntas from './pages/preguntasFrec';
 
 import 'animate.css/animate.min.css'
+import Adopcion from './pages/adopcion';
 
 
 
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/Galeria" element={<Galeria />} />
         <Route path='/Register' element={<Register/>}/>
         <Route path='/Preguntas' element={<Preguntas/>}/>
+        <Route path='/Adopcion' element={<Adopcion/>}/>
       </Routes>
     </BrowserRouter>
   );
