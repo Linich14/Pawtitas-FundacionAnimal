@@ -12,11 +12,12 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 export default function Galeria() {
   return (
     <>
-     <div className='container galeriabackground col-md-10 mx-auto col-lg-12'>
-        <NavBar ></NavBar>
-     <div className='flex caja_invisible '></div>
+    <div className='container galeriabackground col-md-10 mx-auto col-lg-12'>
+    <NavBar ></NavBar>
 
-     <div className="App">
+    <div className='flex caja_invisible '></div>
+
+    <div className="App d-flex justify-content-center align-items-center h-100" >
       <Cards />
     </div>
 

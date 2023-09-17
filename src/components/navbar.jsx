@@ -14,6 +14,9 @@ function navbar() {
             <a href="#Adoptar">Adoptar</a>
             <a href="#Ayuda">Ayuda</a>
             <Link to="/">
+            <Link to="/Preguntas">
+              Preguntas
+            </Link>
               <img src={PerroLogo} alt="Logo de la fundacion" />
             </Link>
             <Link to="/Galeria">

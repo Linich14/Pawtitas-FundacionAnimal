@@ -7,6 +7,8 @@ import UserProfile from './pages/UserProfile';
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
+import Preguntas from './pages/preguntasFrec';
+
 import 'animate.css/animate.min.css'
 
 
@@ -25,6 +27,7 @@ const App = () => {
         <Route path="/Login" element={<Login />} />
         <Route path="/Galeria" element={<Galeria />} />
         <Route path='/Register' element={<Register/>}/>
+        <Route path='/Preguntas' element={<Preguntas/>}/>
       </Routes>
     </BrowserRouter>
   );

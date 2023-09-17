@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./card.css";
+import "../components/css/cardspreguntas.css";
 
-function Card({ imageSource, title, text, url }) {
+function Card_preguntas({ imageSource, title, text, url }) {
   return (
     <div className="card text-center bg-dark animate__animated animate__fadeInUp">
       <div className="overflow">
@@ -27,11 +27,11 @@ function Card({ imageSource, title, text, url }) {
   );
 }
  
-Card.propTypes = {
+Card_preguntas.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
   url: PropTypes.string,
   imageSource: PropTypes.string
 };
 
-export default Card;
+export default Card_preguntas;
