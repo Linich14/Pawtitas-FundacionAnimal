@@ -11,7 +11,7 @@ function navbar() {
         <header className="navscroll">
           <nav className="nav">
             <a href="#info">Informaciones</a>
-            <Link to="Adopcion">
+            <Link to="/Adopcion">
               Adopcion
             </Link>
             <a href="#Ayuda">Ayuda</a>

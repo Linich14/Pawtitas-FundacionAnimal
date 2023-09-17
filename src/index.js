@@ -8,9 +8,9 @@ import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
 import Preguntas from './pages/preguntasFrec';
+import Adopcion from './pages/adopcion';
 
 import 'animate.css/animate.min.css'
-import Adopcion from './pages/adopcion';
 
 
 
