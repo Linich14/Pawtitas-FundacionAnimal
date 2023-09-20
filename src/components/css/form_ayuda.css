@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Estilos para el input con bordes redondeados */
+
+
+.form-section {
+background-image: url('/src/assets/fondo1.png'); /* Ruta de la imagen de fondo */
+background-size: cover;
+background-position: center;
+height: 100vh; /* Ajusta la altura según tus necesidades */
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+/* Estilos para el formulario */
+.form-container {
+background-image: url('/src/assets/fondito.png'); /* Fondo semi-transparente para el formulario */
+padding: 20px;
+border-radius: 20px;
+text-align: center;
+width: 450px;
+}
+
+input {
+border-radius: 10px; /* Ajusta el valor según el grado de redondez que desees */
+padding: 5px;
+border: 1px solid #ccc;
+font-size: 16px;
+}
+
+
+h2 {
+margin-top: 0;
+}
+
+form {
+display: flex;
+flex-direction: column;
+}
+
+label {
+font-weight: bold;
+}
+
+input, button {
+margin-bottom: 10px;
+padding: 5px;
+}
+
+button {
+font-family: arial;
+color: #FFFFFF !important;
+font-size: 14px;
+text-shadow: 0px 0px 0px #7CACDE;
+box-shadow: 0px 0px 0px #BEE2F9;
+padding: 10px 11px;
+border-radius: 29px;
+border: 0px solid #EF4B4B;
+background: #EF4B4B;
+}
+
+
+button:hover {
+color: black;
+background: #ccc;
+cursor: pointer;
+
+}
