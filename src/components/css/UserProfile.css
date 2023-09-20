@@ -1,3 +1,5 @@
+/* UserProfile.css */
+
 .background-image {
     background-image: url('../../assets/fondo1.png');
     background-repeat: no-repeat;
@@ -5,12 +7,13 @@
 }
 
 .user-form {
-    background-color: #7bcc70;
-    padding: 10px;
+    background-color: rgba(123, 204, 112, 0.64);
+    padding: 20px;
     border-radius: 10px;
-    width: 70%;
-    margin: 20px auto; /* Agregado margen inferior para separar del elemento anterior */
+    width: 30%;
+    margin: 20px auto; 
     z-index: 1;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .user-form input[type="text"],
@@ -46,18 +49,18 @@
     justify-content: space-between;
 }
 
-
 .pet-list li {
-    width: calc(50% - 20px); /* Ancho reducido y margen aumentado */
-    margin: 10px; /* Espaciado entre elementos */
-    padding: 15px;
+    width: calc(50% - 20px);
+    margin: 10px;
+    padding: 20px;
     border: 1px solid #000;
     border-radius: 10px;
-    background-color: #ffdf7fae;
+    background-color: rgba(255, 223, 127, 0.68);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     flex: 1;
     min-height: 200px;
 }
+
 .pet-list li button {
     background-color: #ebcf19cc;
     color: #fff;
@@ -79,7 +82,7 @@
     padding: 20px;
     background-color: #f8f8f8;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     width: 70%;
     z-index: 1;
 }
@@ -113,6 +116,11 @@
 
 .add-pet-form .btn-cancel {
     background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
 .add-pet-form .btn-cancel:hover {
@@ -131,3 +139,21 @@
 .add-pet-button:hover {
     background-color: #218838;
 }
+
+/* Estilos para la imagen de perfil */
+.profile-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fff;
+}
+
+/* Añade más estilos según sea necesario */

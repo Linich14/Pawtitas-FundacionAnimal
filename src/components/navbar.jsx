@@ -11,9 +11,14 @@ function navbar() {
         <header className="navscroll">
           <nav className="nav">
             <a href="#info">Informaciones</a>
-            <a href="#Adoptar">Adoptar</a>
+            <Link to="/Adopcion">
+              Adopcion
+            </Link>
             <a href="#Ayuda">Ayuda</a>
             <Link to="/">
+            <Link to="/Preguntas">
+              Preguntas
+            </Link>
               <img src={PerroLogo} alt="Logo de la fundacion" />
             </Link>
             <Link to="/Galeria">
