@@ -7,7 +7,7 @@ import UserProfile from './pages/UserProfile';
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
-import Adopcion from './pages/adopcion';
+
 
 
 // ...
@@ -19,12 +19,11 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} /> 
+        <Route path="/" element={<Home />} />
         <Route path="/user" element={<UserProfile {...user} />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Galeria" element={<Galeria />} />
-        <Route path='/Register' element={<Register/>} />
-        <Route path='/adopcion' element={<Adopcion/>} />
+        <Route path='/Register' element={<Register/>}/>
       </Routes>
     </BrowserRouter>
   );
