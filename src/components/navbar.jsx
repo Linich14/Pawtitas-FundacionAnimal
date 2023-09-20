@@ -109,6 +109,9 @@ const NavContainer = styled.nav`
       text-decoration: underline;
     }
   }
+  .PruebaMenu{
+    display: block;/* display Block para que apracesca y none para que no se vea*/
+  }
 `;
 
 const UserMenu = styled.div`
