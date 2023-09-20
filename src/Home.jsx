@@ -12,14 +12,6 @@ function Home() {
       <NavBar />
           <div>
             
-
-          <ul className="navbar">
-            <li><a href="/">Pagina 1</a></li>
-            <li><a href="/">Pagina 2</a></li>
-            <li><a href="/">Pagina 3</a></li>
-            <li><a href="/">Pagina 4</a></li>
-            <li><a href="/">Pagina 5</a></li>
-          </ul>
           <section id="seccion1" class="seccion">
 
         <h2>Fundacion Pawtitas</h2>
