@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import {Link} from 'react-router-dom'
 import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
 
-function navbar() {
+function Navbar() {
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
   return (
     <>
       <NavContainer>
@@ -26,7 +31,6 @@ function navbar() {
             </Link>
             <a href="#Donar">Donar</a>
             <a href="#Comentario">Comentario</a>
-            <Link to='/user'>TemporalPerfil</Link>  {/*perdon nacho despues lo borro pq desplazo toda la barra att:jorge */}
           </nav>
           <div className="UserRL">
             <Link to="/Login">
@@ -40,13 +44,32 @@ function navbar() {
               ></box-icon>
             </Link>
           </div>
+          <div className="PruebaMenu">
+            <box-icon
+              className="iconuser"
+              name="user-circle"
+              size="md"
+              color="#00fff2"
+              type="solid"
+              animation="tada-hover"
+              onClick={toggleMenu}
+            ></box-icon>
+            {isMenuOpen && (
+              <UserMenu>
+                <ul>
+                  <li><Link to='/user'>Mi Perfil</Link></li>
+                  <li><Link to="/">Cerrar Sesión</Link></li>
+                </ul>
+              </UserMenu>
+            )}
+          </div>
         </header>
       </NavContainer>
     </>
   );
 }
 
-export default navbar;
+export default Navbar;
 
 const NavContainer = styled.nav`
   * {
@@ -87,3 +110,25 @@ const NavContainer = styled.nav`
     }
   }
 `;
+
+const UserMenu = styled.div`
+  position: absolute;
+  top: 80px; /* Ajusta la posición vertical según tus necesidades */
+  right: 10px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #f2f2f2;
+    }
+  }
+;`
