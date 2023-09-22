@@ -1,7 +1,6 @@
 import React from 'react'
 import NavBar from '../../components/navbar'
 import '../../components/css/Login.css'
-import Register from './Register'
 import {Link} from 'react-router-dom'
 
 function Login() {
@@ -14,7 +13,7 @@ function Login() {
         <div className="Loginbackground" >
             <form className="p-4 p-md-5 " >
                 <h2 className='textocentradologin'>¡Bienvenido a Pawtitas!</h2>
-                <fieldset>
+                <fieldset className='loginformulario'>
                     <div className='mb-3'>
                     <label for="floatingInput"><i>Rut:</i></label>
                     <input  placeholder="Ej: 12.345.678-9"  class=""  required/>
@@ -26,6 +25,7 @@ function Login() {
 
                 </fieldset>
                 <p>¿Aun no eres un Compañero?... <Link to='/Register'>Registrate</Link></p>
+                <p>¿Olvidaste tu Contraseña?... <Link to='/RecuperarPassword'>Recuperar Contraseña</Link></p>
                 <hr className="my-4"/>
                 <button className="w-100 btn btn-lg btn-danger" type="submit" >Ingresar</button>
             </form>      

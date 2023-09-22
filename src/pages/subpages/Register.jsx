@@ -26,7 +26,7 @@ function Register() {
             
             <form className="form-group p-md-5 " onSubmit={handleSubmit} >
             <h2 className='textocentradoregistro'>Registro en Pawtitas</h2>
-                <fieldset> 
+                <fieldset className='registerformulario'> 
                     <div className=''>
                     <label for="floatingInput"><i>Rut:</i></label>
                     <input  placeholder="Ej: 12.345.678-9"  type='' required

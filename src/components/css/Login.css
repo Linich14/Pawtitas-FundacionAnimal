@@ -36,20 +36,26 @@
         text-align: center;
      }
 
-     fieldset input{
+     .loginformulario{
         text-align: center;
-        border-radius: 20px;
-     }
-     .contenidologin p{
-        margin-top: 5%;
+        
         font-size: 20px;
-        text-align: center;
-    }
 
-    fieldset > div {
+     }
+     .loginformulario > div{
         font-size: 20px;
         display :flex;
         flex-flow: column;
         height: auto;
-        
      }
+     .loginformulario input{
+        text-align: center;
+        border-radius: 20px;
+     }
+
+     .contenidologin p{
+        margin-top: 5%;
+        font-size: 15px;
+        text-align: left;
+    }
+

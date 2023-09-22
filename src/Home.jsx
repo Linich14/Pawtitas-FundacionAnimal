@@ -3,8 +3,11 @@ import './Home.css';
 //import React from 'react';
 import NavBar from './components/navbar.jsx';
 import Footer from './components/Footer.jsx';
-import { Link } from 'react-router-dom';
 import ImageCarousel from './components/ImageCarousel';
+
+//importa las imagenes asi para los <img> 
+import PerroLogo_3 from './assets/perrologo3.png'
+
 
 function Home() {
   return (
@@ -45,7 +48,7 @@ function Home() {
 
             <div class="donar">
                 <h3>Donando</h3>
-                <img src="./assets/icon _dollar_.png" alt=""/>
+                <img src="./assets/icon_dollar_.png" alt=""/>
                 <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, deleniti.</h4>
 
             </div >
@@ -74,7 +77,7 @@ function Home() {
 
             <div class="card">
                 <div class="textos"> 
-                    <img src="./assets/perrologo3.png" alt=""/>
+                    <img src={PerroLogo_3} alt=""/>
                     <p>text</p>
                 </div>
             </div>    
@@ -82,35 +85,35 @@ function Home() {
             
             <div class="card">
                 <div class="textos">
-                    <img src="./assets/perrologo3.png" alt=""/>
+                    <img src={PerroLogo_3} alt=""/>
                     <p>text</p>
                 </div>
             </div>   
     
             <div class="card">
                 <div class="textos">
-                    <img src="./assets/perrologo3.png" alt=""/>
+                    <img src={PerroLogo_3} alt=""/>
                     <p>text</p>
                 </div>
             </div>   
     
             <div class="card">
                 <div class="textos">
-                    <img src="./assets/perrologo3.png" alt=""/>
+                    <img src={PerroLogo_3} alt=""/>
                     <p>text</p>
                 </div>
             </div>
     
             <div class="card">
                 <div class="textos">
-                    <img src="./assets/perrologo3.png" alt=""/>
+                    <img src={PerroLogo_3} alt=""/>
                     <p>text</p>
                 </div>
             </div>   
     
             <div class="card">
                 <div class="textos">
-                    <img src="./assets/perrologo3.png" alt="" />
+                    <img src={PerroLogo_3} alt="" />
                     <p>text</p>
                 </div>
             </div>  
