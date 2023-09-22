@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavBar from '../../components/navbar'
 import '../../components/css/Login.css'
 import {Link} from 'react-router-dom'
+import Validar from './ValidarLogin'
 
 function Login() {
+    const [Rut, setRut] = useState('')
+    const [Contraseña, setContraseña ] = useState('')
+    const [errors, setErrors] = useState({})
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setErrors(Validar(Rut,Contraseña));
+
+    }
+
     return (
         <div className='Login'>
         <div className='espacionavbar'>
@@ -11,16 +22,18 @@ function Login() {
         </div>
         <div className='contenidologin'>
         <div className="Loginbackground" >
-            <form className="p-4 p-md-5 " >
+            <form className="p-4 p-md-5 " onSubmit={handleSubmit} >
                 <h2 className='textocentradologin'>¡Bienvenido a Pawtitas!</h2>
                 <fieldset className='loginformulario'>
                     <div className='mb-3'>
-                    <label for="floatingInput"><i>Rut:</i></label>
-                    <input  placeholder="Ej: 12.345.678-9"  class=""  required/>
+                        <label for="floatingInput"><i>Rut:</i></label>
+                        <input  placeholder="Ej: 12345678-k"  class="" onChange={e =>setRut(e.target.value)}  name="rut" />
+                        {errors.rut && <span className='text-danger'>{errors.rut} </span>}
                     </div>
                     <div>
                         <label for="floatingPassword"><i>Contraseña:</i></label>
-                        <input   placeholder="Contraseña..."  class="" type="password"  required />
+                        <input   placeholder="Contraseña..."  class="" onChange={e =>setContraseña(e.target.value)} type="password" name='contraseña' />
+                        {errors.contraseña && <span className='text-danger'>{errors.contraseña} </span>}
                     </div> 
 
                 </fieldset>
