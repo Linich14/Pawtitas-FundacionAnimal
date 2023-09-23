@@ -11,7 +11,7 @@ function Home() {
     <div className="App">
       <NavBar />
           <div>
-            
+             
           <section id="seccion1" class="seccion">
 
         <h2>Fundacion Pawtitas</h2>
