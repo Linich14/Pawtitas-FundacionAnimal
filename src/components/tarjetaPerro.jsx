@@ -4,95 +4,106 @@ import Modal from 'react-modal';
 import styled from 'styled-components';
 import "boxicons";
 
+{/*El parametro perros, es la forma en la que solicitamos la 
+  informacion del prop (esta en el  arrayList dataPerros)
 
-function TarjetaPerro({ perro }) {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const handleAdoptar = () => {
-      if (isLoggedIn) {
-        alert("¡Gracias por adoptar!");
-      } else {
-        alert("Debes iniciar sesión para adoptar.");
-      }
+  BORRAR ESTA PARTE PARA PRESENTAR
+*/}
+function TarjetaPerro({ perros }) {
+  //Funcion que simula el login
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const handleAdoptar = () => {
+    if (isLoggedIn) { //Logead true
+      alert("su petición está siendo revisada");
+    } else { //No logeado False
+      alert("Debes iniciar sesión para adoptar.");
     }
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+  }
+
+  // Funcion que controla la ventana modal. libreria react-modal
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
   
-    const openModal = () => {
-      setModalIsOpen(true);
-    };
-  
-    const closeModal = () => {
-      setModalIsOpen(false);
-    };
-    
 
 
 
-    return (
-      <TarjetaContainer>
-        <div className='tarjeta'>
-          <div className='ImgDog'>
-              <img src={perro.imgPerro} alt={`imagen de ${perro.nombre}`}/>
-          </div>
-          <div className='containerInfo'>
-              <div className='info'>
-                  <p>{perro.Contenido}</p>
+  return (
+    <TarjetaContainer>
+      <div className='tarjetaPerros'>
+        <div className='ImgDog'>
+            <img src={perros.imgPerro} alt={`imagen de ${perros.nombre}`}/>
+        </div>
+        <div className='containerInfoPerros'>
+            <div className='infoPerros'>
+                <p>{perros.Contenido}</p>
+            </div>
+            <div className='botones'>
+                <button className='buttonMasInfo' onClick={openModal}>
+                    Mas Informacion
+                </button>
+                <button className='buttonAdoptar' onClick={handleAdoptar}>
+                    {isLoggedIn ? "Solicitar Adopcion" : "Inicie Session para Adoptar"}
+                </button>
+                <button className='contador'>
+                    1d:12h:14m:06s
+                </button>
+            </div>
+        </div>
+        {/*Explicacion codigo de libreria react-modal
+            isOpen.... indica que al abrirce el modal, este muestre la informacion
+            onRequestClose indica como llamar al onClick para cerrar el modal. 
+            BORRAR ESTA PARTE PARA PRESENTAR
+        */}
+        <CustomModal isOpen={modalIsOpen} onRequestClose={closeModal}>
+          <div className='containerModal'>
+            <div className='headerModal'>
+              <div className='NombrePerro'>
+                <p>{perros.Nombre}</p>
               </div>
-              <div className='botones'>
-                  <button className='buttonMasInfo' onClick={openModal}>
-                      Mas Informacion
-                  </button>
-                  <button className='buttonAdoptar' onClick={handleAdoptar}>
-                      {isLoggedIn ? "Adoptar" : "Inicie Session para Adoptar"}
-                  </button>
-                  <button className='contador'>
-                      1d:12h:14m:06s
-                  </button>
-              </div>
-          </div>
-
-          <CustomModal isOpen={modalIsOpen} onRequestClose={closeModal}>
-            <div className='containerModal'>
-              <div className='headerModal'>
-                <div className='NombrePerro'>
-                  <p>{perro.Nombre}</p>
-                </div>
-                <div className='iconX'>
-                <box-icon
-                  onClick={closeModal}
-                  size="md"
-                  type="solid"
-                  name="x-circle"
-                  animation="spin-hover"
-                  color="#ef4b4b"
-                ></box-icon>
-                </div>
-              </div>
-              <div className='InfoExtra'> 
-                <p>{perro.ContenidoExtra}</p>
-                <table>
-                  <tr>
-                    <th>Genero</th>
-                    <th>{perro.Genero}</th>
-                  </tr>
-                  <tr>
-                    <th>Edad</th>
-                    <th>{perro.Edad}</th>
-                  </tr>
-                  <tr>
-                    <th>Nose</th>
-                    <th>{perro.AlgunDato}</th>
-                  </tr>
-                  <tr>
-                    <th>Salud</th>
-                    <th>{perro.Salud}</th>
-                  </tr>
-                </table>
+              <div className='iconX'>
+              <box-icon
+                onClick={closeModal}
+                size="md"
+                type="solid"
+                name="x-circle"
+                animation="spin-hover"
+                color="#ef4b4b"
+              ></box-icon>
               </div>
             </div>
-          </CustomModal>
-        </div>
-      </TarjetaContainer>
-    );
+            <div className='InfoExtra'> 
+              <p>{perros.ContenidoExtra}</p>
+              <table>
+                <tr>
+                  <th>Genero</th>
+                  <th>{perros.Genero}</th>
+                </tr>
+                <tr>
+                  <th>Edad</th>
+                  <th>{perros.Edad}</th>
+                </tr>
+                <tr>
+                  <th>Nose</th>
+                  <th>{perros.AlgunDato}</th>
+                </tr>
+                <tr>
+                  <th>Salud</th>
+                  <th>{perros.Salud}</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </CustomModal>
+      </div>
+    </TarjetaContainer>
+  );
 }
 
 export default TarjetaPerro;
@@ -104,7 +115,8 @@ const TarjetaContainer = styled.section`
     box-sizing: border-box;
   }
 
-  .tarjeta {
+  .tarjetaPerros {
+    color:black;
     display: flex;
     justify-content: center;
     max-width: 1100px;
@@ -121,9 +133,9 @@ const TarjetaContainer = styled.section`
     }
   }
 
-  .containerInfo {
+  .containerInfoPerros {
     margin-left: 1rem;
-    .info {
+    .infoPerros {
       max-height: 190px;
       min-height: 190px;
       margin-bottom: 1rem;
@@ -154,6 +166,7 @@ const TarjetaContainer = styled.section`
 `;
 
 const CustomModal = styled(Modal)`
+  color:black;
   position: fixed;
   top: 0;
   left: 0;

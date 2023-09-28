@@ -3,64 +3,91 @@ import {Link} from 'react-router-dom'
 import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
+import Dwayne from "../assets/dwayne.jpg";
 
 function Navbar() {
-  const [isMenuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!isMenuOpen);
+  
+  const [isLoggedIn, setLoggedIn] = useState(false);//setLoggeIn se usa para cambiar el estado
+  //Funcion para Iniciar sesion
+  const handleLogin = () => {
+    setLoggedIn(true);
   };
+  //Funcion para Cerrar sesion
+  const handleLogout = () => {
+    setLoggedIn(false);
+  };
+
+
+  //Estado para controlar el menu de usuario si esta abierto o cerrado
+  const [isMenuOpen, setMenuOpen] = useState(false);
+  
+  //Funcion para alternar el estado del menu
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);//cambia el valor de isMenuOpen (abierto/cerrado)
+  };
+
   return (
     <>
       <NavContainer>
         <header className="navscroll">
           <nav className="nav">
-            <a href="#info">Informaciones</a>
-            <Link to="/Adopcion">
-              Adopcion
+            <Link to="/NuestrosAnimales">
+              Trafico
             </Link>
-            <a href="#Ayuda">Ayuda</a>
-            <Link to="/">
+
+            <Link to="/Ayuda">
+              Ayuda
+            </Link>
+
             <Link to="/Preguntas">
               Preguntas
             </Link>
+
+            <Link to="/">
               <img src={PerroLogo} alt="Logo de la fundacion" />
             </Link>
+
             <Link to="/Galeria">
               Galeria
             </Link>
-            <a href="#Donar">Donar</a>
-            <a href="#Comentario">Comentario</a>
-          </nav>
-          <div className="UserRL">
-            <Link to="/Login">
-              <box-icon
-                className="iconuser"
-                name="user-circle"
-                size="md"
-                color="#F2E3C9"
-                type="solid"
-                animation="tada-hover"
-              ></box-icon>
+
+            <Link to="/Donar">
+              Donar
             </Link>
-          </div>
-          <div className="PruebaMenu">
-            <box-icon
-              className="iconuser"
-              name="user-circle"
-              size="md"
-              color="#00fff2"
-              type="solid"
-              animation="tada-hover"
-              onClick={toggleMenu}
-            ></box-icon>
-            {isMenuOpen && (
-              <UserMenu>
-                <ul>
-                  <li><Link to='/user'>Mi Perfil</Link></li>
-                  <li><Link to="/">Cerrar Sesión</Link></li>
-                </ul>
-              </UserMenu>
+
+            <Link to="/Comentarios">
+              Comentarios
+            </Link>
+          </nav>
+          <div className="UserRL" onClick={toggleMenu}>
+            {isLoggedIn ? (
+              // Usuario Logeado
+              <>
+                <img
+                  src={Dwayne}
+                  alt="Imagen de Usuario"
+                />
+                {isMenuOpen && (
+                  <UserMenu>
+                    <ul>
+                      <li><Link to='/user'>Mi Perfil</Link></li>
+                      <li onClick={handleLogout}><button>Cerrar Sesión</button></li>
+                    </ul>
+                  </UserMenu>
+                )}
+              </>
+            ) : (
+              // Usuario sin logear
+              <Link to="/Login">
+                <box-icon
+                  className="iconuser"
+                  name="user-circle"
+                  size="md"
+                  color="#F2E3C9"
+                  type="solid"
+                  animation="tada-hover"
+                ></box-icon>
+              </Link>
             )}
           </div>
         </header>
@@ -89,7 +116,7 @@ const NavContainer = styled.nav`
     background-color: #ef4b4b;
   }
   header nav {
-    padding: 0 12rem;
+    padding: 0 8rem 0 14rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -109,29 +136,42 @@ const NavContainer = styled.nav`
       text-decoration: underline;
     }
   }
-  .PruebaMenu{
-    display: block;/* display Block para que apracesca y none para que no se vea*/
+  .UserRL{
+    img{
+      border-radius:50%;
+      max-width:70px;
+      max-height:70px;
+
+      min-width:69px;
+      min-height:69px;
+
+      
+    }
   }
+
 `;
 
 const UserMenu = styled.div`
   position: absolute;
-  top: 80px; /* Ajusta la posición vertical según tus necesidades */
-  right: 10px;
+  top: 100px;
+  right: 175px;
   background-color: white;
-  border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    color:black;
   }
   li {
+    list-style:none;
     padding: 10px;
     cursor: pointer;
-    &:hover {
-      background-color: #f2f2f2;
+    a{
+      color:black;
+    }
+    button{
+      border:none;
     }
   }
 ;`

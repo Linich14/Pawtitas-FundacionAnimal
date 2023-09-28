@@ -107,31 +107,52 @@ const dataPerros = [
     AlgunDato:'Algun Dato',
     Salud:'Poner toda la informacion necesaria y que se deba saber del anima para no tener probleamas, vacunas, operacioens, si esta esterilizado o no, etc',
   },
+  {
+    id: 9,
+    imgPerro: Perro2,
+    Contenido:
+      'Hola Me llamo MALUCO y espero ser adoptado, te cuento un poco sobre mi Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odidoloribus fuga, voluptatibus accusantium blanditiis ipsum quia magni mollitia facilis odio asperiores fugit obcaecati errorconsectetur, iure quae porro! Recusandae, earum',
+    ContenidoExtra:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odidoloribus fuga, voluptatibus accusantium blanditiis ipsum quia magni mollitia facilis odio asperiores fugit',
+    Nombre:'Maluco',
+    Genero:'binario',
+    Edad:'infinitos Años',
+    AlgunDato:'Algun Dato',
+    Salud:'Poner toda la informacion necesaria y que se deba saber del anima para no tener probleamas, vacunas, operacioens, si esta esterilizado o no, etc',
+  },
 ];
 
 
 function Adopcion() {
+  // Guarda lo que el usuario escribe
   const [searchTerm, setSearchTerm] = useState("");
+  // Estado que rastrea la pagina que se esta mostrando
   const [currentPage, setCurrentPage] = useState(0);
 
   const perrosPorPagina = 2;
 
+  // Funcion que rastrea lo que el usuario escribe y lo actualiza
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
-    setCurrentPage(0); // Reiniciar la página a la primera cuando se realiza una nueva búsqueda
+    setCurrentPage(0); // Reiniciar la página
   };
 
+  // funcion que crea un array con los parametros de busqueda
   const filteredPerros = dataPerros.filter((perro) =>
     perro.Nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
     perro.Genero.toLowerCase().includes(searchTerm.toLowerCase()) ||
     perro.Edad.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
+  // Calcula el índice de inicio a mostrar en la página actual.
   const startIndex = currentPage * perrosPorPagina;
+  // Calcula el índice final a mostrar en la página actual.
   const endIndex = startIndex + perrosPorPagina;
+  // Toma solo en cuenta el array creado con filterredPerros
   const perrosEnPagina = filteredPerros.slice(startIndex, endIndex);
 
+  // Funcion que maneja el cambio de pagina
   const handlePageChange = ({ selected }) => {
+    // Actualiza el estado currentPage con el numero seleccionado 
     setCurrentPage(selected);
   };
 
@@ -146,24 +167,35 @@ function Adopcion() {
               name="myInput"
               placeholder="Buscar"
               size="30"
-              spellcheck='true'
+              spellCheck='true'
               required
               value={searchTerm}
               onChange={handleSearchChange}
             ></input>
           </form>
-          {perrosEnPagina.map((perro) => (
-            <TarjetaPerro key={perro.id} perro={perro} />
+          
+          {perrosEnPagina.map((perro) => (        
+            <TarjetaPerro key={perro.id} perros={perro} />
           ))}
+          {/* 
+                .map es una funcion de js que ayuda a mapear un areglo en este caso mapea solo la cantidad de perrosEnPagina
+
+                key={perro.id} key es de react y sirve para renderizar elementos unicos en este caso ID
+                perros={perro} perros, es el parametro que le dimos a la TarjetaPerro con el que solicitamos el prop/info
+
+                RESUMEN: revisa cuantos perros en pagina hay segun el filteredPerros (Sin filtro renderiza normal) y para cada 
+                perro mostrado crea su  TarjetaPerro
+              BORRAR ESTA PARTE PARA PRESENTAR
+            */}
           
           <PaginationCss
             previousLabel ={<box-icon name='first-page' animation='fade-left-hover' color='#164b60' ></box-icon>}
             nextLabel={<box-icon name='last-page' animation='fade-right-hover' color='#164b60' ></box-icon>}
             breakLabel={"..."}
             breakClassName={"break-me"}
-            pageCount={Math.ceil(dataPerros.length / perrosPorPagina)}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={5}
+            pageCount={Math.ceil(dataPerros.length / perrosPorPagina)} //indica el numero de paginas que tendra
+            marginPagesDisplayed={1}//Indica la cantidad de paginas que se muestran al inicio y final
+            pageRangeDisplayed={1}//Indica cuantas paginas se muestran desde la que ya esta seleccionada
             onPageChange={handlePageChange}
             containerClassName={"pagination"}
             subContainerClassName={"pages pagination"}
