@@ -15,7 +15,7 @@ function RecuperarPassword() {
                 <hr className="my-2"/>
                 <fieldset className='recuperarformulario'>
                 <div>
-                        <label for="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input placeholder="usuario@hotmail.com" type="email" id="email" required/>
                 </div>
 

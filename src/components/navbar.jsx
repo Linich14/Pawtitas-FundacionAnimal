@@ -32,7 +32,7 @@ function Navbar() {
         <header className="navscroll">
           <nav className="nav">
             <Link to="/NuestrosAnimales">
-              Trafico
+              Adoptar
             </Link>
 
             <Link to="/Ayuda">
@@ -55,9 +55,7 @@ function Navbar() {
               Donar
             </Link>
 
-            <Link to="/Comentarios">
-              Comentarios
-            </Link>
+
           </nav>
           <div className="UserRL" onClick={toggleMenu}>
             {isLoggedIn ? (

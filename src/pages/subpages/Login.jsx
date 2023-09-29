@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
 import NavBar from '../../components/navbar'
 import '../../components/css/Login.css'
-import {Link} from 'react-router-dom'
+import {Link , useNavigate} from 'react-router-dom'
 import Validar from './ValidarLogin'
 
 function Login() {
+    const navigate = useNavigate();
     const [Rut, setRut] = useState('')
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
@@ -12,6 +13,7 @@ function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         setErrors(Validar(Rut,Contraseña));
+        navigate('/')
 
     }
 
@@ -26,13 +28,13 @@ function Login() {
                 <h2 className='textocentradologin'>¡Bienvenido a Pawtitas!</h2>
                 <fieldset className='loginformulario'>
                     <div className='mb-3'>
-                        <label for="floatingInput"><i>Rut:</i></label>
-                        <input  placeholder="Ej: 12345678-k"  class="" onChange={e =>setRut(e.target.value)}  name="rut" />
+                        <label htmlFor="floatingInput"><i>Rut:</i></label>
+                        <input  placeholder="Ej: 12345678-k"  className="" onChange={e =>setRut(e.target.value)}  name="rut" />
                         {errors.rut && <span className='text-danger'>{errors.rut} </span>}
                     </div>
                     <div>
-                        <label for="floatingPassword"><i>Contraseña:</i></label>
-                        <input   placeholder="Contraseña..."  class="" onChange={e =>setContraseña(e.target.value)} type="password" name='contraseña' />
+                        <label htmlFor="floatingPassword"><i>Contraseña:</i></label>
+                        <input   placeholder="Contraseña..."  className="" onChange={e =>setContraseña(e.target.value)} type="password" name='contraseña' />
                         {errors.contraseña && <span className='text-danger'>{errors.contraseña} </span>}
                     </div> 
 

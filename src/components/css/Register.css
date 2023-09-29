@@ -22,7 +22,7 @@
      .Registerbackground{
             background-image: url('../../assets/fondito.png');
             background-repeat:repeat;
-           
+           color: #000;
             margin:0 auto;
             width: 450px;
             margin-top: 1%;

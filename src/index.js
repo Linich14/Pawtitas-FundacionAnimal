@@ -8,10 +8,10 @@ import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Galeria from './pages/galeria';
 import FAQ from './pages/preguntasFrec';
-import Adopcion from './pages/postular'
+import Adopcion from './pages/adopcion'
 import RecuperarPassword from './pages/subpages/RecuperarPassword';
-
-
+import Donar from './pages/Donar'
+import Postular from './pages/postular'
 // ...
 
 
@@ -28,7 +28,9 @@ const App = () => {
         <Route path='/Register' element={<Register/>}/>
         <Route path='/RecuperarPassword' element={<RecuperarPassword/>}/>
         <Route path='/Preguntas' element={<FAQ/>}/>
-        <Route path='/Adopcion' element={<Adopcion/>}/>
+        <Route path='/NuestrosAnimales' element={<Adopcion/>}/>
+        <Route path='/Donar' element={<Donar/>}/>
+        <Route path='/Ayuda' element={<Postular/>}/>
       </Routes>
     </BrowserRouter>
   );

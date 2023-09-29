@@ -1,11 +1,11 @@
 import React from 'react';
-import './components/css/Donar.css';
-//import React from 'react';
-import NavBar from './components/navbar.jsx';
-import Footer from './components/Footer.jsx';
+import '../components/css/Donar.css';
+
+import NavBar from '../components/navbar.jsx';
+import Footer from '../components/Footer.jsx';
 import { Link } from 'react-router-dom';
-import icon3 from "../src/assets/icon3.png";
-import icon4 from "../src/assets/icon4.png";
+import icon3 from "../assets/icon3.png";
+import icon4 from "../assets/icon4.png";
 
 
 function Donar() {

@@ -43,32 +43,32 @@ function Register() {
             <h2 className='textocentradoregistro'>Registro en Pawtitas</h2>
                 <fieldset className='registerformulario'> 
                     <div className=''>
-                    <label for="floatingInput"><i>Rut:</i></label>
+                    <label htmlFor="floatingInput"><i>Rut:</i></label>
                     <input  placeholder="Ej: 12345678-k"  type='' 
                     onChange={e=>setRut(e.target.value)}/>
                     {errors.rut && <span className='text-danger'>{errors.rut} </span>}
                     </div>
                     <div>
-                        <label for="text">Nombre:</label>
+                        <label htmlFor="text">Nombre:</label>
                         <input placeholder="Juan" type="text"  
                         onChange={e=>setNombre(e.target.value)}/>
                         {errors.nombre && <span className='text-danger'>{errors.nombre} </span>}
                     </div>
                     <div>
-                        <label for="text">Apellidos:</label>
+                        <label htmlFor="text">Apellidos:</label>
                         <input placeholder="Perez Rosales" type="text"  
                         onChange={e=>setApellidos(e.target.value)}/>
                         {errors.apellidos && <span className='text-danger'>{errors.apellidos} </span>}
                     </div>
                     <div>
-                        <label for="email">Email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input placeholder="usuario@hotmail.com" type="email" id="email"
                         onChange={e=>setEmail(e.target.value)}/>
                         {errors.email && <span className='text-danger'>{errors.email} </span>}
                     </div>
                     <div>
-                        <label for="floatingPassword"><i>Contraseña:</i></label>
-                        <input   placeholder="Contraseña..."  class="" type="password"  
+                        <label htmlFor="floatingPassword"><i>Contraseña:</i></label>
+                        <input   placeholder="Contraseña..."  className="" type="password"  
                         onChange={e=>setContraseña(e.target.value)}/>
                         {errors.contraseña && <span className='text-danger'>{errors.contraseña} </span>}
                     </div> 
