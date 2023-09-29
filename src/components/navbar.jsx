@@ -55,8 +55,6 @@ function Navbar() {
               Donar
             </Link>
 
-
-          </nav>
           <div className="UserRL" onClick={toggleMenu}>
             {isLoggedIn ? (
               // Usuario Logeado
@@ -88,6 +86,8 @@ function Navbar() {
               </Link>
             )}
           </div>
+
+          </nav>
         </header>
       </NavContainer>
     </>
@@ -114,14 +114,15 @@ const NavContainer = styled.nav`
     background-color: #ef4b4b;
   }
   header nav {
-    padding: 0 8rem 0 14rem;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;;
     a {
       text-decoration: none;
       padding-inline: 1rem;
       color: #f2e3c9;
+      max-width:100px;
+      min-width:100px;
       img {
         width: 80px;
         border-radius: 50%;
@@ -135,6 +136,8 @@ const NavContainer = styled.nav`
     }
   }
   .UserRL{
+    max-width:100px;
+    min-width:100px;
     img{
       border-radius:50%;
       max-width:70px;
