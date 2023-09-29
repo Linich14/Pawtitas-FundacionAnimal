@@ -53,7 +53,21 @@ margin-bottom: 10px;
 padding: 5px;
 }
 
-button {
+
+
+
+.atrs{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+ 
+   
+}
+
+#enviar{
 font-family: arial;
 color: #FFFFFF !important;
 font-size: 14px;
@@ -66,9 +80,36 @@ background: #EF4B4B;
 }
 
 
-button:hover {
+#enviar:hover {
 color: black;
 background: #ccc;
 cursor: pointer;
 
 }
+
+
+
+
+
+
+#atras{
+    font-family: arial;
+    color: #FFFFFF ;
+    font-size: 14px;
+    text-shadow: 0px 0px 0px #7CACDE;
+    box-shadow: 0px 0px 0px #BEE2F9;
+    padding: 10px 11px;
+    border-radius: 19px;
+    width: 80px;
+
+    border: 0px solid #EF4B4B;
+    background: #EF4B4B;
+    }
+    
+    
+    #atras:hover {
+    color: black;
+    background: #ccc;
+    cursor: pointer;
+    
+    }

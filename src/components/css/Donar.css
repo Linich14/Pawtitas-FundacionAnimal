@@ -18,7 +18,7 @@ body {
 
     }
     
-    .div1 { 
+    .div1dn { 
         
         grid-area: 2 / 2 / 3 / 3; 
         background-color: #EF4B4B   ;
@@ -34,11 +34,11 @@ body {
 
     }
 
-    .div1 .p{
+    .div1dn .p{
         line-height:1px;
     }
     
-    .div2 { 
+    .div2dn { 
         grid-area: 2 / 4 / 3 / 5; 
         background-color:   #EF4B4B;
         gap: 25px;
@@ -51,7 +51,7 @@ body {
         align-items: center;
     
     }
-    .div3 { 
+    .div3dn { 
         grid-area: 3 / 3 / 4 / 4;
         background-color: #EF4B4B; 
         border-radius: 15%;

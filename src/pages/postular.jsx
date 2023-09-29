@@ -9,7 +9,7 @@ function Postular(){
   return(
     <div className="App">
     <NavBar />
-    <div className="seccion">
+    <div class="seccionps">
           
           <div className="image-button">
             <img src={postimg1} alt="Imagen de fondo"/>
