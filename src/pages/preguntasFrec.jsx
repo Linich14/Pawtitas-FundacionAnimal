@@ -2,10 +2,13 @@ import React from 'react'
 import NavBar from '../components/navbar'
 import '../components/css/Galeria.css'
 import Footer from '../components/Footer' 
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+
+import Acordion from '../components/Acordion_preguntas'
 import Cards_preguntas from '../components/Cards_preguntas';
 
-export default function Preguntas() {
+function Preguntas() {
   return (
     <>
     <div className='container galeriabackground col-md-10 mx-auto col-lg-12'>
@@ -19,10 +22,17 @@ export default function Preguntas() {
 {/* aqui termina la seccion de card */}
 
     </div>
+{/* -------------------------------------------------------------------------------------------------------- */}
+{/*                                            funcion de acordeon                                           */}
 
-        
+    
+    <Acordion></Acordion>
+
     <Footer></Footer>
     </>
+
   )
 }
- 
+
+export default Preguntas ;
+
