@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './components/css/form_ayuda.css';
-import NavBar from './components/navbar.jsx';
-import Footer from './components/Footer';
+
+import { Link } from 'react-router-dom';
+import '../src/form_ayuda.css';
+
+
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -11,11 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <div className="App">
-      <NavBar />
+      
       
       <section className="form-section">
       <div className="form-container">
-        <h2>Completa el formulario</h2>
+        <h2>Formulario de ayuda</h2>
         <form action="#" method="post" encType="multipart/form-data">
           <label htmlFor="ubicacion">Ubicación:</label>
           <input type="text" id="ubicacion" name="ubicacion" required />
@@ -27,15 +29,24 @@ root.render(
           <br />
           <input type="text" id="estadoanimal" name="estadoanimal" required />
           <br />
-          <label htmlFor="imagen">Subir Imagen:</label>
+          <label htmlFor="imagen" >Subír Imagen:</label>
           <input type="file" id="imagen" name="imagen" accept="image/*" required />
           <br />
-          <button type="submit">Enviar</button>
+          <button type="submit" id='enviar'>Enviar</button>
+          <br />
+          <div className='atrs'>
+            <Link to="/">
+            <button type="submit" id='atras'>Atrás</button>
+
+
+            </Link>
+          </div>
         </form>
+        
       </div>
     </section>
 
-    <Footer />
+
     </div>
   </BrowserRouter>
 

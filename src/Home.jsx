@@ -1,12 +1,23 @@
 import React from 'react';
 import './Home.css';
-//import React from 'react';
+
 import NavBar from './components/navbar.jsx';
 import Footer from './components/Footer.jsx';
-import ImageCarousel from './components/ImageCarousel';
+import Carousel from './components/react-slick';
 
-//importa las imagenes asi para los <img> 
-import PerroLogo_3 from './assets/perrologo3.png'
+
+
+import Bryan_z from './assets/Bryan_z.png'
+import Jorge_s from './assets/Jorge_s.png'
+import Sebastían_m from './assets/Sebastían_m.png'
+import Ignacio_b from './assets/Ignacio_b.png'
+import Agustín_m from './assets/Agustín_m.png'
+import icnon1 from "./assets/icon1.png"
+import icnon2 from "./assets/icon2.png"
+
+
+
+
 
 
 function Home() {
@@ -15,7 +26,11 @@ function Home() {
       <NavBar />
           <div>
              
-          <section id="seccion1" className="seccion">
+          <section id="seccion1hm" class="seccion" >
+         
+        <div className="fondo img1">
+          
+        </div>
 
         <h2>Fundacion Pawtitas</h2>
 
@@ -27,8 +42,7 @@ function Home() {
     
             <div className="carrusel">
 
-              <ImageCarousel/>
-
+            <Carousel/>
     
             </div>
         </div>
@@ -40,7 +54,8 @@ function Home() {
 
 
 
-    <section id="seccion2" className="seccion">
+    <section id="seccion2hm" class="seccion">
+     
         <h2>Como Ayudar </h2>
 
 
@@ -48,14 +63,15 @@ function Home() {
 
             <div className="donar">
                 <h3>Donando</h3>
-                <img src="./assets/icon_dollar_.png" alt=""/>
+                <img src= {icnon1} alt=""/>
                 <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, deleniti.</h4>
 
             </div >
 
             <div className= "ayudar">
                 <h3>Adoptando</h3>
-                <img src="./assets/icon _heart_.png" alt=""/>
+
+                <img src={icnon2} alt=""/>
                 <h4> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id, accusantium.</h4>
 
             </div>
@@ -67,56 +83,52 @@ function Home() {
 
 
 
-    <section id="seccion3" className="seccion">
+    <section id="seccion3hm" class="seccion">
+
+        
 
 
-        <h1>nuestro equipo</h1>
 
+        <h1>Nuestro equipo</h1>
 
-        <div className="cards">
+        <div class="cardhmshm">
 
-            <div className="card">
-                <div className="textos"> 
-                    <img src={PerroLogo_3} alt=""/>
-                    <p>text</p>
+            <div class="cardhm">
+                <div class="textos"> 
+                    <img src={Bryan_z} className='imgc' alt=""/>
+                    <p>Bryan Zapata</p>
                 </div>
             </div>    
             
             
-            <div className="card">
-                <div className="textos">
-                    <img src={PerroLogo_3} alt=""/>
-                    <p>text</p>
+            <div class="cardhm">
+                <div class="textos">
+                    <img src={Jorge_s} className='imgc' alt=""/>
+                    <p>Jorge Soto</p>
                 </div>
             </div>   
     
-            <div className="card">
-                <div className="textos">
-                    <img src={PerroLogo_3} alt=""/>
-                    <p>text</p>
+            <div class="cardhm">
+                <div class="textos">
+                    <img src={Sebastían_m} className='imgc' alt=""/>
+                    <p>Sebastián Muñoz</p>
                 </div>
             </div>   
     
-            <div className="card">
-                <div className="textos">
-                    <img src={PerroLogo_3} alt=""/>
-                    <p>text</p>
+            <div class="cardhm">
+                <div class="textos">
+                    <img src={Ignacio_b} className='imgc' alt=""/>
+                    <p>Ignacio Bustos</p>
                 </div>
             </div>
     
-            <div className="card">
-                <div className="textos">
-                    <img src={PerroLogo_3} alt=""/>
-                    <p>text</p>
+            <div class="cardhm">
+                <div class="textos">
+                    <img src={Agustín_m} className='imgc' alt=""/>
+                    <p>Agustín Monsalve</p>
                 </div>
             </div>   
-    
-            <div className="card">
-                <div className="textos">
-                    <img src={PerroLogo_3} alt="" />
-                    <p>text</p>
-                </div>
-            </div>  
+
         </div>
 
 

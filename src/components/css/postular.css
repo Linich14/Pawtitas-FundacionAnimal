@@ -6,7 +6,7 @@ body {
 }
 
 
-.seccion {
+.seccionps{
 background-image: url('/src/assets/fondo1.png'); 
 background-size: cover;
 background-position: center;
@@ -16,6 +16,7 @@ flex-direction: row  ;
 justify-content: center;
 align-items: center;
 gap: 40px;
+
 
 }
 
