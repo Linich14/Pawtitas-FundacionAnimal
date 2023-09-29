@@ -23,7 +23,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    
   }
   
   .App-link {
@@ -55,7 +55,7 @@
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-
+    
 }
 
 
@@ -68,7 +68,8 @@
 
 
 .seccion {
-  background-size: cover;
+  
+
   background-position: center;
   height: 100vh; 
   display: flex;
@@ -83,9 +84,11 @@
 
 #seccion1hm{
   
+ background-image: url('./assets/fondo1.png');
   display: flex;
   flex-direction: column;
-  color: white;
+ background-repeat: no-repeat;
+
   font-size: large;
   padding: 40px;
   margin-top: 50px;
@@ -102,7 +105,8 @@
 
 .fondo {
 
-  background-size: auto; 
+ 
+  
   background-position: center; 
   filter: blur(10px); 
   position: absolute;
@@ -116,7 +120,9 @@
 
 .img1{
   background-image: url('./assets/fondo1.png');
+  
 }
+
 
 
 
@@ -200,6 +206,8 @@
 
 
 #seccion2hm{
+  color: black;
+
   background-color: white;
   display: flex;
   justify-content: space-between; 
