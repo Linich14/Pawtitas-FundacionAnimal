@@ -1,5 +1,15 @@
-# Fundacion Animal - Pawtitas
+# Integrantes Grupo 6, Taller de Integracion 2
+[Ignacio Bustos](https://github.com/Igmacoi)
 
+[Agustin Monsalve](https://github.com/agubjr)
+
+[Sebastian Muñoz](https://github.com/sebas-tian18)
+
+[Jorge Soto](https://github.com/Linich14)  
+
+[Brayan Zapata](https://github.com/brazann)
+
+# Fundacion Animal - Pawtitas
 
 ![Icono de la Fundacion](https://i.imgur.com/SXlGvvS.png)
 
