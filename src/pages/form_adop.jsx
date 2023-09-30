@@ -4,18 +4,10 @@ import Formulario from '../components/adop_form.jsx';
 
 
 
-
-import { BrowserRouter } from 'react-router-dom';
-
-
-
-
-
-
-function Home() {
+function FormularioAyuda() {
   return (
 
-    <BrowserRouter>
+    
     <div className="App">
 
         <Formulario/>
@@ -24,7 +16,7 @@ function Home() {
 
     </div>
     
-    </BrowserRouter>
+  
 
 
 
@@ -32,4 +24,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default FormularioAyuda;

@@ -1,17 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
 import { Link } from 'react-router-dom';
 import '../components/css/form_ayuda.css';
 
 
-import { BrowserRouter } from 'react-router-dom';
+
 
 
 function Ayuda() {
   return (
 
-    <BrowserRouter>
+
     <div className="App">
       
       
@@ -46,7 +45,7 @@ function Ayuda() {
 
 
     </div>
-  </BrowserRouter>
+
   );
 }
 

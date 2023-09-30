@@ -13,7 +13,7 @@ import RecuperarPassword from './pages/subpages/RecuperarPassword';
 import Donar from './pages/Donar'
 import Postular from './pages/postular'
 import Adopform from './pages/form_adop'
-import Form_ayuda from './pages/form_ayuda'
+import FormularioAyuda from './pages/form_ayuda'
 
 
 
@@ -38,7 +38,7 @@ const App = () => {
         <Route path='/Donar' element={<Donar/>}/>
         <Route path='/Ayuda' element={<Postular/>}/>
         <Route path='/Form_adop' element={<Adopform/>}/>
-        <Route path='/Form_ayuda' element={<Form_ayuda/>}/>
+        <Route path='/Form_ayuda' element={<FormularioAyuda/>}/>
 
         
         
