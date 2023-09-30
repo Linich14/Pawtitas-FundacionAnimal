@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import NavBar from "../components/navbar";
+import Footer from "../components/Footer";
 import { Card, Form, Image, Button } from "react-bootstrap";
 import "../components/css/UserProfile.css";
-import image1 from "../assets/perro_user_1.jpg";
-import image2 from "../assets/perro_user_2.jpg";
+import image1 from "../assets/perro2.jpg";
+import image2 from "../assets/perro3.jpg";
 
 const defaultImage1 = image1;
 const defaultImage2 = image2;
@@ -111,7 +113,11 @@ function UserProfile(props) {
     setSelectedPetIndex(petsData.indexOf(selectedPet));
     setEditedPetData({ ...selectedPet });
   };
+
+
+  
   const petDetails = selectedPet && (
+  
     <div className="pet-details-container">
       {isEditingPet ? (
         <div className="edit-pet-form">
@@ -197,7 +203,7 @@ function UserProfile(props) {
         key={index}
         src={image}
         alt={`Mascota ${selectedPet.id} - Imagen ${index + 1}`}
-        className="gallery-image" // Agrega una clase CSS aquí
+        className="gallery-image" 
       />
     ))}
     <label className="add-image-button">
@@ -225,14 +231,8 @@ function UserProfile(props) {
   if (activeSection === "pets") {
     content = (
       <>
-        <h4>Mis Mascotas</h4>
-        <Button
-          variant="info"
-          className="add-pet-button"
-          onClick={() => setIsAddPetFormVisible(!isAddPetFormVisible)}
-        >
-          Agregar Mascota
-        </Button>
+        <h5 className="titulos">Mis Mascotas </h5>
+      
         {isAddPetFormVisible && <AddPetForm onAddPet={handleAddPet} />}
         <ul className="pet-list">
           {petsData &&
@@ -244,17 +244,26 @@ function UserProfile(props) {
               />
             ))}
         </ul>
+        <Button
+          variant="info"
+          className="add-pet-button"
+          onClick={() => setIsAddPetFormVisible(!isAddPetFormVisible)}
+        >
+          Agregar Mascota
+        </Button>
       </>
     );
   } else if (activeSection === "history") {
-    content = <p>Historial de Solicitudes</p>;
+    content = <h5 className="titulos">Historial de Solicitudes</h5>;
   } else if (activeSection === "activeRequests") {
-    content = <p>Solicitudes Activas</p>;
+    content = <h5 className="titulos">Solicitudes Activas</h5>;
   }
 
   return (
+
     <Card className="background-image">
       <Card.Body>
+      <NavBar/>
         <div className="user-profile-container">
           <div className="user-profile">
             <Form onSubmit={handleSubmit} className="user-form">
@@ -332,6 +341,7 @@ function UserProfile(props) {
             {petDetails ? petDetails : content}
           </div>
         </div>
+        <Footer/>
       </Card.Body>
     </Card>
   );
@@ -360,8 +370,8 @@ function AddPetForm({ onAddPet }) {
     story: "",
     age: "",
     weight: "",
-    image1: defaultImage1,
-    image2: defaultImage2,
+    image1: image1,
+    image2: image2,
   });
 
   const handleAddPet = () => {
@@ -373,11 +383,12 @@ function AddPetForm({ onAddPet }) {
       story: "",
       age: "",
       weight: "",
-      image1: defaultImage1,
-      image2: defaultImage2,
+      image1: image1,
+      image2: image2,
     });
   };
 
+  
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
