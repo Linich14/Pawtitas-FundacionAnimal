@@ -1,0 +1,80 @@
+
+.seccion{
+    background-image: url('/src/assets/fondito.png');
+    
+    background-repeat: repeat;
+    height: 100vh; 
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 100px;
+    grid-row-gap: 0px;   
+    z-index: 1;
+
+    }
+    
+    .div1{ 
+        
+        grid-area: 2 / 2 / 3 / 3; 
+        background-color: #EF4B4B   ;
+        border-radius: 15%;
+        height: 350px;
+        width: 300px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+
+    }
+
+    .div1 .p{
+        line-height:1px;
+    }
+    
+    .div2 { 
+        grid-area: 2 / 4 / 3 / 5; 
+        background-color:   #EF4B4B;
+        gap: 25px;
+        border-radius: 15%;
+        height: 350px;
+        width: 300px;
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+    .div3 { 
+        grid-area: 3 / 3 / 4 / 4;
+        background-color: #EF4B4B; 
+        border-radius: 15%;
+        height: 150px;
+        width: 280px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        
+    
+    }
+
+
+    #btn {
+        font-family: arial;
+        color: #EF4B4B ;
+        font-size: 15px;
+        text-shadow: 0px 0px 0px #7CACDE;
+        box-shadow: 0px 0px 0px #BEE2F9;
+        padding: 10px 11px;
+        border-radius: 29px;
+        border: 2px solid #F2E3C9;
+        background: #F2E3C9;
+      }
+      #btn:hover {
+        color: #F2E3C9 ;
+        background: #EF4B4B;
+        cursor: pointer;
+      }

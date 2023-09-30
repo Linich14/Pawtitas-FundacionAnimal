@@ -1,0 +1,33 @@
+.galeriabackground{
+    background-image: url('../../assets/fondito.png');
+    height: 100vh;
+    background-repeat:repeat;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+}
+ 
+
+.caja_invisible{
+    background-color: rgba(255, 255, 255, 0);
+ 
+}
+
+.mis-botones-grupo-css{
+    background-image: url('../../assets/fondito.png');
+    background-repeat:repeat;
+
+}
+/*
+.container > div{
+    margin-left: 35%;
+    width: 550px;
+    height: 20vh;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+}
+*/
