@@ -8,12 +8,15 @@ import icon3 from "../assets/icon3.png";
 import icon4 from "../assets/icon4.png";
 
 
+
 function Donar() {
   return (
 
 <div className="App">
       <NavBar />
       <div className="seccion">
+
+     
     
     <div className="div1"> 
         <img src={icon3} alt=""/>

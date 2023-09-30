@@ -1,18 +1,40 @@
+
 .contcarrusel{
     position: relative;
-    z-index: 1
+    color: aliceblue;
+    bottom: 10px;
+    height: 500px;
+
+
+
 }
 
+
+.contcarrusel p{
+
+    color: aliceblue;
+
+    
+
+
+}
+
+
 .contcarrusel img{
-    width: 550px;
+    width: 650px;
     height: 400px;
     border-radius: 10px;
+
     
 }
 
 .imagencr{
-  
+
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 750px;
+    height: 400px;
+
+
 }

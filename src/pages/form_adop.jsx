@@ -20,11 +20,7 @@ function Home() {
 
         <Formulario/>
 
-        <div className="atrsadop"> 
-        <Link to="/">
-            <button type="submit" id='atras'>Atrás</button>
-          </Link>
-        </div>
+
 
     </div>
     
