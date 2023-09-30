@@ -172,6 +172,7 @@ function Adopcion() {
               value={searchTerm}
               onChange={handleSearchChange}
             ></input>
+
           </form>
           
           {perrosEnPagina.map((perro) => (        
@@ -223,6 +224,11 @@ const AdopcionCss = styled.main`
     margin-top: 7.8;
     max-width: 1100px;
   }
+
+  .atrasadop{
+    background-color:red;
+    height: ;
+  }
   .buscador {
     display: flex;
     justify-content: end;
@@ -244,6 +250,7 @@ const PaginationCss = styled(ReactPaginate)`
   align-items:center;
   list-style:none;
   color:#164b60;
+  
   a{
     display:flex;
     justify-content:center;

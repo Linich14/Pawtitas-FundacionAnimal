@@ -27,15 +27,14 @@ function Donar() {
 
     <div className="div2"> 
         <img src={icon4} alt=""/>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptas?
-        
+        para donar a traves de paypal seleccione Donar        
         
         <button id="btn">Donar </button>
 
     </div>
     <div className="div3"> 
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, accusamus.
-        <button id="btn">Cripto Wallet</button>
+    Nueva forma para donar, aceptamos cripto
+          <button id="btn">Cripto Wallet</button>
 
     </div>
     

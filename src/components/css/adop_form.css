@@ -1,0 +1,21 @@
+
+.seccionadop{
+
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formadopcont{
+    width: 500px;
+    height: 500px;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+
+}
+.formadopcont input{
+    border-radius: 10px;
+}

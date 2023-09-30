@@ -15,7 +15,7 @@ function Donar() {
       <NavBar />
       <div className="seccion">
     
-    <div class="div1dn"> 
+    <div className="div1"> 
         <img src={icon3} alt=""/>
         <p>Datos Cuenta Bancaria </p>
         <p>11.111.111-1</p>
@@ -25,7 +25,7 @@ function Donar() {
         
     </div>
 
-    <div class="div2dn"> 
+    <div className="div2"> 
         <img src={icon4} alt=""/>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptas?
         
@@ -33,7 +33,7 @@ function Donar() {
         <button id="btn">Donar </button>
 
     </div>
-    <div class="div3dn"> 
+    <div className="div3"> 
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, accusamus.
         <button id="btn">Cripto Wallet</button>
 

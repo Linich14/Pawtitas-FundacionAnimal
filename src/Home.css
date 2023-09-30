@@ -67,9 +67,8 @@
 
 
 
-.seccion {
-  
-
+.seccionhm{
+  background-size: cover;
   background-position: center;
   height: 100vh; 
   display: flex;
@@ -103,10 +102,9 @@
 
 
 
-.fondo {
+.fondohm {
 
- 
-  
+  background-size: auto; 
   background-position: center; 
   filter: blur(10px); 
   position: absolute;
@@ -118,7 +116,7 @@
 }
 
 
-.img1{
+.img1hm{
   background-image: url('./assets/fondo1.png');
   
 }
@@ -216,6 +214,7 @@
   justify-content: center;
   background-image: url('./assets/fondito.png');
   background-size: auto;
+  color: #282c34;
 
 }
 

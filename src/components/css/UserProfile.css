@@ -1,189 +1,211 @@
 
+body, h1, h2, h3,h4, h6, p {
+  color: black;
+}
 
 .background-image {
-    background-image: url('../../assets/fondo1.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-  
-  .user-profile-container {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start; 
-  }
-  
-  .user-avatar {
-    flex: 0 0 auto; 
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-  }
-  
-  .user-profile {
-    flex: 1 1 auto;
-    padding-left: 20px; 
-  }
-  
-  .user-form {
-    background-color: rgba(123, 204, 112, 0.64);
-    padding: 10px;
-    border-radius: 10px;
-    width: 20%; 
-    margin: 0px auto;
-    z-index: 1;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    text-align: center; 
-  }
-  
-  .user-form input[type="text"],
-  .user-form input[type="email"],
-  .user-form input[type="tel"],
-  .user-form textarea {
-    width: 100%; 
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-  }
-  
-  .user-form button[type="submit"],
-  .user-form .btn-primary {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .user-form .btn-primary input[type="file"] {
-    display: none;
-  }
-  
-  .image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center; 
-    margin-bottom: 10px; 
-  }
-  
-  .profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #fff;
-    margin-bottom: 10px; 
-  }
-  
-  .add-pet-form {
-    margin: 20px auto;
-    padding: 20px;
-    background-color: #f8f8f8c6;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 70%;
-    z-index: 1;
-  }
-  
-  .add-pet-form label {
-    font-weight: bold;
-  }
-  
-  .add-pet-form input[type="text"],
-  .add-pet-form input[type="number"],
-  .add-pet-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
- 
-  
-  .add-pet-form button[type="submit"]:hover {
-    background-color: #0056b3;
-  }
-  
-  .add-pet-form .btn-cancel {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .add-pet-form .btn-cancel:hover {
-    background-color: #bd2130;
-  }
-  
-  .add-pet-button {
-    background-color: #28a745;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  .add-pet-button:hover {
-    background-color: #218838;
-  }
-  
-  
-  .profile-image-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .pet-info-background {
-    background-color: #f0f0f0b0; 
-    padding: 10px; 
-    border-radius: 5px; 
-  }
+  background-image: url('../../assets/fondo1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.user-profile-container {
+  display: flex;
+  margin-top: 120px;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.user-avatar {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user-profile {
+  flex: 1 1 auto;
+  padding-left: 20px;
+}
+
+.user-form {
+  background-image: url('../../assets/fondito.png');
+  padding: 10px;
+  border-radius: 10px;
+  width: 20%;
+  margin: 0 auto;
+  z-index: 1;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.user-form input[type="text"],
+.user-form input[type="email"],
+.user-form input[type="tel"],
+.user-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000000;
+  border-radius: 15px;
+}
+
+.user-form button[type="submit"],
+.user-form .btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.user-form .btn-primary input[type="file"] {
+  display: none;
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.profile-image {
+  background-image: url('../../assets/dwayne.jpg');
+  background-size: cover;
+  background-position: center; 
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #000000;
+  margin-bottom: 10px;
+}
+
+.add-pet-form {
+  margin: 20px auto;
+  padding: 20px;
+  background-image: url('../../assets/fondito.png');
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 70%;
+  z-index: 1;
+}
+
+.add-pet-form label {
+  font-weight: bold;
+}
+
+.add-pet-form input[type="text"],
+.add-pet-form input[type="number"],
+.add-pet-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.add-pet-form button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.add-pet-form .btn-cancel {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.add-pet-form .btn-cancel:hover {
+  background-color: #bd2130;
+}
+
+.add-pet-button {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  padding: 0.5rem 1rem;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.profile-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.titulos {
+  text-align: center;
+  font-family: Arial Black;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+.pet-info-background {
+  background-color: #f0f0f0b0;
+  padding: 10px;
+  border-radius: 5px;
+}
 
 .pet-details {
-    border: 1px solid #cccccc;
-    padding: 10px;
-    margin-top: 10px;
-    background-color: #f5f5f5ab;
-  }
-  
-  .pet-details h4 {
-    margin-top: 0;
-    font-size: 18px;
-  }
-  
-  .pet-details p {
-    margin: 5px 0;
-  }
-  
-  .pet-details-container {
-    background-color: #f2f2f2aa; 
-    padding: 20px; 
-    border: 1px solid #ddd; 
-    border-radius: 5px; 
-    margin-top: 20px; 
-  }
-  
-  .pet-thumbnail-image {
-    max-width: 200px; 
-    max-height: 200px; 
-    
-  }
-  
+  border: 1px solid #cccccc;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.pet-details h4 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+.pet-details p {
+  margin: 5px 0;
+}
+
+.pet-details-container {
+  background-image: url('../../assets/fondito.png');
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.pet-thumbnail {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pet-thumbnail-image {
+  max-width: 200px;
+  max-height: 200px;
+}
 
 .gallery-image {
-    max-width: 150px; 
-    max-height: 150px; 
-    margin: 10px; 
-  }
-  
+  max-width: 150px;
+  max-height: 150px;
+  margin: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
