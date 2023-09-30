@@ -19,3 +19,8 @@
 .formadopcont input{
     border-radius: 10px;
 }
+
+.atrsadop{
+    display: flex;
+    justify-content: center;
+}
