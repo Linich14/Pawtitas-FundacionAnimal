@@ -112,11 +112,13 @@ const NavContainer = styled.nav`
     justify-content: center;
     padding: 1.2rem 0 1.2rem 0;
     background-color: #ef4b4b;
+    z-index: 10; 
   }
   header nav {
     display: flex;
     align-items: center;
     justify-content: center;;
+    
     a {
       text-decoration: none;
       padding-inline: 1rem;

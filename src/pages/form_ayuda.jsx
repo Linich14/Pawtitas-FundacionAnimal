@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import { Link } from 'react-router-dom';
-import '../src/form_ayuda.css';
+import '../components/css/form_ayuda.css';
 
 
 import { BrowserRouter } from 'react-router-dom';
 
 
+function Ayuda() {
+  return (
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
+    <BrowserRouter>
     <div className="App">
       
       
@@ -37,9 +37,7 @@ root.render(
           <div className='atrs'>
             <Link to="/">
             <button type="submit" id='atras'>Atrás</button>
-
-
-            </Link>
+                </Link>
           </div>
         </form>
         
@@ -49,7 +47,13 @@ root.render(
 
     </div>
   </BrowserRouter>
+  );
+}
+
+export default Ayuda;
+
+
+
 
 
   
-);

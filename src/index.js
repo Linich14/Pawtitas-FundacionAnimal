@@ -12,6 +12,11 @@ import Adopcion from './pages/adopcion'
 import RecuperarPassword from './pages/subpages/RecuperarPassword';
 import Donar from './pages/Donar'
 import Postular from './pages/postular'
+import Adopform from './pages/form_adop'
+import Form_ayuda from './pages/form_ayuda'
+
+
+
 // ...
 
 
@@ -21,7 +26,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+
+      <Route path="/" element={<Home />} />
         <Route path="/user" element={<UserProfile {...user} />} />
         <Route path="/Login" element={<Login />} />
         <Route path="/Galeria" element={<Galeria />} />
@@ -31,6 +37,12 @@ const App = () => {
         <Route path='/NuestrosAnimales' element={<Adopcion/>}/>
         <Route path='/Donar' element={<Donar/>}/>
         <Route path='/Ayuda' element={<Postular/>}/>
+        <Route path='/Form_adop' element={<Adopform/>}/>
+        <Route path='/Form_ayuda' element={<Form_ayuda/>}/>
+
+        
+        
+
       </Routes>
     </BrowserRouter>
   );

@@ -3,7 +3,10 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import perro1 from '../assets/perro2.jpg'
+import './css/react-slick.css';
+import perro1 from '../assets/perro6.jpg'
+import perro2 from '../assets/perro7.jpg'
+import perro3 from '../assets/gato1.jpg'
 
 
 
@@ -17,25 +20,41 @@ const Carousel = () => {
       speed: 500,
       slidesToShow: 1,
       slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000, 
+
     };
   
     return (
-      <div className="carousel-container">
+      <div className="contcarrusel">
         <h1>animales rescatados</h1>
         <Slider {...settings}>
           <div >
-          <h3>Slide 2</h3>
-            <p>Contenido del primer slide.</p>
+          <h3>gaspar</h3>
+          <div className="imagencr">
+          <img src={perro1} alt="" />
+
+          </div>
+          
+            <p>adoptado el 1 de septiembre </p>
        
           </div>
           <div>
-            <h3>Slide 2</h3>
-            <p>Contenido del segundo slide.</p>
+            <h3>Mateo</h3>
+            <div className="imagencr">
+          <img src={perro2} alt="" />
+
+          </div>
+          <p>adoptado el 20 de septiembre</p>
           </div>
 
           <div>
-            <h3>Slide 3</h3>
-            <p>Contenido del segundo slide.</p>
+            <h3>Juanito</h3>
+            <div className="imagencr">
+          <img src={perro3} alt="" />
+
+          </div>
+          <p>adoptada el 24 de septiembre</p>
           </div>
 
         </Slider>
