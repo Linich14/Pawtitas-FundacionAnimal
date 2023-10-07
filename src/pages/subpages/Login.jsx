@@ -4,16 +4,19 @@ import '../../components/css/Login.css'
 import {Link , useNavigate} from 'react-router-dom'
 import Validar from './ValidarLogin'
 
+
+//Funcion para el Frontend del Login
 function Login() {
-    const navigate = useNavigate();
-    const [Rut, setRut] = useState('')
+    const navigate = useNavigate(); //Iniciamos una instancia de UseNavigate para redireccionar a otra pagina
+    //creamos variables con useState para tener una funcion que actualice sus valores
+    const [Rut, setRut] = useState('') 
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setErrors(Validar(Rut,Contraseña));
-        navigate('/')
+    //Funcion que maneja el evento Submit una ves pulsado el boton login
+    const ManejoSubmit = (event) => {
+        event.preventDefault(); // para que no reciba campos vacios
+        setErrors(Validar(Rut,Contraseña)); //Mandamos los valores a la funcion validadora de datos
+        navigate('/') //Una ves hecho el login nos redirige al home
 
     }
 
@@ -24,7 +27,7 @@ function Login() {
         </div>
         <div className='contenidologin'>
         <div className="Loginbackground" >
-            <form className="p-4 p-md-5 " onSubmit={handleSubmit} >
+            <form className="p-4 p-md-5 " onSubmit={ManejoSubmit} >
                 <h2 className='textocentradologin'>¡Bienvenido a Pawtitas!</h2>
                 <fieldset className='loginformulario'>
                     <div className='mb-3'>

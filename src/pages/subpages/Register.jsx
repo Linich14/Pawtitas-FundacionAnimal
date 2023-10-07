@@ -5,8 +5,11 @@ import Validar from './ValidarRegistro'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
+//Funcion para el Frontend del Registro
 function Register() {
-    const navigate = useNavigate();
+    const navigate = useNavigate(); //Iniciamos una instancia de UseNavigate para redireccionar a otra pagina
+
+    //creamos variables con useState para tener una funcion que actualice sus valores
     const [Rut, setRut] = useState('')
     const [Nombre, setNombre] = useState('')
     const [Email, setEmail] = useState('')
@@ -14,11 +17,13 @@ function Register() {
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setErrors(Validar(Rut,Nombre,Apellidos,Email,Contraseña));
+    //Funcion que maneja el evento Submit una ves pulsado el boton registro
+    const ManejoSubmit = (event) => {
+        event.preventDefault(); // para que no reciba campos vacios
+        setErrors(Validar(Rut,Nombre,Apellidos,Email,Contraseña)); //Mandamos los valores a la funcion validadora de datos
         if(errors.rut === "" && errors.email === "" && errors.contraseña === ""){
-            navigate('/login')
+            // Si no encuentra errores...
+            // Intenta Conectar con el backend mediante POST
             axios.post('http://localhost:8081/Register', {
                 rut: Rut,
                 nombre: Nombre,
@@ -26,8 +31,9 @@ function Register() {
                 email: Email,
                 contraseña: Contraseña
             })
-            .then(res => console.log(res.data))
-            .catch(err => console.log(err));
+            .then(res => console.log(res.data)) //Console log de los datos y errores, 
+            .catch(err => console.log(err)); // pueden ser borrados y no afecta el codigo general
+            navigate('/login') //Finalmente redirige al Login
         }
     }
 
@@ -39,7 +45,7 @@ function Register() {
         <div className='contenidoregister'>
         <div className="Registerbackground" >
             
-            <form className="form-group p-md-5 " onSubmit={handleSubmit} >
+            <form className="form-group p-md-5 " onSubmit={ManejoSubmit} >
             <h2 className='textocentradoregistro'>Registro en Pawtitas</h2>
                 <fieldset className='registerformulario'> 
                     <div className=''>

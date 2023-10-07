@@ -1,3 +1,14 @@
+/*
+Funcion de Javascript que recibe los datos del componente de React Asociado al Registro
+que valida que:
+ El rut este en formato 1111111-1 o 1111111-k
+ La contraseña tenga minusculas,1 mayuscula minimo y un componente de digito, 
+ El Email contenga asociado un @algo.com para ser valido
+ Como tambien valida otro tipo de datos para que no esten vacios(nombre , apellidos)
+ devuelve errores vacios si no encuentra problemas o errores asociados si los encuntra para mostrarlos en el frontend
+*/
+
+
 function Validar(rut,nombre,apellidos,email,contraseña){
     let error = {}
     const validarrut =  /^[0-9]+-[0-9kK]{1}$/;
