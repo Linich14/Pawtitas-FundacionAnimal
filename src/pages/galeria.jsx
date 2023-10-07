@@ -12,7 +12,8 @@ import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 export default function Galeria() {
   return (
     <>
-    <div className='container galeriabackground col-md-10 mx-auto col-lg-12'>
+    <div className='galeriabackground'>
+    <div className='container col-md-10 mx-auto col-lg-12'>
     <NavBar ></NavBar>
 
     <div className='flex caja_invisible '></div>
@@ -22,6 +23,7 @@ export default function Galeria() {
     </div>
 
     
+    </div>
     </div>
     <div className="mis-botones-grupo-css d-flex justify-content-center align-items-center">
       <ButtonToolbar aria-label="Toolbar with button groups">
