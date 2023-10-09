@@ -1,17 +1,17 @@
 import React from "react";
 
-function PetDetail({ pet, onClose }) {
+function DetallesMascota({ mascota}) {
   return (
-    <div className="pet-detail">
-      <img src={pet.imageUrl} alt={pet.name} />
-      <h2>{pet.name}</h2>
-      <p>Raza: {pet.breed}</p>
-      <p>Género: {pet.gender}</p>
-      <p>Edad: {pet.age}</p>
-      <p>Peso: {pet.weight}</p>
-      <button onClick={onClose}>Volver</button>
+    <div className="detalles-mascota">
+      <img src={mascota.imágenes[0]} alt={mascota.nombre} />
+      <h2>{mascota.nombre}</h2>
+      <p>Raza: {mascota.raza}</p>
+      <p>Género: {mascota.genero}</p>
+      <p>Edad: {mascota.edad}</p>
+      <p>Peso: {mascota.peso}</p>
+      <p>Historia: {mascota.historia}</p>
     </div>
   );
 }
 
-export default PetDetail;
+export default DetallesMascota;

@@ -1,22 +1,21 @@
-
-body, h1, h2, h3,h4, h6, p {
+body, h1, h2, h3, h4, h6, p {
   color: black;
 }
 
-.background-image {
+.imagen-fondo {
   background-image: url('../../assets/fondo1.png');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
-.user-profile-container {
+.contenedor-perfil-usuario {
   display: flex;
   margin-top: 120px;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.user-avatar {
+.avatar-usuario {
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
@@ -24,12 +23,12 @@ body, h1, h2, h3,h4, h6, p {
   text-align: center;
 }
 
-.user-profile {
+.perfil-usuario {
   flex: 1 1 auto;
   padding-left: 20px;
 }
 
-.user-form {
+.formulario-usuario {
   background-image: url('../../assets/fondito.png');
   padding: 10px;
   border-radius: 10px;
@@ -43,10 +42,10 @@ body, h1, h2, h3,h4, h6, p {
   text-align: center;
 }
 
-.user-form input[type="text"],
-.user-form input[type="email"],
-.user-form input[type="tel"],
-.user-form textarea {
+.formulario-usuario input[type="text"],
+.formulario-usuario input[type="email"],
+.formulario-usuario input[type="tel"],
+.formulario-usuario textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -54,8 +53,8 @@ body, h1, h2, h3,h4, h6, p {
   border-radius: 15px;
 }
 
-.user-form button[type="submit"],
-.user-form .btn-primary {
+.formulario-usuario button[type="submit"],
+.formulario-usuario .btn-primary {
   background-color: #007bff;
   color: #fff;
   border: none;
@@ -64,18 +63,18 @@ body, h1, h2, h3,h4, h6, p {
   cursor: pointer;
 }
 
-.user-form .btn-primary input[type="file"] {
+.formulario-usuario .btn-primary input[type="file"] {
   display: none;
 }
 
-.image-container {
+.contenedor-imagen {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 10px;
 }
 
-.profile-image {
+.imagen-perfil {
   background-image: url('../../assets/dwayne.jpg');
   background-size: cover;
   background-position: center; 
@@ -88,7 +87,7 @@ body, h1, h2, h3,h4, h6, p {
   margin-bottom: 10px;
 }
 
-.add-pet-form {
+.formulario-agregar-mascota {
   margin: 20px auto;
   padding: 20px;
   background-image: url('../../assets/fondito.png');
@@ -98,13 +97,13 @@ body, h1, h2, h3,h4, h6, p {
   z-index: 1;
 }
 
-.add-pet-form label {
+.formulario-agregar-mascota label {
   font-weight: bold;
 }
 
-.add-pet-form input[type="text"],
-.add-pet-form input[type="number"],
-.add-pet-form textarea {
+.formulario-agregar-mascota input[type="text"],
+.formulario-agregar-mascota input[type="number"],
+.formulario-agregar-mascota textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -112,11 +111,11 @@ body, h1, h2, h3,h4, h6, p {
   border-radius: 5px;
 }
 
-.add-pet-form button[type="submit"]:hover {
+.formulario-agregar-mascota button[type="submit"]:hover {
   background-color: #0056b3;
 }
 
-.add-pet-form .btn-cancel {
+.formulario-agregar-mascota .btn-cancelar {
   background-color: #dc3545;
   color: #fff;
   border: none;
@@ -125,11 +124,11 @@ body, h1, h2, h3,h4, h6, p {
   cursor: pointer;
 }
 
-.add-pet-form .btn-cancel:hover {
+.formulario-agregar-mascota .btn-cancelar:hover {
   background-color: #bd2130;
 }
 
-.add-pet-button {
+.boton-agregar-mascota {
   background-color: #28a745;
   color: #fff;
   border: none;
@@ -141,7 +140,7 @@ body, h1, h2, h3,h4, h6, p {
   margin: 0 auto;
 }
 
-.profile-image-container {
+.contenedor-imagen-perfil {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -156,28 +155,19 @@ body, h1, h2, h3,h4, h6, p {
   margin-top: 20px;
 }
 
-.pet-info-background {
+.fondo-informacion-mascota {
   background-color: #f0f0f0b0;
   padding: 10px;
   border-radius: 5px;
 }
 
-.pet-details {
+.informacion-mascota {
   border: 1px solid #cccccc;
   padding: 10px;
   margin-top: 10px;
 }
 
-.pet-details h4 {
-  margin-top: 0;
-  font-size: 18px;
-}
-
-.pet-details p {
-  margin: 5px 0;
-}
-
-.pet-details-container {
+.contenedor-detalles-mascota {
   background-image: url('../../assets/fondito.png');
   padding: 20px;
   border: 1px solid #ddd;
@@ -185,25 +175,25 @@ body, h1, h2, h3,h4, h6, p {
   margin-top: 20px;
 }
 
-.pet-thumbnail {
+.miniatura-mascota {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
 }
 
-.pet-thumbnail-image {
+.imagen-miniatura-mascota {
   max-width: 200px;
   max-height: 200px;
 }
 
-.gallery-image {
+.imagen-galeria {
   max-width: 150px;
   max-height: 150px;
   margin: 10px;
 }
 
-.button-container {
+.contenedor-botones {
   display: flex;
   justify-content: center;
   align-items: center;
