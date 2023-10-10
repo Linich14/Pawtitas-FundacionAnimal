@@ -3,8 +3,8 @@ import '../components/css/postular.css';
 import NavBar from '../components/navbar.jsx';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import postimg1 from '../assets/postimg1.jpg';
-import postimg2 from '../assets/postimg2.jpg';
+import postimg1 from '../assets/postimg1.webp';
+import postimg2 from '../assets/postimg2.webp';
 
 function Postular(){
   return(

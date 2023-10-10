@@ -3,14 +3,14 @@ import './Home.css';
 
 import NavBar from './components/navbar.jsx';
 import Footer from './components/Footer.jsx';
-import Carousel from './components/react-slick';
-import Bryan_z from './assets/Bryan_z.png'
-import Jorge_s from './assets/Jorge_s.png'
-import Sebastían_m from './assets/Sebastían_m.png'
-import Ignacio_b from './assets/Ignacio_b.png'
-import Agustín_m from './assets/Agustín_m.png'
-import icnon1 from "./assets/icon1.png"
-import icnon2 from "./assets/icon2.png"
+import Carousel from './components/react-flicking';
+import Bryan_z from './assets/Bryan_z.webp'
+import Jorge_s from './assets/Jorge_s.webp'
+import Sebastían_m from './assets/Sebastían_m.webp'
+import Ignacio_b from './assets/Ignacio_b.webp'
+import Agustín_m from './assets/Agustín_m.webp'
+import icnon1 from "./assets/icon1.svg"
+import icnon2 from "./assets/icon2.svg"
 
 
 
@@ -29,22 +29,26 @@ function Home() {
           
         </div>
 
-        <h2>Fundacion Pawtitas</h2>
-
-        <div className="cont">
-            <div className="texto">
-
-            Patitas es una fundación sin fines de lucro que tiene como objetivo principal ayudar a los animales que se encuentran en situación de calle.
+        
+        <h2 className='titulo_sec1hm'>Fundacion Pawtitas</h2>
+        
+        <div className="cont_sec1hm">
+        
+            <div className="texto_sec1hm">
+                <p>  Patitas es una fundación sin fines de lucro que tiene como objetivo principal ayudar a los animales que se encuentran en situación de calle.
             Esta fundación tiene origen en agosto del 2023 al plantear la problemática de que es lo que pasa con aquellos animales que llevan condiciones
-            de vida deplorables y que la mayoría no tienen que comer. Esto se vuelve más grave aún al saber que en una encuesta realizada en el año 2021
+            de vida deplorables y que la mayoría no tienen que comer.  Esto se vuelve más grave aún al saber que en una encuesta realizada en el año 2021
             señala que más del 70% de la población animal vive sin tener un dueño. Esto podría no ser un problema para los animales que viven en su hábitat natural, sin embargo para los animales domésticos como los perros y los gatos, puede poner en riesgo su salud e incluso la de los humanos, debido a que estos animales sin tener otra opción, buscan comida en en lugares insalubres, esto conlleva a que puedan enfermarse y posteriormente pueden llegar a contagiarnos a nosotros.
+</p>
 
+ 
 
             </div>
     
             <div className="carrusel">
-
-            <Carousel/>
+            <h1 id='titulo_carrusel'>Animales rescatados</h1>
+            <br />
+                <Carousel/>
     
             </div>
         </div>
@@ -152,6 +156,4 @@ function Home() {
   );
 }
 
-
 export default Home;
-

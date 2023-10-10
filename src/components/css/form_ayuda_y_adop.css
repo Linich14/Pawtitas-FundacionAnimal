@@ -8,7 +8,7 @@ body {
 /* Estilos para el input con bordes redondeados */
 
 
-.form-section {
+.seccion_formulario {
 background-image: url('/src/assets/fondo1.png'); /* Ruta de la imagen de fondo */
 background-size: cover;
 background-position: center;
@@ -19,7 +19,7 @@ align-items: center;
 }
 
 /* Estilos para el formulario */
-.form-container {
+.cont_formulario {
 background-image: url('/src/assets/fondito.png'); /* Fondo semi-transparente para el formulario */
 padding: 20px;
 border-radius: 20px;
