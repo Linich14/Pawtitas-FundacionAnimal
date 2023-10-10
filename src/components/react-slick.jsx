@@ -32,7 +32,6 @@ const Carousel = () => {
           <img src={perro1} alt="" />
 
           </div>
-          
             <p>adoptado el 1 de septiembre </p>
        
           </div>
