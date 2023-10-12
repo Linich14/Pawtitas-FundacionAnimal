@@ -9,11 +9,11 @@ function Navbar() {
   
   const [isLoggedIn, setLoggedIn] = useState(false);//setLoggeIn se usa para cambiar el estado
   //Funcion para Iniciar sesion
-  const handleLogin = () => {
+  const manejoIniciarSesion = () => {
     setLoggedIn(true);
   };
   //Funcion para Cerrar sesion
-  const handleLogout = () => {
+  const manejoCerrarSesion = () => {
     setLoggedIn(false);
   };
 
@@ -67,7 +67,7 @@ function Navbar() {
                   <UserMenu>
                     <ul>
                       <li><Link to='/user'>Mi Perfil</Link></li>
-                      <li onClick={handleLogout}><button>Cerrar Sesión</button></li>
+                      <li onClick={manejoCerrarSesion}><button>Cerrar Sesión</button></li>
                     </ul>
                   </UserMenu>
                 )}

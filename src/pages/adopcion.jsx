@@ -124,36 +124,36 @@ const dataPerros = [
 
 function Adopcion() {
   // Guarda lo que el usuario escribe
-  const [searchTerm, setSearchTerm] = useState("");
+  const [terminoBusqueda, setTerminoBusqueda] = useState("");
   // Estado que rastrea la pagina que se esta mostrando
-  const [currentPage, setCurrentPage] = useState(0);
+  const [paginaActual, setPaginaActual] = useState(0);
 
   const perrosPorPagina = 2;
 
   // Funcion que rastrea lo que el usuario escribe y lo actualiza
-  const handleSearchChange = (event) => {
-    setSearchTerm(event.target.value);
-    setCurrentPage(0); // Reiniciar la página
+  const manejoCambioBusqueda = (event) => {
+    setTerminoBusqueda(event.target.value);
+    setPaginaActual(0); // Reiniciar la página
   };
 
   // funcion que crea un array con los parametros de busqueda
-  const filteredPerros = dataPerros.filter((perro) =>
-    perro.Nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    perro.Genero.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    perro.Edad.toLowerCase().includes(searchTerm.toLowerCase()),
+  const filtroDePerros = dataPerros.filter((perro) =>
+    perro.Nombre.toLowerCase().includes(terminoBusqueda.toLowerCase()) ||
+    perro.Genero.toLowerCase().includes(terminoBusqueda.toLowerCase()) ||
+    perro.Edad.toLowerCase().includes(terminoBusqueda.toLowerCase()),
   );
 
-  // Calcula el índice de inicio a mostrar en la página actual.
-  const startIndex = currentPage * perrosPorPagina;
+  // Calcula el índice de inicio a mostrar en la página actual. "react-paginate"
+  const startIndex = paginaActual * perrosPorPagina;
   // Calcula el índice final a mostrar en la página actual.
   const endIndex = startIndex + perrosPorPagina;
   // Toma solo en cuenta el array creado con filterredPerros
-  const perrosEnPagina = filteredPerros.slice(startIndex, endIndex);
+  const perrosEnPagina = filtroDePerros.slice(startIndex, endIndex);
 
   // Funcion que maneja el cambio de pagina
   const handlePageChange = ({ selected }) => {
-    // Actualiza el estado currentPage con el numero seleccionado 
-    setCurrentPage(selected);
+    // Actualiza el estado paginaActual con el numero seleccionado 
+    setPaginaActual(selected);
   };
 
   return (
@@ -169,8 +169,8 @@ function Adopcion() {
               size="30"
               spellCheck='true'
               required
-              value={searchTerm}
-              onChange={handleSearchChange}
+              value={terminoBusqueda}
+              onChange={manejoCambioBusqueda}
             ></input>
 
           </form>
@@ -184,9 +184,8 @@ function Adopcion() {
                 key={perro.id} key es de react y sirve para renderizar elementos unicos en este caso ID
                 perros={perro} perros, es el parametro que le dimos a la TarjetaPerro con el que solicitamos el prop/info
 
-                RESUMEN: revisa cuantos perros en pagina hay segun el filteredPerros (Sin filtro renderiza normal) y para cada 
+                RESUMEN: revisa cuantos perros en pagina hay segun el filtroDePerros (Sin filtro renderiza normal) y para cada 
                 perro mostrado crea su  TarjetaPerro
-              BORRAR ESTA PARTE PARA PRESENTAR
             */}
           
           <PaginationCss
@@ -225,10 +224,6 @@ const AdopcionCss = styled.main`
     max-width: 1100px;
   }
 
-  .atrasadop{
-    background-color:red;
-    height: ;
-  }
   .buscador {
     display: flex;
     justify-content: end;
