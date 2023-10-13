@@ -3,12 +3,15 @@ import { Button, Form } from "react-bootstrap";
 import "../components/css/UserProfile.css";
 
 function EditarMisMascotas({ mascotaSeleccionada, manejarEditarMascota }) {
+  // Estado para almacenar los datos de la mascota editada
   const [datosMascotaEditados, setDatosMascotaEditados] = useState({});
 
+  // Efecto para actualizar los datos de la mascota editada cuando cambia la mascota seleccionada
   useEffect(() => {
     setDatosMascotaEditados(mascotaSeleccionada);
   }, [mascotaSeleccionada]);
 
+  // Función para manejar los cambios en la mascota editada
   const manejarCambioMascotaEditada = (evento) => {
     const { name, value } = evento.target;
     setDatosMascotaEditados((datosAnteriores) => ({
@@ -17,12 +20,16 @@ function EditarMisMascotas({ mascotaSeleccionada, manejarEditarMascota }) {
     }));
   };
 
+  // Función para guardar la mascota editada
   const guardarMascotaEditada = () => {
+    // Verifica si el índice de la mascota seleccionada no es nulo y si hay datos de la mascota editada
     if (mascotaSeleccionada.index !== null && datosMascotaEditados) {
+      // Llama a la función de manejarEditarMascota con el índice de la mascota y los datos editados
       manejarEditarMascota(mascotaSeleccionada.index, datosMascotaEditados);
     }
   };
 
+  // Renderiza el formulario para editar una mascota con campos de entrada y un botón para guardar los cambios
   return (
     <div className="formulario-editar-mascota">
       <h4>Editar Mascota</h4>
@@ -81,6 +88,7 @@ function EditarMisMascotas({ mascotaSeleccionada, manejarEditarMascota }) {
             onChange={manejarCambioMascotaEditada}
           />
         </Form.Group>
+        {/* Botón para guardar los cambios en la mascota */}
         <Button variant="success" onClick={guardarMascotaEditada}>
           Guardar
         </Button>
@@ -89,4 +97,5 @@ function EditarMisMascotas({ mascotaSeleccionada, manejarEditarMascota }) {
   );
 }
 
+// Exporta el componente EditarMisMascotas
 export default EditarMisMascotas;

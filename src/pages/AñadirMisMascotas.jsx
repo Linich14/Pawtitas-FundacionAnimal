@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import "../components/css/UserProfile.css";
 
 function AñadirMisMascotas({ agregarMascota, onCancel }) {
+  // Estado para almacenar los datos de la nueva mascota
   const [nuevaMascota, setNuevaMascota] = useState({
     nombre: "",
     raza: "",
@@ -12,8 +13,11 @@ function AñadirMisMascotas({ agregarMascota, onCancel }) {
     peso: "",
   });
 
+  // Función para manejar la adición de una nueva mascota
   const manejarAgregarMascota = () => {
-    if (nuevaMascota.nombre && nuevaMascota.raza && nuevaMascota.género) {
+    // Verifica si todos los campos están completos antes de agregar la mascota
+    if (nuevaMascota.nombre && nuevaMascota.raza && nuevaMascota.género && nuevaMascota.edad && nuevaMascota.peso && nuevaMascota.historia) {
+      // Llama a la función de agregarMascota y reinicia el estado de nuevaMascota
       agregarMascota(nuevaMascota);
       setNuevaMascota({
         nombre: "",
@@ -24,11 +28,12 @@ function AñadirMisMascotas({ agregarMascota, onCancel }) {
         peso: "",
       });
     } else {
-      
+      // Muestra una alerta si no todos los campos están completos
       alert("Por favor, complete todos los campos.");
     }
   };
 
+  // Renderiza el formulario para agregar una nueva mascota con campos de entrada y botones de acción
   return (
     <div className="formulario-agregar-mascota">
       <h4>Agregar Nueva Mascota</h4>
@@ -71,9 +76,11 @@ function AñadirMisMascotas({ agregarMascota, onCancel }) {
         value={nuevaMascota.peso}
         onChange={(e) => setNuevaMascota({ ...nuevaMascota, peso: e.target.value })}
       />
+      {/* Botón para cancelar la operación */}
       <Button variant="danger" onClick={onCancel}>
         Cancelar
       </Button>
+      {/* Botón para agregar la nueva mascota */}
       <Button variant="success" onClick={manejarAgregarMascota}>
         Agregar Mascota
       </Button>
@@ -81,4 +88,5 @@ function AñadirMisMascotas({ agregarMascota, onCancel }) {
   );
 }
 
+// Exporta el componente AñadirMisMascotas
 export default AñadirMisMascotas;

@@ -86,7 +86,7 @@ body, h1, h2, h3, h4, h6, p {
   border: 3px solid #000000;
   margin-bottom: 10px;
 }
-
+/*--------------------------------------------------------------------  */
 .formulario-agregar-mascota {
   margin: 20px auto;
   padding: 20px;
@@ -138,6 +138,7 @@ body, h1, h2, h3, h4, h6, p {
   padding: 0.5rem 1rem;
   width: 200px;
   margin: 0 auto;
+  margin-top: 10px ;
 }
 
 .contenedor-imagen-perfil {
@@ -185,6 +186,7 @@ body, h1, h2, h3, h4, h6, p {
 .imagen-miniatura-mascota {
   max-width: 200px;
   max-height: 200px;
+  border-radius: 10px;
 }
 
 .imagen-galeria {
@@ -198,4 +200,66 @@ body, h1, h2, h3, h4, h6, p {
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+}
+.contenedor-mascotas {
+  display: flex;
+  justify-content: center;
+}
+
+.miniatura-mascota {
+  flex-direction: column;
+}
+
+.boton-ver-detalles {
+  margin-top: 10px;
+  align-self: center;
+}
+
+.miniatura-mascota {
+  margin-top: 20px;
+  margin: 20px;
+}
+
+.contenedor-detalles-mascota {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.contenedor-detalles-mascota {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.informacion-mascota {
+  margin-top: 10px;
+}
+
+.contenedor-botones {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.contenedor-botones-direcciones {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+.boton-mis-mascotas {
+  display: inline-block;
+  margin: 5px;
+}
+
+.boton-historial-solicitudes {
+  display: inline-block;
+  margin: 5px;
+}
+
+.boton-solicitudes-activas {
+  display: inline-block;
+  margin: 5px;
 }

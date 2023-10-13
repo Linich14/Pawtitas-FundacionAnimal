@@ -1,9 +1,11 @@
+import React from "react";
+//componentes con los datos del usuario y las mascotas.
 const usuario = {
   nombre: "Juan Pérez",
   rut: "12345678-9",
   correoElectronico: "juan@example.com",
   númeroDeTeléfono: "+56987654321",
-  foto: "",
+  foto: "/public/assets/dwayne.jpg",
   biografía: "Soy un amante de los animales",
   mascotas: [
     {
@@ -12,7 +14,7 @@ const usuario = {
       genero: "Macho",
       historia: "Historia de la mascota 1",
       imágenes: [
-        "/mascota1.jpg",
+        "/src/assets/mascota1.jpg",
       ],
       edad: 2,
       peso: "5 kg",
@@ -23,7 +25,7 @@ const usuario = {
       genero: "Hembra",
       historia: "Historia de la mascota 2",
       imágenes: [
-        "/mascota2.jpg",
+        "/src/assets/mascota2.jpg",
       ],
       edad: 3,
       peso: "4 kg",
