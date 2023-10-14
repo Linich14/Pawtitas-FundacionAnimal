@@ -7,20 +7,20 @@ problemas o errores asociados si los encuntra para mostrarlos en el frontend
 
 */
 
-function Validar(rut,contraseña){
+function Validar(email,contraseña){
     let error = {}
-    const validarrut =  /^[0-9]+-[0-9kK]{1}$/;
-    const validarcontraseña =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/; 
-    
 
-    if(rut === ""){
-        error.rut = "El rut esta Vacio..."
+    const validarcontraseña =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/; 
+    const validaremail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+    if(email === ""){
+        error.email = "El Email esta Vacio..."
     }
-    else if(!validarrut.test(rut)){
-        error.rut = "El rut ingresado no es valido..."
+    else if(!validaremail.test(email)){
+        error.email = "El Email ingresado no es valido..."
     }else{
-        error.rut = ""
-    }
+        error.email = ""
+    }   
 
     if(contraseña === ""){
         error.contraseña = "No ha ingresado contraseña..."

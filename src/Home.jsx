@@ -18,12 +18,14 @@ import icnon2 from "./assets/icon2.svg"
 
 
 function Home() {
+
+    
   return (
     <div className="App">
       <NavBar />
           <div>
              
-          <section id="seccion1hm" class="seccionhm" >
+          <section id="seccion1hm" className="seccionhm" >
          
         <div className="fondohm img1hm">
           
@@ -60,7 +62,7 @@ function Home() {
 
 
 
-    <section id="seccion2hm" class="seccionhm">
+    <section id="seccion2hm" className="seccionhm">
      
         <h2>Como Ayudar </h2>
 
@@ -89,7 +91,7 @@ function Home() {
 
 
 
-    <section id="seccion3hm" class="seccionhm">
+    <section id="seccion3hm" className="seccionhm">
 
         
 
@@ -97,39 +99,39 @@ function Home() {
 
         <h1>Nuestro equipo</h1>
 
-        <div class="cardhmshm">
+        <div className="cardhmshm">
 
-            <div class="cardhm">
-                <div class="textos"> 
+            <div className="cardhm">
+                <div className="textos"> 
                     <img src={Bryan_z} className='imgc' alt=""/>
                     <p>Bryan Zapata</p>
                 </div>
             </div>    
             
             
-            <div class="cardhm">
-                <div class="textos">
+            <div className="cardhm">
+                <div className="textos">
                     <img src={Jorge_s} className='imgc' alt=""/>
                     <p>Jorge Soto</p>
                 </div>
             </div>   
     
-            <div class="cardhm">
-                <div class="textos">
+            <div className="cardhm">
+                <div className="textos">
                     <img src={Sebastían_m} className='imgc' alt=""/>
                     <p>Sebastián Muñoz</p>
                 </div>
             </div>   
     
-            <div class="cardhm">
-                <div class="textos">
+            <div className="cardhm">
+                <div className="textos">
                     <img src={Ignacio_b} className='imgc' alt=""/>
                     <p>Ignacio Bustos</p>
                 </div>
             </div>
     
-            <div class="cardhm">
-                <div class="textos">
+            <div className="cardhm">
+                <div className="textos">
                     <img src={Agustín_m} className='imgc' alt=""/>
                     <p>Agustín Monsalve</p>
                 </div>

@@ -4,17 +4,19 @@ import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
 import Dwayne from "../assets/dwayne.jpg";
+import { UserAuth } from "./Autenticacion";
 
 function Navbar() {
-  
+  const { user, CerrarSesion} = UserAuth();
   const [isLoggedIn, setLoggedIn] = useState(false);//setLoggeIn se usa para cambiar el estado
   //Funcion para Iniciar sesion
   const manejoIniciarSesion = () => {
     setLoggedIn(true);
   };
   //Funcion para Cerrar sesion
-  const manejoCerrarSesion = () => {
+  const manejoCerrarSesion = async () => {
     setLoggedIn(false);
+    CerrarSesion(); //aqui llame al cerrar sesion que esta en el navbar
   };
 
 
@@ -54,7 +56,7 @@ function Navbar() {
             <Link to="/Donar">
               Donar
             </Link>
-
+            <button onClick={manejoCerrarSesion}>Hola!{user && user.email}</button>
           <div className="UserRL" onClick={toggleMenu}>
             {isLoggedIn ? (
               // Usuario Logeado
