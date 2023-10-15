@@ -27,6 +27,14 @@ text-align: center;
 width: 450px;
 }
 
+.cont_formularioadop{
+    background-image: url('/src/assets/fondito.png'); /* Fondo semi-transparente para el formulario */
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    width: 450px;
+}
+
 
 input {
 border-radius: 10px; /* Ajusta el valor según el grado de redondez que desees */

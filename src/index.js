@@ -6,12 +6,13 @@ import user from './pages/user';
 import UserProfile from './pages/UserProfile'; 
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
+import Postular from './pages/postular'
 import Galeria from './pages/galeria';
 import FAQ from './pages/preguntasFrec';
 import Adopcion from './pages/adopcion'
 import RecuperarPassword from './pages/subpages/RecuperarPassword';
 import Donar from './pages/Donar'
-import Postular from './pages/postular'
+import Donar_Fundacion from './pages/Donar_Fundacion'
 import Adopform from './pages/form_adop'
 import FormularioAyuda from './pages/form_ayuda'
 import { Autentificador } from './components/Autenticacion';
@@ -55,6 +56,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         <Route path='/Ayuda' element={<Postular/>}/>
         <Route path='/Form_adop' element={<Adopform/>}/>
         <Route path='/Form_ayuda' element={<FormularioAyuda/>}/>
+        <Route path='/Donar_Fundacion' element={<Donar_Fundacion/>}/>
 
       </Routes>
       </Autentificador>

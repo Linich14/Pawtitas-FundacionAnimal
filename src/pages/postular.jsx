@@ -15,7 +15,7 @@ function Postular(){
           <div className="image-button">
             
 
-            <Link to="/Form_ayuda">
+            <Link to="/Form_adop ">
             <img src={postimg1} alt="Imagen de fondo"/>
             <div className="button-text">Dar mascota en adopción</div>
             
@@ -25,9 +25,9 @@ function Postular(){
 
 
 
-          
+          {/* Donar_Fundacion */}
           <div className="image-button">
-          <Link to="/Form_adop">
+          <Link to="/Form_ayuda">
               <img src={postimg2} alt="Imagen de fondo"/>
               <div className="button-text">Ayudar a un animal cercano</div>
               </Link>

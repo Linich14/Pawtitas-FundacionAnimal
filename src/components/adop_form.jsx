@@ -1,15 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {collection, addDoc} from "firebase/firestore";
+import { db } from '../firebase';
 
 class AdoptionForm extends Component {
+  
+  
   constructor(props) {
     super(props);
     // Inicialización del estado del componente con valores predeterminados
     this.state = {
-      name: '',
-      email: '',
-      tipomascota: 'Perro',
-      message: '',
+      animal_datos: '',
+      Animal_Edad: '',
+      Animal_estado_salud: '',
+      Animal_Nombre: '',        
+      Animal_Raza: '',
+      Animal_sexo: '',
+      Animal_tipo: '',
+      Animal_Imagen: '',
+
+
+
     };
   }
 
@@ -24,14 +35,26 @@ class AdoptionForm extends Component {
   manejoenvio = (e) => {
     e.preventDefault();//evita que la pagina se actualice 
     // Registro de los datos del formulario en la consola
+
+    
+    const datos = collection(db,"Animales");
+    addDoc(datos,this.state)
     console.log('Datos del formulario:', this.state);
+
 
     // Restablecimiento de los campos del formulario a sus valores predeterminados
     this.setState({
-      name: '',        // Restablece el campo de nombre a una cadena vacía
-      email: '',       // Restablece el campo de correo electrónico a una cadena vacía
-      tipomascota: 'Perro', // Restablece el campo de tipo de mascota a 'Perro'
-      message: '',     // Restablece el campo de mensaje adicional a una cadena vacía
+
+
+      animal_datos: '',
+      Animal_Edad: '',
+      Animal_estado_salud: '',
+      Animal_Nombre: '',        
+      Animal_Raza: '',
+      Animal_sexo: '',
+      Animal_tipo: '',
+      Animal_Nombre: '',
+      Animal_Imagen: '',
 
     });
   }
@@ -39,40 +62,89 @@ class AdoptionForm extends Component {
   render() {
     return (
       <section className="seccion_formulario">
-        <div className="cont_formulario">
+        <div className="cont_formularioadop">
           <h2>Formulario de Adopción</h2>
-          <br />
-          <br />
+
           <form onSubmit={this.manejoenvio}>
             <div>
-              <label>Nombre:</label>
+            <label>Edad:</label>
+
               <input
                 type="text"
-                name="name"
-                value={this.state.name}
+                name="Animal_Edad"
+                value={this.state.Animal_Edad}
                 onChange={this.actualizar}
                 required
               />
-            </div>
             <br />
-            <br />
-            <div>
-              <label>Correo Electrónico:</label>
+
+
+
+            <label>Estado de salud:</label>  
               <input
-                type="email"
-                name="email"
-                value={this.state.email}
+                type="text"
+                name="Animal_estado_salud"
+                value={this.state.Animal_estado_salud}
+                onChange={this.actualizar}
+                required
+              />
+
+            <br />
+
+            <label htmlFor="imagen">Subir Imagen:</label>
+            <input 
+            type="file" 
+            id="imagen" 
+            name="Animal_Imagen" 
+            accept="image/*" 
+            value={this.state.Animal_Imagen}
+            onChange={this.actualizar}
+            required
+            
+            />
+            <br />
+            <label>Nombre:</label>  
+              <input
+                type="text"
+                name="Animal_Nombre"
+                value={this.state.Animal_Nombre}
                 onChange={this.actualizar}
                 required
               />
             </div>
             <br />
-            <br />
+
+
+            <div>
+            <label>sexo:</label>
+              <select
+                name="Animal_sexo"
+                value={this.state.Animal_sexo}
+                onChange={this.actualizar}
+              >
+                <option value="Perro">Macho</option>
+                <option value="Gato">Hembra</option>
+
+              </select>
+            </div>
+            <div>
+              <label>Raza:</label>
+
+              <input
+                type="text"
+                name="Animal_Raza"
+                value={this.state.Animal_Raza}
+                onChange={this.actualizar}
+                required
+              />
+            </div>
+
+
             <div>
               <label>Tipo de Mascota:</label>
               <select
-                name="tipomascota"
-                value={this.state.tipomascota}
+                name="Animal_tipo"
+                value={this.state.Animal_tipo}
                 onChange={this.actualizar}
               >
                 <option value="Perro">Perro</option>
@@ -80,13 +152,14 @@ class AdoptionForm extends Component {
                 <option value="Otro">Otro</option>
               </select>
             </div>
-            <br />
+
             <br />
             <div>
-              <label>Mensaje Adicional:</label>
+              <label>Datos de Animal</label>
+
               <textarea
-                name="message"
-                value={this.state.message}
+                name="animal_datos"
+                value={this.state.animal_datos}
                 onChange={this.actualizar}
               />
             </div>
