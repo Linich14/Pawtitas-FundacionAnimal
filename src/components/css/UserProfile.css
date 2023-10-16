@@ -15,14 +15,6 @@ body, h1, h2, h3, h4, h6, p {
   align-items: flex-start;
 }
 
-.avatar-usuario {
-  flex: 0 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 .perfil-usuario {
   flex: 1 1 auto;
   padding-left: 20px;
@@ -139,6 +131,7 @@ body, h1, h2, h3, h4, h6, p {
   width: 200px;
   margin: 0 auto;
   margin-top: 10px ;
+  align-items: center;
 }
 
 .contenedor-imagen-perfil {
@@ -151,6 +144,7 @@ body, h1, h2, h3, h4, h6, p {
 .titulos {
   text-align: center;
   font-family: Arial Black;
+  color: white;
   font-weight: bold;
   font-size: 30px;
   margin-top: 20px;
@@ -262,4 +256,30 @@ body, h1, h2, h3, h4, h6, p {
 .boton-solicitudes-activas {
   display: inline-block;
   margin: 5px;
+}
+/* --------------------para abajo armazon pagina----------------------------------*/
+/* En tu archivo CSS */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: #f8f9fa;
+  padding: 20px;
+  text-align: center;
 }

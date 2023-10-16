@@ -1,12 +1,7 @@
-import React from "react";
-//componentes con los datos del usuario y las mascotas.
+
+//anteriormente era el componente de usuario pero ya no es estatico por lo que se mantiene dentro del codigo userprofile
+// se mantiene mascotas momentaneamente
 const usuario = {
-  nombre: "Juan Pérez",
-  rut: "12345678-9",
-  correoElectronico: "juan@example.com",
-  númeroDeTeléfono: "+56987654321",
-  foto: "/public/assets/dwayne.jpg",
-  biografía: "Soy un amante de los animales",
   mascotas: [
     {
       nombre: "Mascota 1",

@@ -91,12 +91,23 @@ function MisMascotas() {
       </div>
       {/* Botón para agregar nueva mascota */}
       <Button
-        variant="info"
-        className="boton-agregar-mascota"
-        onClick={() => setMostrarFormularioAgregarMascota(!mostrarFormularioAgregarMascota)}
-      >
-        Agregar Mascota
-      </Button>
+  variant="info"
+  style={{
+    backgroundColor: "#28a745",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+    display: "block",
+    padding: "0.5rem 1rem",
+    width: "fit-content",
+    margin: "0 auto",
+    marginTop: "10px"
+  }}
+  onClick={() => setMostrarFormularioAgregarMascota(!mostrarFormularioAgregarMascota)}
+>
+  Agregar Mascota
+</Button>
       {/* Sección para mostrar detalles, botones de acción y galería de imágenes de la mascota seleccionada */}
       {mascotaSeleccionada && (
         <div className="contenedor-detalles-mascota">
