@@ -26,7 +26,7 @@ function Validar(email,contraseña){
         error.contraseña = "No ha ingresado contraseña..."
     }
     else if(!validarcontraseña.test(contraseña)){
-        error.contraseña = "Contraseña Incorrecta"
+        error.contraseña = "Formato de contraseña incorrecto"
     }else{
         error.contraseña = ""
     }

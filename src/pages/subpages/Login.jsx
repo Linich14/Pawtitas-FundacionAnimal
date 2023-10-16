@@ -5,9 +5,11 @@ import {Link , useNavigate} from 'react-router-dom'
 import Validar from './ValidarLogin'
 import { UserAuth } from '../../components/Autenticacion'
 
+
+
 //Funcion para el Frontend del Login
 function Login() {
-    const navigate = useNavigate(); //Iniciamos una instancia de UseNavigate para redireccionar a otra pagina
+
     //creamos variables con useState para tener una funcion que actualice sus valores
     const [Email, setEmail] = useState('') 
     const [Contraseña, setContraseña ] = useState('')
@@ -17,9 +19,14 @@ function Login() {
     const ManejoSubmit = async (event) => {
         event.preventDefault(); // para que no reciba campos vacios
         setErrors(Validar(Email,Contraseña)); //Mandamos los valores a la funcion validadora de datos
-        await IniciarSesion(Email, Contraseña)//iniciamos sesion
-        navigate('/Perfil')
-      
+        if(errors.email === "" && errors.contraseña === ""){
+                await IniciarSesion(Email, Contraseña)
+                
+
+            
+            
+        }
+        
         
 
     }

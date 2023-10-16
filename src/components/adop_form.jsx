@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {collection, addDoc} from "firebase/firestore";
+import {collection, addDoc} from "@firebase/firestore";
 import { db } from '../firebase';
 
 class AdoptionForm extends Component {

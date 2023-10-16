@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import {  createUserWithEmailAndPassword,  signInWithEmailAndPassword,  signOut,  onAuthStateChanged,} from '@firebase/auth';
+import {  createUserWithEmailAndPassword,  signInWithEmailAndPassword,  signOut,  onAuthStateChanged,sendPasswordResetEmail} from '@firebase/auth';
 import { auth,db } from '../firebase';
 import {  doc, setDoc } from "@firebase/firestore";
 import {useNavigate} from 'react-router-dom'
@@ -25,11 +25,20 @@ export const Autentificador = ({ children }) => {
     /*Funcion que maneja la inicio de usuario */
    const IniciarSesion = (email, password) =>  {
     //inicia sesion con la funcion de firebase pasandole el auth y las variables
-    signInWithEmailAndPassword(auth, email, password)
-    alert("Has Iniciado Sesion.")
-    navigate('/Perfil') //Una ves hecho el login nos redirige al home
-    
-    
+      signInWithEmailAndPassword(auth, email, password)
+      .then(
+        async(result)=>{
+            alert("Bienvenido: ", email)
+            navigate('/')
+        }
+        
+      ).catch(
+        (err)=>{
+          alert("Correo o Contraseña Incorrecta")
+        }
+      )
+
+
     
    }
 
@@ -38,6 +47,16 @@ export const Autentificador = ({ children }) => {
      //cierra sesion con la funcion de firebase pasandole el auth
       return signOut(auth)
   }
+
+  const ReiniciarContraseña = (email)=>{
+
+    sendPasswordResetEmail(auth,email).then((result)=>{
+        alert("Revisa tu Bandeja de Entrada en el Correo asociado")
+    }).catch((err)=>{
+        alert("Ha ocurrido un error")
+    })
+}
+
 
   //me falta comentar esta
   useEffect(() => {
@@ -55,7 +74,7 @@ export const Autentificador = ({ children }) => {
   e iniciar sesion o cerrar sesion
   */
   return (
-    <AutentificadorUsuario.Provider value={{ crearUsuario, user, CerrarSesion, IniciarSesion }}>
+    <AutentificadorUsuario.Provider value={{ crearUsuario, user, CerrarSesion, IniciarSesion, ReiniciarContraseña }}>
       {children}
     </AutentificadorUsuario.Provider>
   );
