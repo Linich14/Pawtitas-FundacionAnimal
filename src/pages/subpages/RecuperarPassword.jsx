@@ -5,14 +5,15 @@ import { UserAuth } from '../../components/Autenticacion'
 import Validar from './ValidarLogin'
 
 function RecuperarPassword() {
-  
+  //creamos variables y sus funciones que la actualizaran
   const [Email, setEmail] = useState('') 
-  const [errors, setErrors] = useState({})
-  const { ReiniciarContraseña } = UserAuth();
+  const [errors, setErrors] = useState({})//{} para que reciba mas de un parametro errors{error1,error2}
+  const { ReiniciarContraseña } = UserAuth(); //llamamos una instancia de reiniciarcontraseña desde UserAuth
   const ManejoSubmit = async (event) => {
     event.preventDefault(); // para que no reciba campos vacios
     setErrors(Validar(Email)); //Mandamos los valores a la funcion validadora de datos
     if(errors.email === ""){
+          //si no hay errores...
             await ReiniciarContraseña(Email)
             
     }

@@ -79,8 +79,10 @@ export const Autentificador = ({ children }) => {
     };
   }, []);
   
+  /*Funcion que maneja el reset de contraseña de usuario */
 const ReiniciarContraseña = (email)=>{
 
+    
     sendPasswordResetEmail(auth,email).then((result)=>{
         alert("Revisa tu Bandeja de Entrada en el Correo asociado")
     }).catch((err)=>{

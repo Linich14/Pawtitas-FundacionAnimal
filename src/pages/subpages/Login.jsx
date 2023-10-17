@@ -14,12 +14,13 @@ function Login() {
     const [Email, setEmail] = useState('') 
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
-    const { IniciarSesion } = UserAuth();
+    const { IniciarSesion } = UserAuth();//llamamos una instancia de iniciarsesion desde UserAuth
     //Funcion que maneja el evento Submit una ves pulsado el boton login
     const ManejoSubmit = async (event) => {
         event.preventDefault(); // para que no reciba campos vacios
         setErrors(Validar(Email,Contraseña)); //Mandamos los valores a la funcion validadora de datos
         if(errors.email === "" && errors.contraseña === ""){
+                //si no hay errores
                 await IniciarSesion(Email, Contraseña)
                 
 

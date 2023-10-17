@@ -15,6 +15,8 @@ function Register() {
     const [Apellidos, setApellidos] = useState('')
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
+
+    //llamamos una instancia de crearusuario desde UserAuth
     const { crearUsuario } = UserAuth();
       
     
