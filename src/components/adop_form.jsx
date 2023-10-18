@@ -10,13 +10,13 @@ class AdoptionForm extends Component {
     super(props);
     // Inicialización del estado del componente con valores predeterminados
     this.state = {
-      animal_datos: '',
+      Animal_Datos: '',
       Animal_Edad: '',
-      Animal_estado_salud: '',
+      Animal_Estado_Salud: '',
       Animal_Nombre: '',        
       Animal_Raza: '',
-      Animal_sexo: '',
-      Animal_tipo: '',
+      Animal_Sexo: '',
+      Animal_Tipo: '',
       Animal_Imagen: '',
 
 
@@ -37,8 +37,8 @@ class AdoptionForm extends Component {
     // Registro de los datos del formulario en la consola
 
     
-    const datos = collection(db,"Animales");
-    addDoc(datos,this.state)
+     const datos = collection(db,"Animales");
+    addDoc(datos,this.state) 
     console.log('Datos del formulario:', this.state);
 
 
@@ -46,13 +46,13 @@ class AdoptionForm extends Component {
     this.setState({
 
 
-      animal_datos: '',
+      Animal_Datos: '',
       Animal_Edad: '',
-      Animal_estado_salud: '',
+      Animal_Estado_Salud: '',
       Animal_Nombre: '',        
       Animal_Raza: '',
-      Animal_sexo: '',
-      Animal_tipo: '',
+      Animal_Sexo: '',
+      Animal_Tipo: '',
       Animal_Nombre: '',
       Animal_Imagen: '',
 
@@ -67,10 +67,10 @@ class AdoptionForm extends Component {
 
           <form onSubmit={this.manejoenvio}>
             <div>
-            <label>Edad:</label>
+            <label>Edad(años):</label>
 
               <input
-                type="text"
+                type="number"
                 name="Animal_Edad"
                 value={this.state.Animal_Edad}
                 onChange={this.actualizar}
@@ -83,8 +83,8 @@ class AdoptionForm extends Component {
             <label>Estado de salud:</label>  
               <input
                 type="text"
-                name="Animal_estado_salud"
-                value={this.state.Animal_estado_salud}
+                name="Animal_Estado_Salud"
+                value={this.state.Animal_Estado_Salud}
                 onChange={this.actualizar}
                 required
               />
@@ -118,15 +118,21 @@ class AdoptionForm extends Component {
             <div>
             <label>sexo:</label>
               <select
-                name="Animal_sexo"
-                value={this.state.Animal_sexo}
+                name="Animal_Sexo"
+                value={this.state.Animal_Sexo}
                 onChange={this.actualizar}
-              >
-                <option value="Perro">Macho</option>
-                <option value="Gato">Hembra</option>
+                required
+              > 
+                <option value="">...</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
 
               </select>
+
+
             </div>
+
+
             <div>
               <label>Raza:</label>
 
@@ -143,23 +149,26 @@ class AdoptionForm extends Component {
             <div>
               <label>Tipo de Mascota:</label>
               <select
-                name="Animal_tipo"
-                value={this.state.Animal_tipo}
+                name="Animal_Tipo"
+                value={this.state.Animal_Tipo}
                 onChange={this.actualizar}
               >
+                <option value="">...</option>
+
                 <option value="Perro">Perro</option>
                 <option value="Gato">Gato</option>
                 <option value="Otro">Otro</option>
               </select>
             </div>
 
+
             <br />
             <div>
               <label>Datos de Animal</label>
 
               <textarea
-                name="animal_datos"
-                value={this.state.animal_datos}
+                name="Animal_Datos"
+                value={this.state.Animal_Datos}
                 onChange={this.actualizar}
               />
             </div>

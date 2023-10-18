@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-
+import DatosDonacion from './components/datos_donaciones'
 import NavBar from './components/navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Carousel from './components/react-flicking';
@@ -11,7 +11,7 @@ import Ignacio_b from './assets/Ignacio_b.webp'
 import Agustín_m from './assets/Agustín_m.webp'
 import icnon1 from "./assets/icon1.svg"
 import icnon2 from "./assets/icon2.svg"
-
+import separador from "./assets/separador.png"
 
 
 
@@ -64,8 +64,9 @@ function Home() {
 
     <section id="seccion2hm" className="seccionhm">
      
-        <h2>Como Ayudar </h2>
-
+        <h2 className='titulo_sec2hm'>Como Ayudar </h2>
+        <p className='parrafo_sc4hm'>        
+</p>
 
         <div className="opciones">
 
@@ -87,57 +88,80 @@ function Home() {
         </div>
             
     </section>
+    <div className="separador"><img src={separador} alt="" /></div>
 
-
-
-
-    <section id="seccion3hm" className="seccionhm">
-
-        
-
-
-
-        <h1>Nuestro equipo</h1>
-
-        <div className="cardhmshm">
-
-            <div className="cardhm">
-                <div className="textos"> 
-                    <img src={Bryan_z} className='imgc' alt=""/>
-                    <p>Bryan Zapata</p>
+    <section  id="seccion3hm" className="seccionhm">
+                <div className="textosc3hm">
+                <h2 >Nuestras donaciones</h2>
+                <p className='parrafosc3hm'>Tu donación permite que sigamos rescatando y rehabilitando a animales heridos y abandonados.
+</p>
                 </div>
-            </div>    
-            
-            
-            <div className="cardhm">
-                <div className="textos">
-                    <img src={Jorge_s} className='imgc' alt=""/>
-                    <p>Jorge Soto</p>
+                <div className="Donaciones_hm">
+                <DatosDonacion />
+
                 </div>
-            </div>   
+
+
+
+    </section>
+
+
+
+
+
+
+    <section id="seccion4hm" className="seccionhm">
+
+        <div className="fondohm2">
+        <h2>Nuestro equipo</h2>
+        <p id='parrafo_sc4hm'>Contamos con un personal capacitado y dedicado que trabaja incansablemente para brindar cuidado y amor a los animales en situación de vulnerabilidad. Nuestra pasión es proporcionar un refugio seguro, atención médica y el cariño que merecen. Juntos, estamos construyendo un mundo más compasivo para nuestros amigos peludos</p>
+
+
+<div className="cardhmshm">
+
+    <div className="cardhm">
+        <div className="textos"> 
+            <img src={Bryan_z} className='imgc' alt=""/>
+            <p>Bryan Zapata</p>
+        </div>
+    </div>    
     
-            <div className="cardhm">
-                <div className="textos">
-                    <img src={Sebastían_m} className='imgc' alt=""/>
-                    <p>Sebastián Muñoz</p>
-                </div>
-            </div>   
     
-            <div className="cardhm">
-                <div className="textos">
-                    <img src={Ignacio_b} className='imgc' alt=""/>
-                    <p>Ignacio Bustos</p>
-                </div>
-            </div>
-    
-            <div className="cardhm">
-                <div className="textos">
-                    <img src={Agustín_m} className='imgc' alt=""/>
-                    <p>Agustín Monsalve</p>
-                </div>
-            </div>   
+    <div className="cardhm">
+        <div className="textos">
+            <img src={Jorge_s} className='imgc' alt=""/>
+            <p>Jorge Soto</p>
+        </div>
+    </div>   
+
+    <div className="cardhm">
+        <div className="textos">
+            <img src={Sebastían_m} className='imgc' alt=""/>
+            <p>Sebastián Muñoz</p>
+        </div>
+    </div>   
+
+    <div className="cardhm">
+        <div className="textos">
+            <img src={Ignacio_b} className='imgc' alt=""/>
+            <p>Ignacio Bustos</p>
+        </div>
+    </div>
+
+    <div className="cardhm">
+        <div className="textos">
+            <img src={Agustín_m} className='imgc' alt=""/>
+            <p>Agustín Monsalve</p>
+        </div>
+    </div>   
+
+</div>
 
         </div>
+
+
+
+
 
 
 
@@ -146,6 +170,10 @@ function Home() {
         
        
     </section>
+
+
+
+
 
     
     </div>

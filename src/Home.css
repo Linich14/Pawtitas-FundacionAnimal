@@ -202,15 +202,20 @@ background-image: url('./assets/fondo1.png'); /*imagen de fondo*/
   color: #282c34;                        /* Establece el color del texto en #282c34 */
 }
 
-
+.parrafo_sc4hm{
+    font-size: 20px;
+}
 
 
 #seccion2hm .opciones {
 display: flex;
 flex-direction: row  ;
-padding: 150px;
+padding: 100px;
 gap: 200px;
 align-items: center;
+
+   
+
 
 }
 
@@ -235,19 +240,102 @@ width: 250px;
 
 }
 
-
-
 #seccion3hm{
+  display: flex;                         /* Los elementos dentro de #seccion2hm se mostrarán como elementos flexibles */
+  justify-content: space-between;        /* Distribuye el espacio disponible entre los elementos */
+  flex-direction: row;                /* Coloca los elementos en una columna vertical */
+  align-items: center;                   /* Centra los elementos horizontalmente en el contenedor */
+  justify-content: center;               /* Vuelve a centrar los elementos verticalmente en el contenedor */
+  background-image: url('./assets/fondito.png'); /* Establece una imagen de fondo */
+  background-size: auto;                 /* Tamaño automático de la imagen de fondo */
+  color: #282c34;    
+  text-align: start;
+  align-items: center;    
+  justify-content: center;
+  flex-wrap: wrap;  
+
+
+}
+.seccion3hm h2{
+  font-size: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    
+}
+.textosc3hm{
+  width: 500px;
+}
+
+.parrafosc3hm{
+  font-size: 18px;
+  
+
+
+}
+
+.Donaciones_hm{
+  background-color: white;
+  width: 500px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  
+  border-radius: 20px;
+  border: #282c34 solid;
+}
+
+
+
+
+.separador{
+  background-image: url('./assets/fondito.png');
+  background-color: #282c34;
+  width: 100%;
+  height: 90px;
+}
+.separador img{
+  width: 100%;
+  height: 140px;
+
+}
+
+
+#seccion4hm{
 background-image: url('./assets/fondo2.png');
 color: azure;
 display: flex;
-flex-direction: column; 
-text-align: center;
-align-items: center;    
-justify-content: center;
-flex-wrap: wrap;  
-background-color: #282c34;
+flex-direction: row; 
 
+
+
+
+
+
+
+
+}
+.fondohm2{
+  backdrop-filter: blur(5px);
+background: rgba(0, 0, 0, 0.2 );
+  background-size: cover;     /* La imagen de fondo se ajustará para cubrir todo el contenedor */
+  background-position: center; /* La imagen de fondo se posicionará en el centro */
+  height: 100vh;  
+  width: 100%;            /* El contenedor tendrá una altura del 100% del viewport */
+  display: flex;              /* Los elementos dentro del contenedor se mostrarán como elementos flexibles */
+  flex-direction: column;        /* Los elementos flexibles se colocarán en una fila (horizontal) */
+  text-align: center;
+  align-items: center;    
+  justify-content: center;
+  flex-wrap: wrap;         /* Los elementos flexibles se centrarán verticalmente en el contenedor */
+
+}
+
+.fondohm2 h2{
+  padding: 40px;
+  color: white;
+font-size: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 }
@@ -255,24 +343,28 @@ background-color: #282c34;
 
 
 
-
-
-
-
-
-
-
-#seccion3hm h1{
+#seccion4hm h1{
 display: flex;
 background-color: #282c34;
 
+
 }
 
+#parrafo_sc4hm {
+  color: white ;
+  width: 400px;
+  
+
+  
+  
+  }
 
 
 
-#seccion3hm .cardhmshm {
-  display: flex;                      /* Los elementos dentro de #seccion3hm .cardhmshm se mostrarán como elementos flexibles */
+
+#seccion4hm .cardhmshm {
+  
+  display: flex;                      /* Los elementos dentro de #seccion4hm .cardhmshm se mostrarán como elementos flexibles */
   flex-direction: row;                /* Coloca los elementos en una fila horizontal */
   text-align: center;                 /* Centra el contenido de texto horizontalmente en el elemento */
   align-items: center;                /* Centra los elementos horizontalmente dentro del contenedor */
@@ -283,11 +375,11 @@ background-color: #282c34;
   flex-wrap: wrap;                    /* Permite que los elementos se envuelvan a la siguiente fila si no caben en la misma fila */
 }
 
-#seccion3hm .cardhm {
+#seccion4hm .cardhm {
   width: 200px;                       /* Establece el ancho del elemento en 200 píxeles */
   height: 200px;                      /* Establece la altura del elemento en 200 píxeles */
   border-radius: 10px;                /* Aplica un radio de borde de 10 píxeles, lo que da esquinas redondeadas */
-  display: flex;                      /* Los elementos dentro de #seccion3hm .cardhm se mostrarán como elementos flexibles */
+  display: flex;                      /* Los elementos dentro de #seccion4hm .cardhm se mostrarán como elementos flexibles */
   flex-direction: column;             /* Coloca los elementos en una columna vertical */
   align-items: center;                /* Centra los elementos horizontalmente dentro del contenedor */
   text-align: center;                 /* Centra el contenido de texto horizontalmente en el elemento */
@@ -302,7 +394,7 @@ color: white;
     
 }
 
-#seccion3hm .imgc{
+#seccion4hm .imgc{
 
 width: 100px; 
 height: 100px; 

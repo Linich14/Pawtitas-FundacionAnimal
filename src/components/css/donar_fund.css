@@ -28,16 +28,103 @@ gap: 20px;
     margin-top: 20px;
     display: flex;
     width: 650px;
-    height: 450px;
+    height: 460px;
     color: aliceblue;
+    border: 2px solid #F2E3C9;
+    flex-direction: column;
+    align-items: center;
 
 
 
 }
 
+.donaciones_fn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    border: 2px solid #F2E3C9;
+
+    
+}
 
 
 
+#otra_cantidad{
+    width: 80px;
+    height: 80px;
+    font-family: arial;
+    color: #F2E3C9 ;
+    font-size: 15px;
+    text-shadow: 0px 0px 0px #7CACDE;
+    box-shadow: 0px 0px 0px #BEE2F9;
+    padding: 6px 7px;
+    border-radius: 10px;
+
+    border: 2px solid #F2E3C9;
+    background: #EF4B4B;
+
+}
 
 
+#cantidad {
+    font-family: arial;
+    color: #F2E3C9 ;
+    font-size: 15px;
+    text-shadow: 0px 0px 0px #7CACDE;
+    box-shadow: 0px 0px 0px #BEE2F9;
+    padding: 6px 7px;
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #F2E3C9;
+    background: #EF4B4B;
+  }
+  #cantidad:hover {
+    color: #EF4B4B ;
+    background: #F2E3C9;
+    cursor: pointer;
+  }
 
+  .parrafoDnfn{
+    color: aliceblue;
+    font-size: 18px;
+  }
+
+  #continuar_DF{
+        font-family: arial;
+        color: #F2E3C9 ;
+        font-size: 15px;
+        text-shadow: 0px 0px 0px #7CACDE;
+        box-shadow: 0px 0px 0px #BEE2F9;
+        padding: 6px 7px;
+        border-radius: 30px;
+        width: 100px;
+        height: 40px;
+        border: 2px solid #F2E3C9;
+        background: #EF4B4B;
+
+  }
+
+  #continuar_DF:hover {
+    color: #EF4B4B ;
+    background: #F2E3C9;
+    cursor: pointer;
+  }
+
+.botones_DF{
+    display: flex;
+    justify-content: center;
+    gap: 300px;
+   
+}
+
+
+input{
+  height: 30px;
+}

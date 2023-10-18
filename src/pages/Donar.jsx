@@ -36,8 +36,12 @@ function Donar() {
     <div className="div2_donar"> 
         <img src={icon4} alt=""/>
         <p> Para donar a traves de paypal 
-          seleccione Donar</p>        
-        <button id="btn_donar">Donar </button>
+          seleccione Donar</p>    
+
+        <Link to="/Donar_Fundacion">
+          <button id="btn_donar">Donar </button>
+        </Link>    
+        
 
 
     </div>

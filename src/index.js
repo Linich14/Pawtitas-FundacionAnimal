@@ -7,6 +7,7 @@ import UserProfile from './pages/UserProfile';
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
 import Postular from './pages/postular'
+
 import Galeria from './pages/galeria';
 import FAQ from './pages/preguntasFrec';
 import Adopcion from './pages/adopcion'
