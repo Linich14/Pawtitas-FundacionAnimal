@@ -120,19 +120,20 @@ body, h1, h2, h3, h4, h6, p {
   background-color: #bd2130;
 }
 
-.boton-agregar-mascota {
+.contenedor-mis-mascotas .boton-agregar-mascota {
   background-color: #28a745;
   color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  display: block;
   padding: 0.5rem 1rem;
   width: 200px;
   margin: 0 auto;
-  margin-top: 10px ;
-  align-items: center;
+  margin-top: 10px;
+  display: block;
 }
+
+
 
 .contenedor-imagen-perfil {
   display: flex;
