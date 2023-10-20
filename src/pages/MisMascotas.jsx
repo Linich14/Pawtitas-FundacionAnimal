@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import AñadirMisMascotas from "./AñadirMisMascotas";
-import { doc, collection, addDoc, getDocs } from "firebase/firestore";
+import { doc, collection, addDoc, getDocs } from "@firebase/firestore";
 import { db } from "../firebase";
 import { UserAuth } from "../components/Autenticacion";
 import "../components/css/UserProfile.css"; // Importa el archivo CSS

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { UserAuth } from '../components/Autenticacion';
-import { doc, collection, addDoc } from 'firebase/firestore';
+import { doc, collection, addDoc } from '@firebase/firestore';
 import { db } from '../firebase';
 
 function AñadirMisMascotas({ agregarMascota, onCancel }) {

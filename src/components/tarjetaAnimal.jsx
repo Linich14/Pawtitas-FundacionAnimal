@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import styled from "styled-components";
 import "boxicons";
 import { db } from '../firebase';
-import { doc, getDoc } from 'firebase/firestore';
+import { doc, getDoc } from '@firebase/firestore';
 import { UserAuth } from "./Autenticacion";
 
 

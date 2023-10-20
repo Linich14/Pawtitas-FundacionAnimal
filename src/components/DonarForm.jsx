@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {collection, addDoc} from "firebase/firestore";
+import {collection, addDoc} from "@firebase/firestore";
 import { db } from '../firebase';
-import { format } from 'date-fns';
+
 import './css/donar_fund.css'
 class DonarForm extends Component {
   constructor(props) {

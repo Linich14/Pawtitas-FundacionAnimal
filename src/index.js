@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter , Route, Routes } from 'react-router-dom';
 import Home from './Home';
-import user from './pages/user'; 
+ 
 import UserProfile from './pages/UserProfile'; 
 import Login from './pages/subpages/Login';
 import Register from './pages/subpages/Register';
@@ -45,7 +45,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
       <Route path="/" element={<Home />} />
         
-        <Route path="/Perfil" element={ <RutaProtegida><UserProfile {...user} /> </RutaProtegida>  } />
+        <Route path="/Perfil" element={ <RutaProtegida><UserProfile /> </RutaProtegida>  } />
         <Route path="/Login" element={<Login />} />
         
         <Route path="/Galeria" element={<Galeria /> } />
