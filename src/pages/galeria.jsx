@@ -6,8 +6,8 @@ import Footer from '../components/Footer'
 
 // ------------------------------------------------------------------------------------------------
 //cosas para subir imagenes a la db
-
-import { uploadFile } from '../firebase'
+import { uploadFile } from '../components/FuncionesPaginaGaleria'
+// import { uploadFile } from '../firebase'
 import { useState } from 'react'
 
 //-------------------------------------------------------------------------------------------------
