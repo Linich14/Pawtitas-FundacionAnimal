@@ -48,10 +48,10 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         <Route path="/Perfil" element={ <RutaProtegida><UserProfile /> </RutaProtegida>  } />
         <Route path="/Login" element={<Login />} />
         
-        <Route path="/Galeria" element={<Galeria /> } />
+        <Route path="/Galeria" element={ <RutaProtegida> <Galeria /> </RutaProtegida> } />
         <Route path='/Register' element={<Register/>}/>
         <Route path='/RecuperarPassword' element={<RecuperarPassword/>}/>
-        <Route path='/Preguntas' element={<FAQ/>}/>
+        <Route path='/Preguntas' element={<RutaProtegida> <FAQ/> </RutaProtegida>}/>
         <Route path='/NuestrosAnimales' element={<Adopcion/>}/>
         <Route path='/Donar' element={<Donar/>}/>
         <Route path='/Ayuda' element={<Postular/>}/>
