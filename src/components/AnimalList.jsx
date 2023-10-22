@@ -36,7 +36,7 @@ const AnimalList = ({ terminoDeBusqueda }) => {
         }
       
         //En caso de que no se encuentre la busqueda, este no regresa ningun valor
-        return false; 
+        return null; 
       });
       
       //Actualiza la pagina con el valor solicitado
@@ -46,6 +46,9 @@ const AnimalList = ({ terminoDeBusqueda }) => {
 
   return (
     <div>
+      {/*    
+        para cada id crea un animalCard 
+      */}
       {animalIds.map((animalId) => (
         <AnimalCard key={animalId} animalId={animalId} />
       ))}

@@ -5,11 +5,11 @@ import Footer from "../components/Footer";
 import FondoBackGround from "../assets/fondito.png";
 import ReactPaginate from "react-paginate";
 import AnimalList from "../components/AnimalList";
+import { UserAuth } from "../components/Autenticacion";
 
 
 function Adopcion() {
   const [terminoDeBusqueda, setterminoDeBusqueda] = useState(""); // Estado para el término de búsqueda
-
   const handleSearchChange = (e) => {
     setterminoDeBusqueda(e.target.value);
   };
@@ -29,13 +29,13 @@ function Adopcion() {
               spellCheck='true'
               required
               value={terminoDeBusqueda}
-              onChange={handleSearchChange} // Agregar un controlador para el cambio
+              onChange={handleSearchChange}
             ></input>
 
           </form>
           <AnimalList terminoDeBusqueda={terminoDeBusqueda} />
 
-        </main>
+        </main> 
         <Footer></Footer>
       </AdopcionCss>
     </>

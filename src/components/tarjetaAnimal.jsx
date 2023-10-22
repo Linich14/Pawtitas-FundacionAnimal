@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import styled from "styled-components";
 import "boxicons";
 import { db } from '../firebase';
-import { doc, getDoc } from '@firebase/firestore';
+import { doc, getDoc,  collection, addDoc} from '@firebase/firestore';
 import { UserAuth } from "./Autenticacion";
 
 
@@ -12,17 +12,30 @@ const AnimalCard = ({ animalId }) => {
 
   const { user} = UserAuth();
   
-  const OpcionAdoptar = () => {
-    {
-      user &&
-      alert("su petición está siendo revisada");
+  const enviarSolicitudAdopcion = async () => {
+    // Verificar que el usuario este conectado
+    if (!user) {
+      alert("Para poder Solicitar una Adopcion necesitar iniciar sesion");
+      return;
     }
-    {
-      !user &&
-      alert("Debes iniciar sesión para adoptar.");
+    
+    //datos a enviar a firebase
+    const enviarSolicitud = {
+      usuarioEmail: user.email,
+      usuarioID: user.uid,
+      animalNombre: animalData.Animal_Nombre,
+      animalId: animalId,
+    };
+    
+    try {
+      // registrar la solicitud en firebase
+      const docRef = await  addDoc(collection(db,'SolicitudesAdopcion'), enviarSolicitud);
+        alert("Solicitud enviada con exito \nNumero de solicitud; " + docRef.id);
+    } catch (error){
+      console.log("error");
     }
-  }
-
+  };
+  
 
   // Funcion que controla la ventana modal. libreria react-modal
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -67,7 +80,7 @@ const AnimalCard = ({ animalId }) => {
                 <button className='buttonMasInfo' onClick={openModal}>
                     Mas Informacion
                 </button>
-                <button className='buttonAdoptar' onClick={OpcionAdoptar}>
+                <button className='buttonAdoptar' onClick={enviarSolicitudAdopcion}>
                     {user && "Solicitar Adopcion"}
                     {!user && "Inicie Sesion para Adoptar"}
                 </button>
