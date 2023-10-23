@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
-import AñadirMisMascotas from "./AñadirMisMascotas";
-import { doc, collection, addDoc, getDocs } from "@firebase/firestore";
+import { doc, collection, addDoc, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 import { UserAuth } from "../components/Autenticacion";
-import "../components/css/UserProfile.css"; // Importa el archivo CSS
+import "../components/css/UserProfile.css";
+import AñadirMisMascotas from "./AñadirMisMascotas";
 
 function MisMascotas() {
   const { user } = UserAuth();
@@ -43,9 +43,11 @@ function MisMascotas() {
       console.error("Error al añadir la mascota:", error);
     }
   };
+
   const manejarCancelar = () => {
     setMostrarFormulario(false);
   };
+
   return (
     <div className="contenedor-mis-mascotas">
       <h5 className="titulos">Mis Mascotas</h5>
@@ -84,9 +86,10 @@ function MisMascotas() {
         Agregar Mascota
       </Button>
       {/* Renderiza el formulario si mostrarFormulario es true */}
-      {mostrarFormulario && <AñadirMisMascotas agregarMascota={manejarAgregarMascota} onCancel={manejarCancelar}/>}
+      {mostrarFormulario && <AñadirMisMascotas agregarMascota={manejarAgregarMascota} onCancel={manejarCancelar} />}
     </div>
   );
 }
 
 export default MisMascotas;
+
