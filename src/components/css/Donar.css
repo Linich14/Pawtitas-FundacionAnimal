@@ -1,7 +1,7 @@
 
 /* Configuración de fondo y colores */
 .seccion_donar {
-    background-image: url('/src/assets/fondito.png'); /* Establece una imagen de fondo */
+    background-image: url('/src/assets/fondito.webp'); /* Establece una imagen de fondo */
     color: white; /* Configura el color del texto en blanco */
     background-repeat: repeat; /* Repite la imagen de fondo */
     

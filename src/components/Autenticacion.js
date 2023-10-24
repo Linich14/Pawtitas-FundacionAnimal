@@ -48,7 +48,7 @@ export const Autentificador = ({ children }) => {
         alert("Ha ocurrido un error")
     })
 }
-  //me falta comentar esta
+  //Cuando se asigna el usuario con el use state al usuario
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUsuario(currentUser);

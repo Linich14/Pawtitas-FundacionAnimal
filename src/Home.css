@@ -137,7 +137,7 @@ font-size: 40px;
 }
 
 .img1hm{
-background-image: url('./assets/fondo1.png'); /*imagen de fondo*/
+background-image: url('./assets/fondo1.webp'); /*imagen de fondo*/
 
 }
 
@@ -197,7 +197,7 @@ background-image: url('./assets/fondo1.png'); /*imagen de fondo*/
   flex-direction: column;                /* Coloca los elementos en una columna vertical */
   align-items: center;                   /* Centra los elementos horizontalmente en el contenedor */
   justify-content: center;               /* Vuelve a centrar los elementos verticalmente en el contenedor */
-  background-image: url('./assets/fondito.png'); /* Establece una imagen de fondo */
+  background-image: url('./assets/fondito.webp'); /* Establece una imagen de fondo */
   background-size: auto;                 /* Tamaño automático de la imagen de fondo */
   color: #282c34;                        /* Establece el color del texto en #282c34 */
 }
@@ -246,7 +246,7 @@ width: 250px;
   flex-direction: row;                /* Coloca los elementos en una columna vertical */
   align-items: center;                   /* Centra los elementos horizontalmente en el contenedor */
   justify-content: center;               /* Vuelve a centrar los elementos verticalmente en el contenedor */
-  background-image: url('./assets/fondito.png'); /* Establece una imagen de fondo */
+  background-image: url('./assets/fondito.webp'); /* Establece una imagen de fondo */
   background-size: auto;                 /* Tamaño automático de la imagen de fondo */
   color: #282c34;    
   text-align: start;
@@ -289,7 +289,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 .separador{
-  background-image: url('./assets/fondito.png');
+  background-image: url('./assets/fondito.webp');
   background-color: #282c34;
   width: 100%;
   height: 90px;
@@ -302,7 +302,7 @@ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 
 #seccion4hm{
-background-image: url('./assets/fondo2.png');
+background-image: url('./assets/fondo2.webp');
 color: azure;
 display: flex;
 flex-direction: row; 

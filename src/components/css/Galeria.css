@@ -1,5 +1,5 @@
 .galeriabackground{/* fonod de la pagina */
-    background-image: url('../../assets/fondito.png');
+    background-image: url('../../assets/fondito.webp');
     height: 100vh;
     background-repeat:repeat;
     padding-top: 190px; /* para que el fondo sea completo */
@@ -18,7 +18,7 @@
 }
 
 .mis-botones-grupo-css{
-    background-image: url('../../assets/fondito.png');
+    background-image: url('../../assets/fondito.webp');
     background-repeat:repeat;
 
 }

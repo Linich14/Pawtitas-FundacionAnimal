@@ -51,12 +51,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         <Route path="/Galeria" element={ <RutaProtegida> <Galeria /> </RutaProtegida> } />
         <Route path='/Register' element={<Register/>}/>
         <Route path='/RecuperarPassword' element={<RecuperarPassword/>}/>
-        <Route path='/Preguntas' element={<RutaProtegida> <FAQ/> </RutaProtegida>}/>
+        <Route path='/Preguntas' element={ <FAQ/> }/>
         <Route path='/NuestrosAnimales' element={<Adopcion/>}/>
         <Route path='/Donar' element={<Donar/>}/>
-        <Route path='/Ayuda' element={<Postular/>}/>
-        <Route path='/Form_adop' element={<Adopform/>}/>
-        <Route path='/Form_ayuda' element={<FormularioAyuda/>}/>
+        <Route path='/Ayuda' element={<RutaProtegida><Postular/></RutaProtegida>}/>
+        <Route path='/Form_adop' element={<RutaProtegida><Adopform/></RutaProtegida>}/>
+        <Route path='/Form_ayuda' element={<RutaProtegida><FormularioAyuda/></RutaProtegida>}/>
         <Route path='/Donar_Fundacion' element={<Donar_Fundacion/>}/>
 
       </Routes>

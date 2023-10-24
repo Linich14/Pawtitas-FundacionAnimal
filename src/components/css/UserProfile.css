@@ -3,7 +3,7 @@ body, h1, h2, h3, h4, h6, p {
 }
 
 .imagen-fondo {
-  background-image: url('../../assets/fondo1.png');
+  background-image: url('../../assets/fondo1.webp');
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -21,7 +21,7 @@ body, h1, h2, h3, h4, h6, p {
 }
 
 .formulario-usuario {
-  background-image: url('../../assets/fondito.png');
+  background-image: url('../../assets/fondito.webp');
   padding: 10px;
   border-radius: 10px;
   width: 20%;
@@ -82,7 +82,7 @@ body, h1, h2, h3, h4, h6, p {
 .formulario-agregar-mascota {
   margin: 20px auto;
   padding: 20px;
-  background-image: url('../../assets/fondito.png');
+  background-image: url('../../assets/fondito.webp');
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   width: 70%;
@@ -164,7 +164,7 @@ body, h1, h2, h3, h4, h6, p {
 }
 
 .contenedor-detalles-mascota {
-  background-image: url('../../assets/fondito.png');
+  background-image: url('../../assets/fondito.webp');
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 5px;

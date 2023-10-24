@@ -11,7 +11,7 @@ import Ignacio_b from './assets/Ignacio_b.webp'
 import Agustín_m from './assets/Agustín_m.webp'
 import icnon1 from "./assets/icon1.svg"
 import icnon2 from "./assets/icon2.svg"
-import separador from "./assets/separador.png"
+import separador from "./assets/separador_1.webp"
 
 
 

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import styled from "styled-components";
 import NavBar from "../components/navbar";
 import Footer from "../components/Footer";
-import FondoBackGround from "../assets/fondito.png";
+import FondoBackGround from "../assets/fondito.webp";
 import ReactPaginate from "react-paginate";
 import AnimalList from "../components/AnimalList";
 import { UserAuth } from "../components/Autenticacion";
