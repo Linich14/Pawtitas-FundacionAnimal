@@ -2,9 +2,9 @@
 import React from "react";
 import Card_preguntas from "./Card_preguntas";
 //imagenes que utilizaremos 
-import image1 from "../assets/img3.png";
-import image2 from '../assets/img1.jpg'
-import image3 from '../assets/img2.jpg'
+import image1 from "../assets/gato1.webp";
+import image2 from '../assets/postimg1.webp'
+import image3 from '../assets/perro6.webp'
 
 const cards_preguntas = [ // asignamos y creamos las tarjetas dandoles los atributos
   {

@@ -1,10 +1,10 @@
 import React from "react";
 import Card from "./Card";
 
-import image1 from "../assets/img3.png";
+import image1 from "../assets/fondo2.webp";
 import image2 from '../assets/fondo1.webp'
 import image3 from '../assets/fondo3.webp'
-
+ 
 const cards = [
   {
     id: 1,
