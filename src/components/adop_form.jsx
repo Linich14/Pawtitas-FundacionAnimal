@@ -1,99 +1,185 @@
 import React, { Component } from 'react';
-import './css/adop_form.css'
+import { Link } from 'react-router-dom';
+import {collection, addDoc} from "@firebase/firestore";
+import { db } from '../firebase';
 
 class AdoptionForm extends Component {
+  
+  
   constructor(props) {
     super(props);
+    // Inicialización del estado del componente con valores predeterminados
     this.state = {
-      name: '',
-      email: '',
-      petType: 'Perro',
-      message: '',
+      Animal_Datos: '',
+      Animal_Edad: '',
+      Animal_Estado_Salud: '',
+      Animal_Nombre: '',        
+      Animal_Raza: '',
+      Animal_Sexo: '',
+      Animal_Tipo: '',
+      Animal_Imagen: '',
+
+
+
     };
   }
 
-  handleChange = (e) => {
+  // Método para manejar cambios en los campos de entrada
+  actualizar = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
- 
+  // Método para manejar el envío del formulario
+  manejoenvio = (e) => {
+    e.preventDefault();//evita que la pagina se actualice 
+    // Registro de los datos del formulario en la consola
+
+    
+     const datos = collection(db,"Animales");
+    addDoc(datos,this.state) 
     console.log('Datos del formulario:', this.state);
-  
+
+
+    // Restablecimiento de los campos del formulario a sus valores predeterminados
     this.setState({
-      name: '',
-      email: '',
-      petType: 'Perro',
-      message: '',
+
+
+      Animal_Datos: '',
+      Animal_Edad: '',
+      Animal_Estado_Salud: '',
+      Animal_Nombre: '',        
+      Animal_Raza: '',
+      Animal_Sexo: '',
+      Animal_Tipo: '',
+      Animal_Nombre: '',
+      Animal_Imagen: '',
+
     });
   }
 
   render() {
     return (
-        <div className="seccionadop">
-                  <div className='formadopcont'>
-        <h2>Formulario de Adopción</h2>
-        <br />
-          <br />
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label>Nombre:</label>
-            <input
-              type="text"
-              name="name"
-              value={this.state.name}
-              onChange={this.handleChange}
-              required
+      <section className="seccion_formulario">
+        <div className="cont_formularioadop">
+          <h2>Formulario de Adopción</h2>
+
+          <form onSubmit={this.manejoenvio}>
+            <div>
+            <label>Edad(años):</label>
+
+              <input
+                type="number"
+                name="Animal_Edad"
+                value={this.state.Animal_Edad}
+                onChange={this.actualizar}
+                required
+              />
+            <br />
+
+
+
+            <label>Estado de salud:</label>  
+              <input
+                type="text"
+                name="Animal_Estado_Salud"
+                value={this.state.Animal_Estado_Salud}
+                onChange={this.actualizar}
+                required
+              />
+
+            <br />
+
+            <label htmlFor="imagen">Subir Imagen:</label>
+            <input 
+            type="file" 
+            id="imagen" 
+            name="Animal_Imagen" 
+            accept="image/*" 
+            value={this.state.Animal_Imagen}
+            onChange={this.actualizar}
+            required
+            
             />
-          </div>
-          <br />
-          <br />
-          <div>
-            <label>Correo Electrónico:</label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-              required
-            />
-          </div>
-          <br />
-          <br />
-          <div>
-            <label>Tipo de Mascota:</label>
-            <select
-              name="petType"
-              value={this.state.petType}
-              onChange={this.handleChange}
-            >
-              <option value="Perro">Perro</option>
-              <option value="Gato">Gato</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-          <br />
-          <br />
-          <div>
-            <label>Mensaje Adicional:</label>
-            <textarea
-              name="message"
-              value={this.state.message}
-              onChange={this.handleChange}
-            />
-          </div>
-          <button type="submit">Enviar Solicitud</button>
-        </form>
-      </div>
+            <br />
+            <label>Nombre:</label>  
+              <input
+                type="text"
+                name="Animal_Nombre"
+                value={this.state.Animal_Nombre}
+                onChange={this.actualizar}
+                required
+              />
+            </div>
+            <br />
+
+
+            <div>
+            <label>sexo:</label>
+              <select
+                name="Animal_Sexo"
+                value={this.state.Animal_Sexo}
+                onChange={this.actualizar}
+                required
+              > 
+                <option value="">...</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+
+              </select>
+
+
+            </div>
+
+
+            <div>
+              <label>Raza:</label>
+
+              <input
+                type="text"
+                name="Animal_Raza"
+                value={this.state.Animal_Raza}
+                onChange={this.actualizar}
+                required
+              />
+            </div>
+
+
+            <div>
+              <label>Tipo de Mascota:</label>
+              <select
+                name="Animal_Tipo"
+                value={this.state.Animal_Tipo}
+                onChange={this.actualizar}
+              >
+                <option value="">...</option>
+
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+              </select>
+            </div>
+
+
+            <br />
+            <div>
+              <label>Datos de Animal</label>
+
+              <textarea
+                name="Animal_Datos"
+                value={this.state.Animal_Datos}
+                onChange={this.actualizar}
+              />
+            </div>
+            <button id='enviar' type="submit">Enviar Solicitud</button>
+            
+            <Link to="/ayuda">
+              <button type="submit" id='atras'>Atrás</button>
+            </Link>      
+          </form>
         </div>
-
-
-
-
-
+      </section>
     );
   }
 }

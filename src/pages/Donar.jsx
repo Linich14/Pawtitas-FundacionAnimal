@@ -4,8 +4,9 @@ import '../components/css/Donar.css';
 import NavBar from '../components/navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import { Link } from 'react-router-dom';
-import icon3 from "../assets/icon3.png";
-import icon4 from "../assets/icon4.png";
+import icon3 from "../assets/icon3.svg";
+import icon4 from "../assets/icon4.svg";
+
 
 
 
@@ -14,11 +15,13 @@ function Donar() {
 
 <div className="App">
       <NavBar />
-      <div className="seccion">
+
+
+      <div className="seccion_donar">
 
      
     
-    <div className="div1"> 
+    <div className="div1_donar"> 
         <img src={icon3} alt=""/>
         <p>Datos Cuenta Bancaria </p>
         <p>11.111.111-1</p>
@@ -26,18 +29,26 @@ function Donar() {
         <p>Cuenta Vista</p>
 
         
-    </div>
 
-    <div className="div2"> 
-        <img src={icon4} alt=""/>
-        para donar a traves de paypal seleccione Donar        
         
-        <button id="btn">Donar </button>
+    </div>
+
+    <div className="div2_donar"> 
+        <img src={icon4} alt=""/>
+        <p> Para donar a traves de paypal 
+          seleccione Donar</p>    
+
+        <Link to="/Donar_Fundacion">
+          <button id="btn_donar">Donar </button>
+        </Link>    
+        
+
 
     </div>
-    <div className="div3"> 
-    Nueva forma para donar, aceptamos cripto
-          <button id="btn">Cripto Wallet</button>
+    <div className="div3_donar"> 
+    <p>Nueva forma para donar, aceptamos cripto</p>
+    
+          <button id="btn_donar">Cripto Wallet</button>
 
     </div>
     

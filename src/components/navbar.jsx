@@ -4,17 +4,20 @@ import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
 import Dwayne from "../assets/dwayne.jpg";
+import { UserAuth } from "./Autenticacion";
 
 function Navbar() {
-  
+  const { user, CerrarSesion} = UserAuth();
+
   const [isLoggedIn, setLoggedIn] = useState(false);//setLoggeIn se usa para cambiar el estado
   //Funcion para Iniciar sesion
-  const handleLogin = () => {
+  const manejoIniciarSesion = () => {
     setLoggedIn(true);
   };
   //Funcion para Cerrar sesion
-  const handleLogout = () => {
+  const manejoCerrarSesion = async () => {
     setLoggedIn(false);
+    CerrarSesion(); //aqui llame al cerrar sesion que esta en el navbar
   };
 
 
@@ -56,7 +59,7 @@ function Navbar() {
             </Link>
 
           <div className="UserRL" onClick={toggleMenu}>
-            {isLoggedIn ? (
+            { user &&
               // Usuario Logeado
               <>
                 <img
@@ -66,13 +69,16 @@ function Navbar() {
                 {isMenuOpen && (
                   <UserMenu>
                     <ul>
-                      <li><Link to='/user'>Mi Perfil</Link></li>
-                      <li onClick={handleLogout}><button>Cerrar Sesión</button></li>
+                      <li><Link to='/Perfil' className="buttonColor">Mi Perfil</Link></li>
+                      <li onClick={manejoCerrarSesion}>
+                         <button>Cerrar Sesión</button></li>
                     </ul>
                   </UserMenu>
                 )}
               </>
-            ) : (
+            }
+            {
+              !user &&
               // Usuario sin logear
               <Link to="/Login">
                 <box-icon
@@ -84,7 +90,7 @@ function Navbar() {
                   animation="tada-hover"
                 ></box-icon>
               </Link>
-            )}
+            }
           </div>
 
           </nav>
@@ -117,14 +123,17 @@ const NavContainer = styled.nav`
   header nav {
     display: flex;
     align-items: center;
-    justify-content: center;;
+    justify-content: center;
     
     a {
       text-decoration: none;
       padding-inline: 1rem;
       color: #f2e3c9;
       max-width:100px;
-      min-width:100px;
+      min-width:99px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
       img {
         width: 80px;
         border-radius: 50%;
@@ -139,16 +148,17 @@ const NavContainer = styled.nav`
   }
   .UserRL{
     max-width:100px;
-    min-width:100px;
+    min-width:99px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     img{
       border-radius:50%;
-      max-width:70px;
-      max-height:70px;
+      max-width:60px;
+      max-height:60px;
 
-      min-width:69px;
-      min-height:69px;
-
-      
+      min-width:59px;
+      min-height:59px;
     }
   }
 
@@ -160,11 +170,13 @@ const UserMenu = styled.div`
   right: 175px;
   background-color: white;
   border-radius: 4px;
+  .buttonColor{
+    color:black;
+  }
   ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    color:black;
   }
   li {
     list-style:none;
@@ -175,6 +187,7 @@ const UserMenu = styled.div`
     }
     button{
       border:none;
+      color:black;
     }
   }
 ;`

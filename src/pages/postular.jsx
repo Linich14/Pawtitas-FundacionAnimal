@@ -3,8 +3,8 @@ import '../components/css/postular.css';
 import NavBar from '../components/navbar.jsx';
 import Footer from '../components/Footer';
 import { Link } from 'react-router-dom';
-import postimg1 from '../assets/postimg1.jpg';
-import postimg2 from '../assets/postimg2.jpg';
+import postimg1 from '../assets/postimg1.webp';
+import postimg2 from '../assets/postimg2.webp';
 
 function Postular(){
   return(
@@ -15,7 +15,7 @@ function Postular(){
           <div className="image-button">
             
 
-            <Link to="/Form_ayuda">
+            <Link to="/Form_adop ">
             <img src={postimg1} alt="Imagen de fondo"/>
             <div className="button-text">Dar mascota en adopción</div>
             
@@ -25,9 +25,9 @@ function Postular(){
 
 
 
-          
+          {/* Donar_Fundacion */}
           <div className="image-button">
-          <Link to="/Form_adop">
+          <Link to="/Form_ayuda">
               <img src={postimg2} alt="Imagen de fondo"/>
               <div className="button-text">Ayudar a un animal cercano</div>
               </Link>

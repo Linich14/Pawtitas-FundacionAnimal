@@ -1,0 +1,18 @@
+
+.tabla-container {
+    width: 100%;
+}
+
+
+.tabla_donaciones_ table {
+ 
+    width: 100%; /* Establece el ancho al 100% del contenedor */
+}
+
+.tabla_donaciones_ th {
+    
+}
+
+.tabla_donaciones_ td {
+    border: 1px solid black;
+}

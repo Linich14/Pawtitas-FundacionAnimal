@@ -3,17 +3,32 @@ import NavBar from '../../components/navbar'
 import '../../components/css/Login.css'
 import {Link , useNavigate} from 'react-router-dom'
 import Validar from './ValidarLogin'
+import { UserAuth } from '../../components/Autenticacion'
 
+
+
+//Funcion para el Frontend del Login
 function Login() {
-    const navigate = useNavigate();
-    const [Rut, setRut] = useState('')
+
+    //creamos variables con useState para tener una funcion que actualice sus valores
+    const [Email, setEmail] = useState('') 
     const [Contraseña, setContraseña ] = useState('')
     const [errors, setErrors] = useState({})
+    const { IniciarSesion } = UserAuth();//llamamos una instancia de iniciarsesion desde UserAuth
+    //Funcion que maneja el evento Submit una ves pulsado el boton login
+    const ManejoSubmit = async (event) => {
+        event.preventDefault(); // para que no reciba campos vacios
+        setErrors(Validar(Email,Contraseña)); //Mandamos los valores a la funcion validadora de datos
+        if(errors.email === "" && errors.contraseña === ""){
+                //si no hay errores
+                await IniciarSesion(Email, Contraseña)
+                
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        setErrors(Validar(Rut,Contraseña));
-        navigate('/')
+            
+            
+        }
+        
+        
 
     }
 
@@ -24,13 +39,13 @@ function Login() {
         </div>
         <div className='contenidologin'>
         <div className="Loginbackground" >
-            <form className="p-4 p-md-5 " onSubmit={handleSubmit} >
+            <form className="p-4 p-md-5 " onSubmit={ManejoSubmit} >
                 <h2 className='textocentradologin'>¡Bienvenido a Pawtitas!</h2>
                 <fieldset className='loginformulario'>
                     <div className='mb-3'>
-                        <label htmlFor="floatingInput"><i>Rut:</i></label>
-                        <input  placeholder="Ej: 12345678-k"  className="" onChange={e =>setRut(e.target.value)}  name="rut" />
-                        {errors.rut && <span className='text-danger'>{errors.rut} </span>}
+                        <label htmlFor="floatingInput"><i>Email:</i></label>
+                        <input  placeholder="Ej: usuario@pawtitas.cl"  className="" onChange={e =>setEmail(e.target.value)} type='email' name="email" />
+                        {errors.email && <span className='text-danger'>{errors.email} </span>}
                     </div>
                     <div>
                         <label htmlFor="floatingPassword"><i>Contraseña:</i></label>

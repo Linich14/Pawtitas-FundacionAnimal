@@ -35,8 +35,12 @@ function Donar() {
     </div>
     <div className="div3"> 
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dignissimos, accusamus.
-        <button id="btn">Cripto Wallet</button>
+        
 
+        {/*/Prueba* */}
+        <Link to="/Form_ayuda">
+        <button id="btn">Cripto Wallet</button>
+        </Link>
     </div>
     
 </div>

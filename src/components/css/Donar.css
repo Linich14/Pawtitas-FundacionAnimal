@@ -1,39 +1,50 @@
 
-.seccion{
-    background-image: url('/src/assets/fondito.png');
+/* Configuración de fondo y colores */
+.seccion_donar {
+    background-image: url('/src/assets/fondito.webp'); /* Establece una imagen de fondo */
+    color: white; /* Configura el color del texto en blanco */
+    background-repeat: repeat; /* Repite la imagen de fondo */
     
-    background-repeat: repeat;
-    height: 100vh; 
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4, 1fr);
-    grid-column-gap: 100px;
-    grid-row-gap: 0px;   
-    z-index: 1;
+    /* Configuración del tamaño de la sección */
+    height: 100vh; /* La sección ocupará el 100% de la altura de la ventana */
+    display: grid; /* Utiliza un diseño de cuadrícula para organizar los elementos internos */
+    grid-template-columns: repeat(5, 1fr); /* Divide la sección en 5 columnas de igual ancho */
+    grid-template-rows: repeat(3, 1fr); /* Divide la sección en 3 filas de igual altura */
+    grid-column-gap: 100px; /* Establece un espacio horizontal de 100 píxeles entre columnas */
+    grid-row-gap: 0px; /* No hay espacio vertical entre filas */  
+    z-index: 1; /* Establece el valor de índice z en 1, colocando la sección encima de otros elementos */
+}
 
+    
+.div1_donar {
+    /* Configuración del diseño de cuadrícula (grid) */
+    grid-area: 2 / 2 / 3 / 3; /* Establece la ubicación dentro de la cuadrícula */
+    
+    /* Estilo de fondo y apariencia */
+    background-color: #EF4B4B; /* Establece el color de fondo */
+    border-radius: 15%; /* Aplica un borde redondeado del 15% */
+    height: 350px; /* Establece la altura del elemento a 350 píxeles */
+    width: 300px; /* Establece el ancho del elemento a 300 píxeles */
+    
+    /* Configuración de diseño flexbox */
+    display: flex; /* Utiliza el modelo de caja flexible (flexbox) */
+    flex-direction: column; /* Organiza los elementos hijos en columnas */
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center; /* Centra horizontalmente el contenido */
+    
+    /* Estilo del texto y espaciado */
+    color: white; /* Establece el color del texto en blanco */
+    padding: 20px; /* Agrega un espacio interior de 20 píxeles alrededor del contenido */
+    gap: 10px; /* Establece el espacio entre elementos hijos en 10 píxeles */
+}
+
+
+    .seccion_donar p{
+  
+        color: white;
     }
     
-    .div1{ 
-        
-        grid-area: 2 / 2 / 3 / 3; 
-        background-color: #EF4B4B   ;
-        border-radius: 15%;
-        height: 350px;
-        width: 300px;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        
-        
-
-    }
-
-    .div1 .p{
-        line-height:1px;
-    }
-    
-    .div2 { 
+    .div2_donar { 
         grid-area: 2 / 4 / 3 / 5; 
         background-color:   #EF4B4B;
         gap: 25px;
@@ -46,7 +57,7 @@
         align-items: center;
     
     }
-    .div3 { 
+    .div3_donar { 
         grid-area: 3 / 3 / 4 / 4;
         background-color: #EF4B4B; 
         border-radius: 15%;
@@ -62,7 +73,7 @@
     }
 
 
-    #btn {
+    #btn_donar {
         font-family: arial;
         color: #EF4B4B ;
         font-size: 15px;
@@ -73,7 +84,7 @@
         border: 2px solid #F2E3C9;
         background: #F2E3C9;
       }
-      #btn:hover {
+      #btn_donar:hover {
         color: #F2E3C9 ;
         background: #EF4B4B;
         cursor: pointer;

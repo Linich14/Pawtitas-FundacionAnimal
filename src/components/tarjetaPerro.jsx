@@ -6,13 +6,11 @@ import "boxicons";
 
 {/*El parametro perros, es la forma en la que solicitamos la 
   informacion del prop (esta en el  arrayList dataPerros)
-
-  BORRAR ESTA PARTE PARA PRESENTAR
 */}
 function TarjetaPerro({ perros }) {
   //Funcion que simula el login
   const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const handleAdoptar = () => {
+  const OpcionAdoptar = () => {
     if (isLoggedIn) { //Logead true
       alert("su petición está siendo revisada");
     } else { //No logeado False
@@ -48,7 +46,7 @@ function TarjetaPerro({ perros }) {
                 <button className='buttonMasInfo' onClick={openModal}>
                     Mas Informacion
                 </button>
-                <button className='buttonAdoptar' onClick={handleAdoptar}>
+                <button className='buttonAdoptar' onClick={OpcionAdoptar}>
                     {isLoggedIn ? "Solicitar Adopcion" : "Inicie Session para Adoptar"}
                 </button>
                 <button className='contador'>
@@ -59,7 +57,6 @@ function TarjetaPerro({ perros }) {
         {/*Explicacion codigo de libreria react-modal
             isOpen.... indica que al abrirce el modal, este muestre la informacion
             onRequestClose indica como llamar al onClick para cerrar el modal. 
-            BORRAR ESTA PARTE PARA PRESENTAR
         */}
         <CustomModal isOpen={modalIsOpen} onRequestClose={closeModal}>
           <div className='containerModal'>

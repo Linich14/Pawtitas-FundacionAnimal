@@ -1,46 +1,42 @@
-
-
+/* Estilos generales de la aplicación */
 .App {
-    text-align: center;
-  }
-  
-  .App-logo {
-    height: 40vmin;
-    pointer-events: none;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-spin infinite 20s linear;
-    }
-  }
-
+  text-align: center;
 }
+/* Estilo para el logo de la aplicación */
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+
+
+/* Estilo para el encabezado de la aplicación */
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  
+background-color: #282c34;
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+font-size: calc(10px + 2vmin);
+
 }
+/* Estilo para los enlaces en la aplicación */
 
 .App-link {
-  color: #61dafb;
+color: #61dafb;
 }
+/* Animación para girar el logo de la aplicación */
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
->>>>>>> develop
-  }
-  
-  .App-link {
-    color: #61dafb;
-  }
+from {
+  transform: rotate(0deg);
+
+}
+
+
 
 }
 
@@ -54,76 +50,133 @@
 
 
 
+/* Estilos generales del cuerpo del documento */
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+
+}
+
+
+/* Estilos para una sección específica con la clase .seccionhm */
+
+.seccionhm {
+  background-size: cover;     /* La imagen de fondo se ajustará para cubrir todo el contenedor */
+  background-position: center; /* La imagen de fondo se posicionará en el centro */
+  height: 100vh;              /* El contenedor tendrá una altura del 100% del viewport */
+  display: flex;              /* Los elementos dentro del contenedor se mostrarán como elementos flexibles */
+  flex-direction: row;        /* Los elementos flexibles se colocarán en una fila (horizontal) */
+  justify-content: end;       /* Los elementos flexibles se alinearán hacia el extremo derecho del contenedor */
+  align-items: center;        /* Los elementos flexibles se centrarán verticalmente en el contenedor */
+  gap: 40px;    
+                 /* Habrá un espacio de 40 píxeles entre los elementos flexibles */
+}
+
+/* Estilos para una sección específica con el ID #seccion1hm */
+
+#seccion1hm {
+  display: flex;              /* Los elementos dentro de #seccion1hm se mostrarán como elementos flexibles */
+  flex-direction: column;     /* Los elementos flexibles se colocarán en una columna (vertical) */
+  background-repeat: no-repeat; /* La imagen de fondo no se repetirá (aparecerá solo una vez) */
+  color: white;               /* El color de texto se establece en blanco */
+  font-size: large;  
+      /* El tamaño de fuente se establece en "large" (grande) */
+}
+
+
+/* Estilos para el título de la sección */
+
+.titulo_sec1hm{
   
-}
-
-
-
-
-
-
-
-
-
-
-.seccionhm{
-background-size: cover;
-background-position: center;
-height: 100vh; 
-display: flex;
-flex-direction: row  ;
-justify-content: center;
-align-items: center;
-gap: 40px;
-
-
-
-}
-
-
-#seccion1hm{
-
-background-image: url('./assets/fondo1.png');
-display: flex;
-flex-direction: column;
-background-repeat: no-repeat;
 color: white;
-font-size: large;
-padding: 40px;
-margin-top: 50px;
+font-size: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+#seccion1hm p{
+color: white;
+}
 
 
+#titulo_carrusel{
 
+position: relative;
+right: 40px;
+justify-content: center;
+font-size: 40px;
 }
 
 
 
 
-
-
-
-.fondohm{
-
-background-size: auto; 
-background-position: center; 
-filter: blur(10px); 
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-z-index: -1;
+.fondohm {
+  background-size: auto;     /* El tamaño de la imagen de fondo se ajustará automáticamente */
+  background-position: center; /* La imagen de fondo se posicionará en el centro */
+  filter: blur(10px);        /* Aplicará un efecto de desenfoque a la imagen de fondo */
+  position: absolute;        /* El elemento se posicionará de forma absoluta en relación a su contenedor */
+  top: 0;                    /* Establece la posición superior del elemento en 0 píxeles */
+  left: 0;                   /* Establece la posición izquierda del elemento en 0 píxeles */
+  width: 100%;               /* El ancho del elemento ocupará el 100% del ancho de su contenedor */
+  height: 100%;              /* La altura del elemento ocupará el 100% de la altura de su contenedor */
+  z-index: -1;               /* Establece el valor de índice z en -1, colocando el elemento detrás del contenido principal */
 }
 
+
+.fondohm::before {
+  content: "";                           /* Crea un pseudo-elemento ::before */
+  position: absolute;                    /* Posiciona el pseudo-elemento absolutamente */
+  top: 0;                                /* Establece la posición superior en 0 píxeles */
+  left: 0;                               /* Establece la posición izquierda en 0 píxeles */
+  width: 100%;                           /* El ancho del pseudo-elemento ocupará el 100% */
+  height: 100%;                          /* La altura del pseudo-elemento ocupará el 100% */
+  background-color: rgba(0, 0, 0, 0.5);  /* Color de fondo oscuro con opacidad */
+  z-index: 1;                            /* Establece el valor de índice z en 1 para que esté encima de la imagen */
+}
 
 .img1hm{
-background-image: url('./assets/fondo1.png');
+background-image: url('./assets/fondo1.webp'); /*imagen de fondo*/
+
+}
+
+
+
+
+#seccion1hm .cont_sec1hm{
+  height: 60%;
+
+  display: flex;
+  flex-direction: row  ;
+  align-items: center;
+  margin-top: 40px;
+
+
+
+}
+
+
+#seccion1hm .cont_sec1hm .texto_sec1hm {
+  height: 600px;              /* Establece la altura del elemento en 600 píxeles */
+  width: 600px;               /* Establece el ancho del elemento en 600 píxeles */
+  color: white;               /* Establece el color del texto en blanco */
+  display: flex;              /* Los elementos dentro de #seccion1hm .cont_sec1hm .texto_sec1hm se mostrarán como elementos flexibles */
+  flex-direction: column;     /* Los elementos flexibles se colocarán en una columna (vertical) */
+  text-align: center;         /* Centra el contenido de texto horizontalmente en el elemento */
+  justify-content: center;    /* Centra el contenido de texto verticalmente en el elemento */
+}
+
+
+
+#seccion1hm .cont_sec1hm .carrusel {
+  height: 600px;              /* Establece la altura del elemento en 600 píxeles */
+  width: 800px;               /* Establece el ancho del elemento en 800 píxeles */
+  display: flex;              /* Los elementos dentro de #seccion1hm .cont_sec1hm .carrusel se mostrarán como elementos flexibles */
+  flex-direction: column;     /* Los elementos flexibles se colocarán en una columna (vertical) */
+  text-align: center;         /* Centra el contenido de texto horizontalmente en el elemento */
+  align-items: center;
+  padding: 50px;              /* Agrega un relleno de 50 píxeles alrededor del elemento */
 
 }
 
@@ -137,100 +190,32 @@ background-image: url('./assets/fondo1.png');
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#seccion1hm .cont{
-
-display: flex;
-flex-direction: row  ;
-gap: 100px;
-align-items: center;
-
-
-
+#seccion2hm {
+  color: black;                          /* Establece el color del texto en negro */
+  display: flex;                         /* Los elementos dentro de #seccion2hm se mostrarán como elementos flexibles */
+  justify-content: space-between;        /* Distribuye el espacio disponible entre los elementos */
+  flex-direction: column;                /* Coloca los elementos en una columna vertical */
+  align-items: center;                   /* Centra los elementos horizontalmente en el contenedor */
+  justify-content: center;               /* Vuelve a centrar los elementos verticalmente en el contenedor */
+  background-image: url('./assets/fondito.webp'); /* Establece una imagen de fondo */
+  background-size: auto;                 /* Tamaño automático de la imagen de fondo */
+  color: #282c34;                        /* Establece el color del texto en #282c34 */
 }
 
-
-#seccion1hm .cont .texto{
-height: 600px;
-width: 600px;
-color: white ;
-display: flex;
-flex-direction: column;
-text-align: center; 
-justify-content: center;
-
-
-
-
-
-
+.parrafo_sc4hm{
+    font-size: 20px;
 }
-
-
-#seccion1hm .cont .carrusel{
-
-height: 600px;
-width: 800px;
-
-display: flex;
-flex-direction: column; 
-
-text-align: center; 
-padding: 50px;
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-#seccion2hm{
-color: black;
-
-
-display: flex;
-justify-content: space-between; 
-flex-direction: column; 
-align-items: center; 
-justify-content: center;
-background-image: url('./assets/fondito.png');
-background-size: auto;
-color: #282c34;
-
-}
-
 
 
 #seccion2hm .opciones {
 display: flex;
 flex-direction: row  ;
-padding: 150px;
+padding: 100px;
 gap: 200px;
 align-items: center;
+
+   
+
 
 }
 
@@ -255,86 +240,166 @@ width: 250px;
 
 }
 
-
-
 #seccion3hm{
-  background-image: url('./assets/fondo2.png');
-  color: azure;
+  display: flex;                         /* Los elementos dentro de #seccion2hm se mostrarán como elementos flexibles */
+  justify-content: space-between;        /* Distribuye el espacio disponible entre los elementos */
+  flex-direction: row;                /* Coloca los elementos en una columna vertical */
+  align-items: center;                   /* Centra los elementos horizontalmente en el contenedor */
+  justify-content: center;               /* Vuelve a centrar los elementos verticalmente en el contenedor */
+  background-image: url('./assets/fondito.webp'); /* Establece una imagen de fondo */
+  background-size: auto;                 /* Tamaño automático de la imagen de fondo */
+  color: #282c34;    
+  text-align: start;
+  align-items: center;    
+  justify-content: center;
+  flex-wrap: wrap;  
+
+
+}
+.seccion3hm h2{
+  font-size: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    
+}
+.textosc3hm{
+  width: 500px;
+}
+
+.parrafosc3hm{
+  font-size: 18px;
+  
+
+
+}
+
+.Donaciones_hm{
+  background-color: white;
+  width: 500px;
+  height: 400px;
   display: flex;
-  flex-direction: column; 
+  justify-content: center;
+  align-items: start;
+  
+  border-radius: 20px;
+  border: #282c34 solid;
+}
+
+
+
+
+.separador{
+  background-image: url('./assets/fondito.webp');
+  background-color: #282c34;
+  width: 100%;
+  height: 90px;
+}
+.separador img{
+  width: 100%;
+  height: 140px;
+
+}
+
+
+#seccion4hm{
+background-image: url('./assets/fondo2.webp');
+color: azure;
+display: flex;
+flex-direction: row; 
+
+
+
+
+
+
+
+
+}
+.fondohm2{
+  backdrop-filter: blur(5px);
+background: rgba(0, 0, 0, 0.2 );
+  background-size: cover;     /* La imagen de fondo se ajustará para cubrir todo el contenedor */
+  background-position: center; /* La imagen de fondo se posicionará en el centro */
+  height: 100vh;  
+  width: 100%;            /* El contenedor tendrá una altura del 100% del viewport */
+  display: flex;              /* Los elementos dentro del contenedor se mostrarán como elementos flexibles */
+  flex-direction: column;        /* Los elementos flexibles se colocarán en una fila (horizontal) */
   text-align: center;
   align-items: center;    
-  gap: 30px;
-  flex-wrap: wrap;
-  background-color: #282c34;
-  
-
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-#seccion3hm h1{
-  display: flex;
-  background-color: #282c34;
- 
-}
-
-
-
-
-#seccion3hm .cardhmshm{
-display: flex;
-flex-direction: row;
-text-align: center;
-align-items: center;
-justify-content: center;
-width: 35%;
-height: 60%;
-gap: 10px; 
-flex-wrap: wrap;
-
-
-}
-#seccion3hm .cardhm{
- 
-  width: 200px;
-  height: 200px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column; 
-  align-items: center;
-  text-align: center; 
   justify-content: center;
+  flex-wrap: wrap;         /* Los elementos flexibles se centrarán verticalmente en el contenedor */
 
-
-      
 }
 
-#seccion3hm .imgc{
+.fondohm2 h2{
+  padding: 40px;
+  color: white;
+font-size: 50px;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+
+}
+
+
+
+
+#seccion4hm h1{
+display: flex;
+background-color: #282c34;
+
+
+}
+
+#parrafo_sc4hm {
+  color: white ;
+  width: 400px;
   
+
+  
+  
+  }
+
+
+
+
+#seccion4hm .cardhmshm {
+  
+  display: flex;                      /* Los elementos dentro de #seccion4hm .cardhmshm se mostrarán como elementos flexibles */
+  flex-direction: row;                /* Coloca los elementos en una fila horizontal */
+  text-align: center;                 /* Centra el contenido de texto horizontalmente en el elemento */
+  align-items: center;                /* Centra los elementos horizontalmente dentro del contenedor */
+  justify-content: center;            /* Centra los elementos verticalmente dentro del contenedor */
+  width: 45%;                         /* Establece el ancho del elemento en el 45% del contenedor padre */
+  height: 60%;                        /* Establece la altura del elemento en el 60% del contenedor padre */
+  gap: 10px;                          /* Agrega un espacio de 10 píxeles entre los elementos hijos */
+  flex-wrap: wrap;                    /* Permite que los elementos se envuelvan a la siguiente fila si no caben en la misma fila */
+}
+
+#seccion4hm .cardhm {
+  width: 200px;                       /* Establece el ancho del elemento en 200 píxeles */
+  height: 200px;                      /* Establece la altura del elemento en 200 píxeles */
+  border-radius: 10px;                /* Aplica un radio de borde de 10 píxeles, lo que da esquinas redondeadas */
+  display: flex;                      /* Los elementos dentro de #seccion4hm .cardhm se mostrarán como elementos flexibles */
+  flex-direction: column;             /* Coloca los elementos en una columna vertical */
+  align-items: center;                /* Centra los elementos horizontalmente dentro del contenedor */
+  text-align: center;                 /* Centra el contenido de texto horizontalmente en el elemento */
+  justify-content: center;            /* Centra los elementos verticalmente dentro del contenedor */
+}
+
+
+.cardhm p{
+color: white;
+
+
+    
+}
+
+#seccion4hm .imgc{
+
 width: 100px; 
 height: 100px; 
 border-radius: 100%;
-  
+
 }
 
 
-
-
-
-
-
-
-
-
-
->>>>>>> develop
