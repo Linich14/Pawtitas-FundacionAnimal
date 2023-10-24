@@ -26,7 +26,9 @@ Es sabido que en gran parte de Chile existen animales en situación de calle o s
 
 ### Herramientas que usaremos para esta pagina:
 
-React,Node.js y MySQL
+React y Firebase
+
+Node.js y MySQL fueron descartados(Sprint 2)
 
 ### Vista Previa de la pagina usando Figma
 ### Index/Home
