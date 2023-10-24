@@ -78,7 +78,7 @@ function Preguntas() {
           <Card border="primary">
             <Card.Header>Acerca de nosotros</Card.Header>
             <Card.Body>
-              <Card.Title>¿A que nos dedicamos ?</Card.Title>
+              <Card.Title>¿Que clase de Animales tratamos ?</Card.Title>
               <Card.Text>
                 Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
               </Card.Text>
@@ -90,7 +90,7 @@ function Preguntas() {
           <Card border="secondary">
             <Card.Header>Acerca de nosotros</Card.Header>
             <Card.Body>
-              <Card.Title>¿Quienes somos ?</Card.Title>
+              <Card.Title>¿Cual es nuestra mision ?</Card.Title>
               <Card.Text>
                 Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
               </Card.Text>
