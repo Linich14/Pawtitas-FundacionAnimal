@@ -38,11 +38,12 @@ class DonarForm extends Component {
   Continuar = (e) => {
     e.preventDefault();
     const { Nombre, Email, Cantidad } = this.state;
+    const cantidadfin = parseInt(Cantidad);
   
-    if (Cantidad !== 0) {
+    if (cantidadfin !== 0) {
       alert('¡Gracias por tu donación!');
     }
-    if (Cantidad < 1000) {
+    if (cantidadfin < 1000) {
       alert('El monto mínimo son $1000');
     } else {
       
@@ -50,7 +51,7 @@ class DonarForm extends Component {
       addDoc(datos, {
         Nombre,
         Email,
-        Cantidad,
+        Cantidad: Number(cantidadfin),
       });
   
       console.log('Nombre:', Nombre);

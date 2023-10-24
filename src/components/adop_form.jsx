@@ -1,37 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {collection, addDoc} from "@firebase/firestore";
+import { collection, addDoc } from "@firebase/firestore";
 import { db } from '../firebase';
+import { Subirimg } from '../components/Funciones_Formayuda'; // Importa la función Subirimg
 
 class AdoptionForm extends Component {
-  
-  
   constructor(props) {
     super(props);
-    // Inicialización del estado del componente con valores predeterminados
     this.state = {
       Animal_Datos: '',
       Animal_Edad: '',
       Animal_Estado_Salud: '',
-      Animal_Nombre: '',        
+      Animal_Nombre: '',
       Animal_Raza: '',
       Animal_Sexo: '',
       Animal_Tipo: '',
-      Animal_Imagen: '',
-
-
-
+      Animal_Imagen: null, 
     };
-  }
+  }   
 
-  // Método para manejar cambios en los campos de entrada
   actualizar = (e) => {
     this.setState({
       [e.target.name]: e.target.value,
     });
   }
 
-  // Método para manejar el envío del formulario
   manejoenvio = (e) => {
     e.preventDefault();//evita que la pagina se actualice 
     // Registro de los datos del formulario en la consola
@@ -41,21 +34,17 @@ class AdoptionForm extends Component {
     addDoc(datos,this.state) 
     console.log('Datos del formulario:', this.state);
 
-
-    // Restablecimiento de los campos del formulario a sus valores predeterminados
+    // actualiza los datos a como estaban antes.
     this.setState({
-
-
-      Animal_Datos: '',
+      Animal_Datos: '', 
       Animal_Edad: '',
+      unidad:'',
       Animal_Estado_Salud: '',
-      Animal_Nombre: '',        
+      Animal_Nombre: '',
       Animal_Raza: '',
       Animal_Sexo: '',
       Animal_Tipo: '',
-      Animal_Nombre: '',
-      Animal_Imagen: '',
-
+      Animal_Imagen: null, 
     });
   }
 
@@ -65,22 +54,30 @@ class AdoptionForm extends Component {
         <div className="cont_formularioadop">
           <h2>Formulario de Adopción</h2>
 
-          <form onSubmit={this.manejoenvio}>
+          <form onSubmit={this.manejoenvio}> {/*cuando se envia el formulario se ejecuta la funcion*/ }
             <div>
-            <label>Edad(años):</label>
-
+              <label>Edad:</label>
               <input
+                
                 type="number"
                 name="Animal_Edad"
                 value={this.state.Animal_Edad}
                 onChange={this.actualizar}
                 required
               />
-            <br />
 
+            <select
+            name="unidad"
+            value={this.state.unidad}
+            onChange={this.actualizar}
+          > 
+          <option value="">...</option>
+            <option value="meses">meses</option>
+            <option value="años">años</option>
+          </select>
+              <br />
 
-
-            <label>Estado de salud:</label>  
+              <label>Estado de salud:</label>
               <input
                 type="text"
                 name="Animal_Estado_Salud"
@@ -88,22 +85,20 @@ class AdoptionForm extends Component {
                 onChange={this.actualizar}
                 required
               />
+              <br />
 
-            <br />
+              <label htmlFor="imagen">Subir Imagen:</label>
+              <input
+                type="file"
+                id="imagen"
+                name="Animal_Imagen"
+                accept="image/*"
+                onChange={this.actualizar}
+                required
+              />
+              <br />
 
-            <label htmlFor="imagen">Subir Imagen:</label>
-            <input 
-            type="file" 
-            id="imagen" 
-            name="Animal_Imagen" 
-            accept="image/*" 
-            value={this.state.Animal_Imagen}
-            onChange={this.actualizar}
-            required
-            
-            />
-            <br />
-            <label>Nombre:</label>  
+              <label>Nombre:</label>
               <input
                 type="text"
                 name="Animal_Nombre"
@@ -114,28 +109,22 @@ class AdoptionForm extends Component {
             </div>
             <br />
 
-
             <div>
-            <label>sexo:</label>
+              <label>sexo:</label>
               <select
                 name="Animal_Sexo"
                 value={this.state.Animal_Sexo}
                 onChange={this.actualizar}
                 required
-              > 
+              >
                 <option value="">...</option>
                 <option value="Macho">Macho</option>
                 <option value="Hembra">Hembra</option>
-
               </select>
-
-
             </div>
-
 
             <div>
               <label>Raza:</label>
-
               <input
                 type="text"
                 name="Animal_Raza"
@@ -145,7 +134,6 @@ class AdoptionForm extends Component {
               />
             </div>
 
-
             <div>
               <label>Tipo de Mascota:</label>
               <select
@@ -154,18 +142,15 @@ class AdoptionForm extends Component {
                 onChange={this.actualizar}
               >
                 <option value="">...</option>
-
                 <option value="Perro">Perro</option>
                 <option value="Gato">Gato</option>
                 <option value="Otro">Otro</option>
               </select>
             </div>
 
-
             <br />
             <div>
               <label>Datos de Animal</label>
-
               <textarea
                 name="Animal_Datos"
                 value={this.state.Animal_Datos}
@@ -173,10 +158,10 @@ class AdoptionForm extends Component {
               />
             </div>
             <button id='enviar' type="submit">Enviar Solicitud</button>
-            
+
             <Link to="/ayuda">
-              <button type="submit" id='atras'>Atrás</button>
-            </Link>      
+              <button type="button" id='atras'>Atrás</button>
+            </Link>
           </form>
         </div>
       </section>

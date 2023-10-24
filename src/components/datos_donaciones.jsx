@@ -18,12 +18,16 @@ async function fetchDocumentData() {
 
 function TuComponente() {
   const [datos, setDatos] = useState([]);
-
+  const [totalCantidad, setTotalCantidad] = useState(0); 
+  
   useEffect(() => {
     async function fetchData() {
       const documentos = await fetchDocumentData();
       if (documentos) {
         setDatos(documentos);
+        
+        const total = documentos.reduce((total, documento) => total + documento.Cantidad, 0);
+        setTotalCantidad(total);
       }
     }
 
@@ -39,14 +43,15 @@ function TuComponente() {
           <tr>
             <th>Cantidad</th>
       
-            <th>Nombre</th>
+
           </tr>
           
           {datos.map((documento, index) => (
             <tr key={index}>
               <td>{documento.Cantidad}</td>
               
-              <td>{documento.Nombre}</td>
+
+     
 
             </tr>
             
@@ -58,6 +63,9 @@ function TuComponente() {
        
       </table>
     </div>
+    
+    <p>Total de Cantidad: {Number(totalCantidad)}</p> 
+
 </div>
   );
 }
