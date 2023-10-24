@@ -15,8 +15,7 @@ const AnimalCard = ({ animalId }) => {
   const enviarSolicitudAdopcion = async () => {
     // Verificar que el usuario este conectado
     if (!user) {
-      alert("Para poder Solicitar una Adopcion necesitar iniciar sesion");
-      return;
+      return null;
     }
     
     //datos a enviar a firebase
@@ -38,6 +37,8 @@ const AnimalCard = ({ animalId }) => {
   
 
   // Funcion que controla la ventana modal. libreria react-modal
+
+  //Ventana de informacion
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -46,6 +47,17 @@ const AnimalCard = ({ animalId }) => {
 
   const closeModal = () => {
     setModalIsOpen(false);
+  };
+
+  //Ventana de solicitud adopcion
+  const [modalIsOpen2, setModalIsOpen2] = useState(false);
+
+  const openModal2 = () => {
+    setModalIsOpen2(true);
+  };
+
+  const closeModal2 = () => {
+    setModalIsOpen2(false);
   };
   
 
@@ -80,8 +92,9 @@ const AnimalCard = ({ animalId }) => {
                 <button className='buttonMasInfo' onClick={openModal}>
                     Mas Informacion
                 </button>
-                <button className='buttonAdoptar' onClick={enviarSolicitudAdopcion}>
-                    {user && "Solicitar Adopcion"}
+                <button className='buttonAdoptar' onClick={user ? openModal2 : undefined}>
+                    {user && 
+                     "Solicitar Adopcion"}
                     {!user && "Inicie Sesion para Adoptar"}
                 </button>
                 <button className='contador'>
@@ -128,6 +141,19 @@ const AnimalCard = ({ animalId }) => {
             </div>
           </div>
         </CustomModal>
+    
+        <CustomModal isOpen={modalIsOpen2} onRequestClose={closeModal2} >
+          <div className='containerModal'>
+            <div>
+              <p className="infoSoli">Para poder solicitar la Adopcion de {animalData.Animal_Nombre} deveras saber que pasarar por un proceso de selecion, una vez terminado este proceso, se contactara con la persona selecionada a travez del correo electronico.</p>
+            </div>
+            <div className="botones">
+              <button onClick={closeModal2}>Cancelar Solicitud</button>
+              <button onClick={enviarSolicitudAdopcion}>Enviar Solicitud</button>
+            </div>
+          </div>
+        </CustomModal>
+
       </div>
     </TarjetaContainer>
   );
@@ -184,7 +210,7 @@ const TarjetaContainer = styled.section`
         color: #f2e3c9;
         border: 1px solid #164b60;
         border-radius: 1rem 0 1rem 0;
-        transition: background-color 0.6s ease-in, border 0.6s ease-in;
+        transition: background-color 0.3s ease-in, border 0.3s ease-in;
       }
       button:hover {
         background-color: #ef4b4b;
@@ -227,5 +253,27 @@ const CustomModal = styled(Modal)`
       border-collapse: separate;
       border-spacing: 1rem 0.3rem;
     }
+  }
+
+  .botones {
+      padding: 0.5rem 0;
+      display: flex;
+      justify-content: space-between;
+      button {
+        padding: 1rem;
+        width: 230px;
+        background-color: #164b60;
+        color: #f2e3c9;
+        border: 1px solid #164b60;
+        border-radius: 1rem 0 1rem 0;
+        transition: background-color 0.2s ease-in, border 0.2s ease-in;
+      }
+      button:hover {
+        background-color: #ef4b4b;
+        border: 1px solid #ef4b4b;
+      }
+    }
+  .infoSoli{
+    max-width:520px;
   }
 `;
