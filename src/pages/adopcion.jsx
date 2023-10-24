@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import FondoBackGround from "../assets/fondito.png";
 import ReactPaginate from "react-paginate";
 import AnimalList from "../components/AnimalList";
-import { UserAuth } from "../components/Autenticacion";
 
 
 function Adopcion() {
