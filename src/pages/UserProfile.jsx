@@ -3,38 +3,76 @@ import { Card, Form, Button } from "react-bootstrap";
 import { UserAuth } from "../components/Autenticacion";
 import NavBar from "../components/navbar";
 import Footer from "../components/Footer";
-import { doc, collection, getDocs } from "@firebase/firestore";
+import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { db } from "../firebase";
 import "../components/css/UserProfile.css";
 import MisMascotas from "./MisMascotas";
 
-function UserProfile(props) {
-  const [secciónActiva, setSecciónActiva] = useState("perfil");
+function PerfilUsuario(props) {
+  const [seccionActiva, setSeccionActiva] = useState("perfil");
   const { user } = UserAuth();
   const [usuario, setUsuario] = useState(null);
+  const [seccionEditando, setSeccionEditando] = useState(false);
+
+  const [usuarioEditado, setUsuarioEditado] = useState({
+    Nombre: "",
+    Apellidos: "",
+    email: "",
+  });
 
   useEffect(() => {
     const obtenerUsuario = async () => {
       if (user) {
-        const usuarioRef = collection(db, "Usuarios"); // Utiliza la colección "Usuarios"
-        const snapshot = await getDocs(usuarioRef);
-        snapshot.forEach((doc) => {
-          if (doc.id === user.uid) {
-            setUsuario(doc.data());
-          }
-        });
+        const usuarioRef = doc(db, "Usuarios", user.uid);
+        const snapshot = await getDoc(usuarioRef);
+        if (snapshot.exists()) {
+          setUsuario(snapshot.data());
+        }
       }
     };
 
     obtenerUsuario();
   }, [user]);
 
-  if (!user) {
-    return <div>No estás autenticado</div>;
-  }
+  const manejarCambioInput = (e) => {
+    const { name, value } = e.target;
+    setUsuarioEditado({ ...usuarioEditado, [name]: value });
+  };
 
-  const mostrarSeccion = (sección) => {
-    setSecciónActiva(sección);
+  const guardarCambios = async () => {
+    const usuarioRef = doc(db, "Usuarios", user.uid);
+    const datosEditados = {}; 
+    if (usuarioEditado.Nombre && usuarioEditado.Nombre !== usuario?.Nombre) {
+      datosEditados.Nombre = usuarioEditado.Nombre;
+    }
+    if (usuarioEditado.Apellidos && usuarioEditado.Apellidos !== usuario?.Apellidos) {
+      datosEditados.Apellidos = usuarioEditado.Apellidos;
+    }
+    if (usuarioEditado.email && usuarioEditado.email !== usuario?.email) {
+      datosEditados.email = usuarioEditado.email;
+    }
+
+    if (Object.keys(datosEditados).length > 0) {
+      await setDoc(usuarioRef, datosEditados, { merge: true });
+      setUsuario({ ...usuario, ...datosEditados });
+    }
+
+    setSeccionEditando(false);
+  };
+
+  const alternarModoEdicion = () => {
+    setSeccionEditando(!seccionEditando);
+    if (seccionEditando) {
+      setUsuarioEditado({
+        Nombre: usuario?.Nombre || "",
+        Apellidos: usuario?.Apellidos || "",
+        email: usuario?.email || "",
+      });
+    }
+  };
+
+  const mostrarSeccion = (seccion) => {
+    setSeccionActiva(seccion);
   };
 
   return (
@@ -44,19 +82,34 @@ function UserProfile(props) {
         <div className="contenedor-perfil-usuario">
           <div className="perfil-usuario">
             <Form className="formulario-usuario">
-              <div className="imagen-usuario">
-                <img
-                  src={usuario?.imagen}
-                  alt="Imagen de Perfil"
-                />
+              <div className="imagen-usuario perfil-redondo">
+                <img src={usuario?.imagen} alt="Imagen de Perfil" />
               </div>
               <Form.Group controlId="nombre">
                 <Form.Label>Nombre</Form.Label>
-                <Form.Control type="text" value={usuario?.Nombre} readOnly />
+                {seccionEditando ? (
+                  <Form.Control
+                    type="text"
+                    name="Nombre"
+                    value={usuarioEditado.Nombre || usuario?.Nombre}
+                    onChange={manejarCambioInput}
+                  />
+                ) : (
+                  <Form.Control type="text" value={usuario?.Nombre} readOnly />
+                )}
               </Form.Group>
               <Form.Group controlId="apellidos">
                 <Form.Label>Apellidos</Form.Label>
-                <Form.Control type="text" value={usuario?.Apellidos} readOnly />
+                {seccionEditando ? (
+                  <Form.Control
+                    type="text"
+                    name="Apellidos"
+                    value={usuarioEditado.Apellidos || usuario?.Apellidos}
+                    onChange={manejarCambioInput}
+                  />
+                ) : (
+                  <Form.Control type="text" value={usuario?.Apellidos} readOnly />
+                )}
               </Form.Group>
               <Form.Group controlId="rut">
                 <Form.Label>RUT</Form.Label>
@@ -64,8 +117,25 @@ function UserProfile(props) {
               </Form.Group>
               <Form.Group controlId="email">
                 <Form.Label>Correo Electrónico</Form.Label>
-                <Form.Control type="email" value={usuario?.email} readOnly />
+                {seccionEditando ? (
+                  <Form.Control
+                    type="email"
+                    name="email"
+                    value={usuarioEditado.email || usuario?.email}
+                    onChange={manejarCambioInput}
+                  />
+                ) : (
+                  <Form.Control type="email" value={usuario?.email} readOnly />
+                )}
               </Form.Group>
+              {seccionEditando && (
+                <Button variant="primary" onClick={guardarCambios}>
+                  Guardar Cambios
+                </Button>
+              )}
+              <Button variant="primary" onClick={alternarModoEdicion}>
+                {seccionEditando ? "Cancelar" : "Editar"}
+              </Button>
             </Form>
             <div className="contenedor-botones-direcciones">
               <Button
@@ -90,11 +160,11 @@ function UserProfile(props) {
                 Solicitudes Activas
               </Button>
             </div>
-            {secciónActiva === "mascotas" && <MisMascotas />}
-            {secciónActiva === "historial" && (
+            {seccionActiva === "mascotas" && <MisMascotas />}
+            {seccionActiva === "historial" && (
               <h5 className="titulos">Historial de Solicitudes</h5>
             )}
-            {secciónActiva === "solicitudesActivas" && (
+            {seccionActiva === "solicitudesActivas" && (
               <h5 className="titulos">Solicitudes Activas</h5>
             )}
           </div>
@@ -105,4 +175,4 @@ function UserProfile(props) {
   );
 }
 
-export default UserProfile;
+export default PerfilUsuario;
