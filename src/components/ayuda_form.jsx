@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {collection, addDoc} from "@firebase/firestore";
 import { db } from '../firebase';
+import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
+import { v4 } from "uuid";
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 class AyudaForm extends Component {
   
@@ -30,6 +33,61 @@ class AyudaForm extends Component {
     });
   }
 
+
+
+//funcion que se encarga de obtener los daos del usuario logeado
+  Autenticación() {
+    // Escucha los cambios en el estado de autenticación
+    auth.onAuthStateChanged((user) => {
+      if (user) {//si el usuario está autenticado se crean tres constantes que contienen sus datos
+        const userEmail = user.email;//email
+        const userName = user.displayName;//nombre
+        const userId = user.uid;//id
+
+
+
+        // Actualiza el estado del componente con la información del usuario
+        this.setState({
+          datos_usuario: {
+            email: userEmail,
+            name: userName,
+            id: userId,
+          },
+        });
+      } else {
+        // El usuario no está autenticado
+        console.log("Usuario no autenticado");
+      }
+    });
+  }
+
+
+
+
+
+
+//funcion para subir imagenes a la base de datos
+  subirImagen = async (e) => {//esta funcion toma un parametro, que va a ser la imagen
+    const file = e.target.files[0];//toma el primer archivo seleccionado por el usuario
+    const storage = getStorage(); // Obtiene una referencia al almacenamiento de Firebase
+    const storageRef = ref(storage, 'Animal_Image/'+ v4() + '/' + file.name); // se crea una referencia al archivo en Firebase Storage
+  
+    try {
+      // se sube el archivo al almacenamiento de Firebase
+      const snapshot = await uploadBytes(storageRef, file);
+  
+      // se obtiene la URL de descarga del archivo
+      const downloadURL = await getDownloadURL(snapshot.ref);
+  
+      // Actualiza el estado del componente con la URL de la imagen
+      this.setState({
+        Animal_Imagen: downloadURL,
+      });
+    } catch (error) {
+      console.error('Error al subir la imagen:', error);
+    }
+  };
+
   // Método para manejar el envío del formulario
   manejoenvio = (e) => {
     e.preventDefault();//evita que la pagina se actualice 
@@ -50,7 +108,7 @@ class AyudaForm extends Component {
       
       estadoanimal: '',
       tipomascota: '',
-      Animal_Imagen: '',
+      Animal_Imagen: null,
 
     });
   }
@@ -59,7 +117,7 @@ class AyudaForm extends Component {
     return (
       <section className="seccion_formulario">
         <div className="cont_formularioadop">
-          <h2>Formulario de Adopción</h2>
+          <h2>Formulario de Ayuda</h2>
 
           <form onSubmit={this.manejoenvio}>
             <div>
@@ -67,6 +125,11 @@ class AyudaForm extends Component {
             <br />
 
 
+
+
+
+
+          
 
             <label>Ubicacion:</label>  
               <input
@@ -80,16 +143,14 @@ class AyudaForm extends Component {
             <br />
 
             <label htmlFor="imagen">Subir Imagen:</label>
-            <input 
-            type="file" 
-            id="imagen" 
-            name="Animal_Imagen" 
-            accept="image/*" 
-            value={this.state.Animal_Imagen}
-            onChange={this.actualizar}
-            required
-            
-            />
+              <input
+                type="file"
+                id="imagen"
+                name="Animal_Imagen"
+                accept="image/*"
+                onChange={this.subirImagen}                
+                required
+              />
             <br />
 
             </div>

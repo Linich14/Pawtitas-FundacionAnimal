@@ -2,41 +2,16 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, addDoc } from "@firebase/firestore";
 import { db } from '../firebase';
-import { Subirimg } from '../components/Funciones_Formayuda'; // Importa la función Subirimg
+import { UserAuth } from "../components/Autenticacion";
+import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
+import { v4 } from "uuid";
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 class AdoptionForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       Animal_Datos: '',
-      Animal_Edad: '',
-      Animal_Estado_Salud: '',
-      Animal_Nombre: '',
-      Animal_Raza: '',
-      Animal_Sexo: '',
-      Animal_Tipo: '',
-      Animal_Imagen: null, 
-    };
-  }   
-
-  actualizar = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
-
-  manejoenvio = (e) => {
-    e.preventDefault();//evita que la pagina se actualice 
-    // Registro de los datos del formulario en la consola
-
-    
-     const datos = collection(db,"Animales");
-    addDoc(datos,this.state) 
-    console.log('Datos del formulario:', this.state);
-
-    // actualiza los datos a como estaban antes.
-    this.setState({
-      Animal_Datos: '', 
       Animal_Edad: '',
       unidad:'',
       Animal_Estado_Salud: '',
@@ -45,8 +20,97 @@ class AdoptionForm extends Component {
       Animal_Sexo: '',
       Animal_Tipo: '',
       Animal_Imagen: null, 
+    };
+  }   
+//funcion que se encarga de obtener los daos del usuario logeado
+  Autenticación() {
+    // Escucha los cambios en el estado de autenticación
+    auth.onAuthStateChanged((user) => {
+      if (user) {//si el usuario está autenticado se crean tres constantes que contienen sus datos
+        const userEmail = user.email;//email
+        const userName = user.displayName;//nombre
+        const userId = user.uid;//id
+
+        // Actualiza el estado del componente con la información del usuario
+        this.setState({
+          datos_usuario: {
+            email: userEmail,
+            name: userName,
+            id: userId,
+          },
+        });
+      } else {
+        // El usuario no está autenticado
+        console.log("Usuario no autenticado");
+      }
     });
   }
+
+//funcion para subir imagenes a la base de datos
+
+  subirImagen = async (e) => {
+    const file = e.target.files[0];//toma el primer archivo seleccionado por el usuario
+    const storage = getStorage(); // Obtener una referencia al almacenamiento de Firebase
+    const storageRef = ref(storage, 'Animal_Image/'+ v4() + '/' + file.name); // Crear una referencia al archivo en Firebase Storage
+  
+    try {
+      // Subir el archivo al almacenamiento de Firebase
+      const snapshot = await uploadBytes(storageRef, file);
+  
+      // Obtener la URL de descarga del archivo
+      const downloadURL = await getDownloadURL(snapshot.ref);
+  
+      // Actualiza el estado del componente con la URL de la imagen
+      this.setState({
+        Animal_Imagen: downloadURL,
+      });
+    } catch (error) {
+      console.error('Error al subir la imagen:', error);
+    }
+  };
+
+  
+  actualizar = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  
+  manejoenvio = (e) => {
+    e.preventDefault(); // Evita que la página se actualice
+  
+    // Concatena la edad y la unidad en una sola cadena
+    const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
+  
+    // Actualiza el estado con la edad concatenada
+
+  
+    // Copia el estado actual a una nueva variable para no modificar el estado original
+    const datosFormulario = { ...this.state,
+                              Animal_Edad: edadConUnidad,
+                            };
+
+
+  
+    const datos = collection(db, "Animales");
+    addDoc(datos, datosFormulario);
+    console.log('Datos del formulario:', this.state);
+  
+    // Restaura los datos a como estaban antes.
+    this.setState({
+      Animal_Datos: '',
+      Animal_Edad: '',
+      unidad: '',
+      Animal_Estado_Salud: '',
+      Animal_Nombre: '',
+      Animal_Raza: '',
+      Animal_Sexo: '',
+      Animal_Tipo: '',
+      Animal_Imagen: null,
+    });
+  }
+  
 
   render() {
     return (
@@ -58,7 +122,7 @@ class AdoptionForm extends Component {
             <div>
               <label>Edad:</label>
               <input
-                
+                min="0"
                 type="number"
                 name="Animal_Edad"
                 value={this.state.Animal_Edad}
@@ -93,7 +157,7 @@ class AdoptionForm extends Component {
                 id="imagen"
                 name="Animal_Imagen"
                 accept="image/*"
-                onChange={this.actualizar}
+                onChange={this.subirImagen}                
                 required
               />
               <br />
