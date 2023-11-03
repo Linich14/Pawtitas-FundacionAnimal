@@ -18,6 +18,7 @@ import Adopform from './pages/form_adop'
 import FormularioAyuda from './pages/form_ayuda'
 import { Autentificador } from './components/Autenticacion';
 import RutaProtegida from './components/ProteccionRutas';
+import Administracion from './pages/Administracion';
 
 // ...
 
@@ -58,7 +59,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         <Route path='/Form_adop' element={<RutaProtegida><Adopform/></RutaProtegida>}/>
         <Route path='/Form_ayuda' element={<RutaProtegida><FormularioAyuda/></RutaProtegida>}/>
         <Route path='/Donar_Fundacion' element={<Donar_Fundacion/>}/>
-
+        <Route path='/Administracion' element={<RutaProtegida><Administracion/></RutaProtegida>}/>
       </Routes>
       </Autentificador>
     </BrowserRouter>

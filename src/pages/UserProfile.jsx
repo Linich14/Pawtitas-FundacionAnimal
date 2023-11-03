@@ -7,6 +7,7 @@ import { doc, getDoc, setDoc } from "@firebase/firestore";
 import { db } from "../firebase";
 import "../components/css/UserProfile.css";
 import MisMascotas from "./MisMascotas";
+import {Link} from 'react-router-dom'
 
 function PerfilUsuario(props) {
   const [seccionActiva, setSeccionActiva] = useState("perfil");
@@ -159,6 +160,12 @@ function PerfilUsuario(props) {
               >
                 Solicitudes Activas
               </Button>
+
+              
+              {usuario && usuario.permisos === 1 ? 
+              <Link to='/Administracion'>
+                <Button variant="primary" className="boton-solicitudes-activas">Panel de Administracion</Button>
+              </Link> : ''}
             </div>
             {seccionActiva === "mascotas" && <MisMascotas />}
             {seccionActiva === "historial" && (
@@ -167,6 +174,7 @@ function PerfilUsuario(props) {
             {seccionActiva === "solicitudesActivas" && (
               <h5 className="titulos">Solicitudes Activas</h5>
             )}
+
           </div>
         </div>
       </Card.Body>
