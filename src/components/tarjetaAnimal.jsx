@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Modal from 'react-modal';
 import styled from "styled-components";
 import "boxicons";
-import { db } from '../firebase';
-import { doc, getDoc,  collection, addDoc} from '@firebase/firestore';
+import { db, serverTimestamp } from '../firebase';
+import { doc, getDoc,  collection, addDoc } from '@firebase/firestore';
 import { UserAuth } from "./Autenticacion";
 
 
@@ -18,12 +18,15 @@ const AnimalCard = ({ animalId }) => {
       return null;
     }
     
+    const timestamp = serverTimestamp();
+
     //datos a enviar a firebase
     const enviarSolicitud = {
       usuarioEmail: user.email,
       usuarioID: user.uid,
       animalNombre: animalData.Animal_Nombre,
       animalId: animalId,
+      fechaSolicitud: timestamp,
     };
     
     try {
@@ -67,7 +70,15 @@ const AnimalCard = ({ animalId }) => {
 
     getDoc(animalDocRef).then((doc) => {  
       if (doc.exists()) {
-        setAnimalData(doc.data());
+        const animalData = doc.data();
+        
+        // Convierte el Timestamp a una fecha legible
+        const fechaDeIngreso = animalData.Animal_Ingreso.toDate(); // Supongamos que Animal_Ingreso es un campo con Timestamp
+    
+        setAnimalData({
+          ...animalData,
+          Animal_Ingreso: fechaDeIngreso.toLocaleDateString(), // Aquí asignamos la fecha legible
+        });
       } else {
         console.log("No se encontraron datos para el animal con ID: " + animalId);
       }
@@ -98,7 +109,7 @@ const AnimalCard = ({ animalId }) => {
                     {!user && "Inicie Sesion para Adoptar"}
                 </button>
                 <button className='contador'>
-                    1d:12h:14m:06s
+                    Ingreso  {animalData.Animal_Ingreso}
                 </button>
             </div>
         </div>
