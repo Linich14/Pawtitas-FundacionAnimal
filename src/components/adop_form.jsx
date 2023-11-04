@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { collection, addDoc } from "@firebase/firestore";
-import { db } from '../firebase';
+import { db, serverTimestamp } from '../firebase';
 import { UserAuth } from "../components/Autenticacion";
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
 import { v4 } from "uuid";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+const timestamp = serverTimestamp();
 
 class AdoptionForm extends Component {
   constructor(props) {
@@ -19,7 +20,8 @@ class AdoptionForm extends Component {
       Animal_Raza: '',
       Animal_Sexo: '',
       Animal_Tipo: '',
-      Animal_Imagen: null, 
+      Animal_Imagen: null,
+      Animal_Ingreso: timestamp,
     };
   }   
 //funcion que se encarga de obtener los daos del usuario logeado
