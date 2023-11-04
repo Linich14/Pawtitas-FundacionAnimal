@@ -1,0 +1,27 @@
+.solicitud-container {
+    background-image: url('../../assets/fondito.webp');
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-width: 300px; 
+    margin: 0 auto; 
+  }
+  
+  .solicitud-info {
+    margin-bottom: 10px;
+    text-align: center; 
+  }
+  
+  .solicitud-info strong {
+    font-weight: bold;
+    margin-right: 5px;
+  }
+  
+  .titulos {
+    text-align: center;
+    font-family: Arial Black;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 20px;
+  }  

@@ -13,9 +13,11 @@ export const Autentificador = ({ children }) => {
     createUserWithEmailAndPassword(auth, email, password).then(
         async (result) => {
           let imagen = "Vacia" //creamos un espacio para guardar un link a la imagen  de perfil vacia
+          let permisos = 0
           const ref = doc(db, "Usuarios", result.user.uid)//Creamos un nuevo elemento en la bd con id de ID.Usuario de firebase
-          const docRef = await setDoc(ref, { Rut,Nombre, Apellidos,email,imagen }) //añadimos las demas propiedades 
+          const docRef = await setDoc(ref, { Rut,Nombre, Apellidos,email,imagen,permisos }) //anadimos las demas propiedades 
           alert("Registrado Exitosamente... Redirigiendo al Perfil.")
+          
           
         })
   };
@@ -49,6 +51,7 @@ export const Autentificador = ({ children }) => {
     })
 }
   //Cuando se asigna el usuario con el use state al usuario
+  // Cleanup function que  unsubscribe cuando el componente se desmonta
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUsuario(currentUser);
