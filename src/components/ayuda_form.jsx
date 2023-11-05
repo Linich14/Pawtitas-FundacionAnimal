@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import {collection, addDoc} from "@firebase/firestore";
-import { db } from '../firebase';
+import { db, serverTimestamp } from '../firebase';
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
 import { v4 } from "uuid";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
+const timestamp = serverTimestamp();
 class AyudaForm extends Component {
   
   
@@ -15,11 +16,24 @@ class AyudaForm extends Component {
     this.state = {
 
       Ubicacion: '',
-     
+
+
+
+      Animal_Datos: '',
+      Animal_Edad: '',
+      Animal_Nombre:  'no definido',
+      Animal_Sexo: '',
+      Animal_Ingreso: timestamp,
+      Animal_Estado_Salud: '',
+
+
+
       estadoanimal: '',
       tipomascota: '',
 
       Animal_Imagen: '',
+
+      
 
 
 
@@ -93,9 +107,21 @@ class AyudaForm extends Component {
     e.preventDefault();//evita que la pagina se actualice 
     // Registro de los datos del formulario en la consola
 
+
+        // Concatena la edad y la unidad en una sola cadena
+    const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
+  
+    // Actualiza el estado con la edad concatenada
+
+
+    // Copia el estado actual a una nueva variable para no modificar el estado original
+    const datosFormulario = { ...this.state,
+                              Animal_Edad: edadConUnidad,
+                            
+                            };
     
      const datos = collection(db,"Animales");
-    addDoc(datos,this.state) 
+    addDoc(datos,this.state,datosFormulario) 
     console.log('Datos del formulario:', this.state);
 
 
@@ -109,6 +135,15 @@ class AyudaForm extends Component {
       estadoanimal: '',
       tipomascota: '',
       Animal_Imagen: null,
+
+      unidad:'',
+      Animal_Datos: '',
+      Animal_Edad: '',
+      Animal_Nombre: '',
+      Animal_Sexo: '',
+      Animal_Ingreso: timestamp,
+
+      Animal_Estado_Salud: '',
 
     });
   }
@@ -125,10 +160,28 @@ class AyudaForm extends Component {
             <br />
 
 
+            <label>Edad Estimada:</label>
+              <input
+                min="0"
+                type="number"
+                name="Animal_Edad"
+                value={this.state.Animal_Edad}
+                onChange={this.actualizar}
+                required
+              />
+
+          <select
+            name="unidad"
+            value={this.state.unidad}
+            onChange={this.actualizar}
+          > 
+          <option value="">...</option>
+            <option value="meses">meses</option>
+            <option value="años">años</option>
+          </select>
 
 
-
-
+            <br />
           
 
             <label>Ubicacion:</label>  
@@ -140,7 +193,65 @@ class AyudaForm extends Component {
                 required
               />
 
+
+
+
+
             <br />
+
+
+
+
+
+
+
+
+
+            <label>Estado de salud:</label>
+              <select
+
+                name="Animal_Estado_Salud"
+                value={this.state.Animal_Estado_Salud}
+                onChange={this.actualizar}
+                required
+              >
+
+              <option value="">...</option>
+                <option value="Muy mal">Muy mal</option>
+                <option value="Mal">Mal</option>
+                <option value="Estable">Estable</option>
+                <option value="Bien">Bien</option>
+                
+              </select>
+
+
+
+
+              <br />
+              
+              
+              <label>sexo:</label>
+              <select
+                name="Animal_Sexo"
+                value={this.state.Animal_Sexo}
+                onChange={this.actualizar}
+                required
+              >
+                <option value="">...</option>
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+              </select>  
+
+
+            
+            <br />
+
+
+
+
+
+
+
 
             <label htmlFor="imagen">Subir Imagen:</label>
               <input
@@ -188,6 +299,14 @@ class AyudaForm extends Component {
               />
 
             </div>
+
+
+            <label>Datos de Animal</label>
+              <textarea
+                name="Animal_Datos"
+                value={this.state.Animal_Datos}
+                onChange={this.actualizar}
+              />
 
 
             

@@ -20,14 +20,16 @@ class AdoptionForm extends Component {
       Animal_Raza: '',
       Animal_Sexo: '',
       Animal_Tipo: '',
-      Animal_Imagen: null,
+      Animal_Imagen: 'null',
       Animal_Ingreso: timestamp,
+      datos_usuario: '',
     };
   }   
 //funcion que se encarga de obtener los daos del usuario logeado
   Autenticación() {
     // Escucha los cambios en el estado de autenticación
     auth.onAuthStateChanged((user) => {
+      this.Autenticación();
       if (user) {//si el usuario está autenticado se crean tres constantes que contienen sus datos
         const userEmail = user.email;//email
         const userName = user.displayName;//nombre
@@ -39,6 +41,7 @@ class AdoptionForm extends Component {
             email: userEmail,
             name: userName,
             id: userId,
+            
           },
         });
       } else {
@@ -81,16 +84,16 @@ class AdoptionForm extends Component {
   
   manejoenvio = (e) => {
     e.preventDefault(); // Evita que la página se actualice
-  
+    
     // Concatena la edad y la unidad en una sola cadena
     const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
   
     // Actualiza el estado con la edad concatenada
 
-  
     // Copia el estado actual a una nueva variable para no modificar el estado original
     const datosFormulario = { ...this.state,
                               Animal_Edad: edadConUnidad,
+                              
                             };
 
 
@@ -110,6 +113,8 @@ class AdoptionForm extends Component {
       Animal_Sexo: '',
       Animal_Tipo: '',
       Animal_Imagen: null,
+      datos_usuario: '',
+
     });
   }
   
@@ -144,13 +149,21 @@ class AdoptionForm extends Component {
               <br />
 
               <label>Estado de salud:</label>
-              <input
-                type="text"
+              <select
+
                 name="Animal_Estado_Salud"
                 value={this.state.Animal_Estado_Salud}
                 onChange={this.actualizar}
                 required
-              />
+              >
+
+              <option value="">...</option>
+                <option value="Muy mal">Muy mal</option>
+                <option value="Mal">Mal</option>
+                <option value="Estable">Estable</option>
+                <option value="Bien">Bien</option>
+                
+              </select>
               <br />
 
               <label htmlFor="imagen">Subir Imagen:</label>
