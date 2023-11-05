@@ -59,7 +59,7 @@ function Navbar() {
             </Link>
 
           <div className="UserRL" onClick={toggleMenu}>
-            { user &&
+            { user && 
               // Usuario Logeado
               <>
                 <img

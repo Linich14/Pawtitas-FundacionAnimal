@@ -29,11 +29,9 @@ const AnimalList = ({ terminoDeBusqueda }) => {
       
           // Filtro de busqueda 
           return (
-            animalData &&
-            terminoDeBusqueda &&
-            (animalData.Animal_Nombre.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
+            animalData.Animal_Nombre.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
              animalData.Animal_Edad.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
-             animalData.Animal_Tipo.toLowerCase().includes(terminoDeBusqueda.toLowerCase()))
+             animalData.Animal_Tipo.toLowerCase().includes(terminoDeBusqueda.toLowerCase())
           );
         }
       

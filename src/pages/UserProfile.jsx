@@ -31,7 +31,7 @@ function PerfilUsuario(props) {
     // Define una función asincrónica para obtener los datos del usuario de Firestore.
     const obtenerUsuario = async () => {
       // Comprueba si hay un usuario autenticado.
-      if (user) {
+      if (user && user.uid) {
         // Accede al documento del usuario en la colección "Usuarios" utilizando su UID.
         const usuarioRef = doc(db, "Usuarios", user.uid);
         // Obtiene una instantánea del documento del usuario.
