@@ -26,7 +26,7 @@ function Card({ imageSource, title, text, url }) {
     </div>
   );
 }
- 
+  
 Card.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,

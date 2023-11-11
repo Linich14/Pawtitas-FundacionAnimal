@@ -56,4 +56,4 @@ const AnimalList = ({ terminoDeBusqueda }) => {
   );
 };
 
-export default AnimalList;
+export default AnimalList; 

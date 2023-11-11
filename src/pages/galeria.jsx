@@ -3,7 +3,7 @@ import React from 'react'
 import NavBar from '../components/navbar'
 import '../components/css/Galeria.css'
 import Footer from '../components/Footer' 
-
+ 
 // ------------------------------------------------------------------------------------------------
 //cosas para subir imagenes a la db
 import {uploadBytes,ref,getDownloadURL } from '@firebase/storage'
@@ -20,10 +20,31 @@ import { useState } from 'react'
 //-------------------------------------------------------------------------------------------------
 import Cards from "../components/Cards";//componente que contiene la estructura para las tarjetas
 // elementos para los botones o grupo de botones al final de la pagina
-import Button from 'react-bootstrap/Button';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import ButtonToolbar from 'react-bootstrap/ButtonToolbar';
 import { useEffect } from 'react'
+
+
+
+
+// const Card = ({ txtVal, fileURL }) => (
+//   <div className="card">
+//     <h1>{txtVal}</h1>
+//     <img src={fileURL} alt="Imagen de la galería" height="200px" width="200px" />
+//   </div>
+// );
+
+
+// const Card = ({ txtVal, fileURL }) => (
+//   <div className="card">
+//     <h1>{txtVal}</h1>
+//     <img src={fileURL} alt="Imagen de la galería" />
+//   </div>
+// );
+const Card = ({ txtVal, fileURL }) => (
+  <div className="tarjetasparagaleria">
+    <h1>{txtVal}</h1>
+    <img src={fileURL} alt="Imagen de la galería" />
+  </div>
+);
 
 
 
@@ -62,6 +83,7 @@ function Galeria() {
     console.log(dataDB)
   }
 
+
   useEffect(()=>{// aqui es como llamamos a los datos para que puedan verse mediante el useEffect
     getData()
   })
@@ -69,65 +91,41 @@ function Galeria() {
 //-------------------------------------------------------------------------------------------------
   return (
     <>
-    <div className='galeriabackground'>{/* nombre para poder maniporarlo desde el css su apariencia */}
-    <div className='container col-md-10 mx-auto col-lg-12'>{/* parametros para la pagina */}
-   
-    <NavBar ></NavBar>{/* parte de encabezado de cada pagina */}
- 
-    <div className='flex caja_invisible '></div> {/* para darle espacio al contenido con el NarVar */}
-
-    <div className="App d-flex justify-content-center align-items-center h-100" >
-      <Cards /> {/* hacemos uso de las tarjetas */}
-    </div>
-    </div>
-    </div>
+      <NavBar ></NavBar>{/* parte de encabezado de cada pagina */}
+      {/* el main es contenido principal */}
+      <main className='galeriabackground'> 
+      <div className='cardgaleria'>{/* nombre para poder maniporarlo desde el css su apariencia */}
+        <div className='container col-md-10 mx-auto col-lg-12'>{/* parametros para la pagina */}
+          <div className="App d-flex justify-content-center align-items-center h-100" >
+            <Cards /> {/* hacemos uso de las tarjetas */}
+          </div>
+        </div>
+      </div>
 
 
 {/* aqui ira el epacio para subir una archivo y crear una opinion */}
 
-    <div className='galeriabackground'>
-    <div className='container col-md-10 mx-auto col-lg-12'>
+    <div className='container-ver-tu-mascota-galeria'>
+      <div className='container col-md-10 mx-auto col-lg-12'>
+        <div>
+          <h1>¿Quieres ver a tu mascota en esta galería?</h1>
+          <input onChange={(e) => setTxT(e.target.value)} placeholder='Agregar texto' /><br />
+          <input type='file' onChange={(e) => handleSubmit(e)} /><br />
+          <button onClick={handleClick}>Subir a galería</button>
 
-    <div>
-        <h1>¿Quieres ver a tu mascota a ésta galeria?</h1>
-        <input onChange={(e) => setTxT(e.target.value)} placeholder='Agregar texto'/><br/>
-        <input type='file' onChange={(e) => handleSubmit(e)}/><br/>
-        <button onClick={handleClick}>Subir a galeria</button>
-
-
-        {//en esta seccion se muentran los datos subidos
-        // se hace el mapeo
-          data.map(value=> <div> 
-              <h1>{value.txtVal}</h1> {/* se llama al texto subido */}
-              <img src={value.fileURL} height='200px' width='200px'/>  {/* se llama a la imagen */}
-          </div>)
-        }
+          {/* Mapeo de datos en componentes de tarjeta y contenedor de tarjetas */}
+          <div className="card-container">
+            {data.map((value, index) => (
+              <Card key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
 
-    </div>
-    </div>
 {/* termino de espacio para dar opinion */}
-
-
-{/* aqui creamos el grupo de botones */}
-    <div className="mis-botones-grupo-css d-flex justify-content-center align-items-center">
-      <ButtonToolbar aria-label="Toolbar with button groups">
-        <ButtonGroup className="me-2" aria-label="First group">
-          <Button>1</Button> <Button>2</Button> <Button>3</Button>{' '}
-          <Button>4</Button>
-        </ButtonGroup>
-
-        <ButtonGroup className="me-2" aria-label="Second group">
-          <Button>5</Button> <Button>6</Button> <Button>7</Button>
-        </ButtonGroup>
-
-        <ButtonGroup aria-label="Third group">
-          <Button>8</Button>
-        </ButtonGroup>
-      </ButtonToolbar>
-    </div>
-        
-    <Footer></Footer> {/* pie/final de la pagina */}
+      </main>
+      <Footer></Footer> {/* pie/final de la pagina */}
     </>
   )
 }
