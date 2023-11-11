@@ -9,10 +9,7 @@
     margin-bottom: 10rem;
 }
 
-/* .container{
-    display: flex;
-    flex-direction: column;
-} */
+
  
 
 .caja_invisible{
@@ -59,4 +56,44 @@
   }
   .container-ver-tu-mascota-galeria{
     padding-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+
   }
+
+
+
+
+  .container-de-perritos-automaticos {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-container-perritos-automatico {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px;
+  }
+  
+  /* Estilos para los inputs y botón */
+  .estilo-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .styled-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  

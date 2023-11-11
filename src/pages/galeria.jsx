@@ -23,22 +23,6 @@ import Cards from "../components/Cards";//componente que contiene la estructura 
 import { useEffect } from 'react'
 
 
-
-
-// const Card = ({ txtVal, fileURL }) => (
-//   <div className="card">
-//     <h1>{txtVal}</h1>
-//     <img src={fileURL} alt="Imagen de la galería" height="200px" width="200px" />
-//   </div>
-// );
-
-
-// const Card = ({ txtVal, fileURL }) => (
-//   <div className="card">
-//     <h1>{txtVal}</h1>
-//     <img src={fileURL} alt="Imagen de la galería" />
-//   </div>
-// );
 const Card = ({ txtVal, fileURL }) => (
   <div className="tarjetasparagaleria">
     <h1>{txtVal}</h1>
@@ -109,12 +93,13 @@ function Galeria() {
       <div className='container col-md-10 mx-auto col-lg-12'>
         <div>
           <h1>¿Quieres ver a tu mascota en esta galería?</h1>
-          <input onChange={(e) => setTxT(e.target.value)} placeholder='Agregar texto' /><br />
-          <input type='file' onChange={(e) => handleSubmit(e)} /><br />
-          <button onClick={handleClick}>Subir a galería</button>
-
+          <div className='contenedor de preguntas'>
+            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agregar texto' /><br />
+            <input className="styled-file-input" type='file' onChange={(e) => handleSubmit(e)} /><br />
+            <button className="styled-button" onClick={handleClick}>Subir a galería</button>
+          </div>
           {/* Mapeo de datos en componentes de tarjeta y contenedor de tarjetas */}
-          <div className="card-container">
+          <div className="card-container-perritos-automatico">
             {data.map((value, index) => (
               <Card key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
             ))}

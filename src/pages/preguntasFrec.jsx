@@ -23,7 +23,8 @@ import Container from 'react-bootstrap/Container';
 function Preguntas() {
   return (
     <>
-    <div className='preguntasFrecbackground'> {/* nombre para poder maniporarlo desde el css su apariencia */}
+    <main className='preguntasFrecbackground'>
+    <div className=''> {/* nombre para poder maniporarlo desde el css su apariencia */}
     <div className='container col-md-10 mx-auto col-lg-12'> {/* parametros para la pagina */}
     <NavBar ></NavBar> {/* parte de encabezado de cada pagina */}
     <div className='flex caja_invisible '></div>
@@ -42,7 +43,7 @@ function Preguntas() {
     <Acordion></Acordion>
 
 {/* -------------------------------------------------------------------------------------------------------- */}
-    <Container> {/* se usa este elemento con fines esteticos metiendolos en un contenedor */}
+    <Container > {/* se usa este elemento con fines esteticos metiendolos en un contenedor */}
 
       <div>
         <h1 style={{ color: 'black' }}>¿Quieres saber sobre nosotros?</h1>
@@ -55,7 +56,8 @@ function Preguntas() {
             <Card.Body>
               <Card.Title>¿A que nos dedicamos ?</Card.Title>
               <Card.Text>
-                Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
+                Nuestra principal mision es ayudar a todos aquellos animales que no cuenten con un hogar, aliviando 
+                sus vidas y teniendo un mejor futuro para ellos.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -67,7 +69,8 @@ function Preguntas() {
             <Card.Body>
               <Card.Title>¿Quienes somos ?</Card.Title>
               <Card.Text>
-                Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
+                Somos una organizacion sin fines de lucro que nacio por la necesidad de darle una solucion a el problema
+                de animales sin familia.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -80,7 +83,8 @@ function Preguntas() {
             <Card.Body>
               <Card.Title>¿Que clase de Animales tratamos ?</Card.Title>
               <Card.Text>
-                Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
+                En este centro de ayudas estamos principalmente destinados a tratar con nimales domesticos tradicionales
+                tales como perros y gatos.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -90,9 +94,10 @@ function Preguntas() {
           <Card border="secondary">
             <Card.Header>Acerca de nosotros</Card.Header>
             <Card.Body>
-              <Card.Title>¿Cual es nuestra mision ?</Card.Title>
+              <Card.Title>¿Como es que logramos mantenernos en nestra lavor?</Card.Title>
               <Card.Text>
-                Este es un breve texto el que estara destinado a la explicacion sobre nosotros.
+                Al ser una fundación sin fines de lucro, nuestro principal sustento para cuidar de los animales son 
+                las donaciones que nos hace la comunidad.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -105,7 +110,7 @@ function Preguntas() {
 {/* -------------------------------------------------------------------------------------------------------- */}
     <Footer></Footer> {/* pie/final de la pagina */}
 {/* -------------------------------------------------------------------------------------------------------- */}
-
+    </main>
     </>
 
   )
