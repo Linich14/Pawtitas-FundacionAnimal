@@ -7,6 +7,8 @@ import { db } from "../firebase";
 import { UserAuth } from "../components/Autenticacion";
 import {Link} from 'react-router-dom'
 
+import SolicitudLista from "../components/solicitudLista";
+
 export default function Administracion() {
   const { user } = UserAuth();
 
@@ -49,7 +51,7 @@ export default function Administracion() {
                      <h1>Solicitudes Pendientes...</h1>
                 </div>
                 <div className='dashboardcontenido'>
-
+                  <SolicitudLista/>
                 </div>
             </div> 
             </>
