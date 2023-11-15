@@ -38,7 +38,7 @@ export default function Administracion() {
             {usuario && usuario.permisos === 1 ? 
             <>
             <div className='adminmenu'>
-                <h1>Hola {usuario?.Nombre}</h1>
+                <h2>Hola {usuario?.Nombre}</h2>
                 <img src={usuario?.imagen} alt="Imagen de Perfil" />
                 <button className="adminred">Todas</button>
                 <button className="adminred">S.Postulación</button>
@@ -46,14 +46,16 @@ export default function Administracion() {
                 <button className="adminred">S.Ayuda</button>
                 <button className="admingray"><Link to='/'>Home</Link></button>
             </div> 
+
             <div className='admindashboard'>
                 <div className='dashboardtitulo'>
-                     <h1>Solicitudes Pendientes...</h1>
+                     <h2>Solicitudes Pendientes...</h2>
                 </div>
                 <div className='dashboardcontenido'>
                   <SolicitudLista/>
                 </div>
             </div> 
+
             </>
             : 
             <div>
