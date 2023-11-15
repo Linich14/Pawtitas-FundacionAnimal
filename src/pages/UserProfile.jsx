@@ -10,6 +10,7 @@ import "../components/css/UserProfile.css"; // Importa los estilos CSS para el p
 import MisMascotas from "./MisMascotas"; // Importa el componente MisMascotas para mostrar las mascotas del usuario.
 import { Link } from 'react-router-dom'; // Importa el componente Link de React Router para la navegación entre páginas.
 import SolicitudesActivasUsuario from "./SolicitudesActivasUsuario";
+import HistorialSolicitudes from "./HistorialSolicitudes";
 
 // Define el componente funcional PerfilUsuario.
 function PerfilUsuario(props) {
@@ -214,9 +215,7 @@ function PerfilUsuario(props) {
             {/* Renderiza el componente MisMascotas si la sección activa es "mascotas". */}
             {seccionActiva === "mascotas" && <MisMascotas />}
             {/* Renderiza el componente HistorialSolicitudes si la sección activa es "historial". */}
-            {seccionActiva === "historial" && (
-              <h5 className="titulos">Historial de Solicitudes</h5>
-            )}
+            {seccionActiva === "historial" && <HistorialSolicitudes/>}
             {/* Renderiza un título si la sección activa es "solicitudesActivas" (no implementada en este código). */}
             {seccionActiva === "solicitudesActivas" && <SolicitudesActivasUsuario/>}
           </div>
