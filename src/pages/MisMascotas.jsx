@@ -56,7 +56,7 @@ function MisMascotas() {
         {mascotas &&
           mascotas.map((mascota) => (
             <div className="miniatura-mascota" key={mascota.id}>
-              <img src={mascota.Animal_Imagen} alt={mascota.Animal_Imagen} />
+              <img src={mascota.Animal_Imagen} alt={mascota.Animal_Imagen} className="imagen-miniatura-mascota"/>
               {/* Detalles de la mascota seleccionada */}
               {mascotaSeleccionada && mascotaSeleccionada.id === mascota.id && (
                 <div className="contenedor-detalles-mascota">
