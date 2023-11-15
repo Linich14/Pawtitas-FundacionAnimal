@@ -56,17 +56,21 @@ function MisMascotas() {
         {mascotas &&
           mascotas.map((mascota) => (
             <div className="miniatura-mascota" key={mascota.id}>
-              <img src={mascota.ImagenMascota} alt={mascota.NombreMascota} />
+              <img src={mascota.Animal_Imagen} alt={mascota.Animal_Imagen} />
               {/* Detalles de la mascota seleccionada */}
               {mascotaSeleccionada && mascotaSeleccionada.id === mascota.id && (
                 <div className="contenedor-detalles-mascota">
                   {/* Detalles de la mascota */}
-                  <h2>{mascotaSeleccionada.NombreMascota}</h2>
-                  <p>Tipo: {mascotaSeleccionada.TipoMascota}</p>
-                  <p>Raza: {mascotaSeleccionada.RazaMascota}</p>
-                  <p>Sexo: {mascotaSeleccionada.SexoMascota}</p>
-                  <p>Edad: {mascotaSeleccionada.EdadMascota}</p>
-                  <p>Historia: {mascotaSeleccionada.HistoriaMascota}</p>
+                  <h2>{mascotaSeleccionada.Animal_Nombre}</h2>
+                  <p>Tipo: {mascotaSeleccionada.Animal_Tipo}</p>
+                  <p>Raza: {mascotaSeleccionada.Animal_Raza}</p>
+                  <p>Sexo: {mascotaSeleccionada.Animal_Sexo}</p>
+                  <p>Edad: {mascotaSeleccionada.Animal_Edad}</p>
+                  <p>Datos del Animal: {mascotaSeleccionada.Animal_Datos}</p>
+                  <p>Estado de Salud del Animal: {mascotaSeleccionada.Animal_Estado_Salud}</p>
+                  <p>Fecha de Adopción del Animal: {mascotaSeleccionada.Animal_Fecha_Adopcion}</p>
+                  <p>Unidad: {mascotaSeleccionada.unidad}</p>
+
                   <Button onClick={() => setMascotaSeleccionada(null)}>Cerrar Detalles</Button>
                 </div>
               )}
@@ -76,7 +80,7 @@ function MisMascotas() {
                 className="boton-ver-detalles"
                 onClick={() => setMascotaSeleccionada(mascota)}
               >
-                Ver Detalles de {mascota.NombreMascota}
+                Ver Detalles de {mascota.Animal_Nombre}
               </Button>
             </div>
           ))}

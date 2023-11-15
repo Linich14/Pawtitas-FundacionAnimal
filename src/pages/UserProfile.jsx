@@ -9,7 +9,7 @@ import { db } from "../firebase"; // Importa la instancia de la base de datos Fi
 import "../components/css/UserProfile.css"; // Importa los estilos CSS para el perfil de usuario.
 import MisMascotas from "./MisMascotas"; // Importa el componente MisMascotas para mostrar las mascotas del usuario.
 import { Link } from 'react-router-dom'; // Importa el componente Link de React Router para la navegación entre páginas.
-import HistorialSolicitudes from "./HistorialSolicitudes"; // Importa el componente HistorialSolicitudes para mostrar las solicitudes de adopción.
+import SolicitudesActivasUsuario from "./SolicitudesActivasUsuario";
 
 // Define el componente funcional PerfilUsuario.
 function PerfilUsuario(props) {
@@ -214,11 +214,11 @@ function PerfilUsuario(props) {
             {/* Renderiza el componente MisMascotas si la sección activa es "mascotas". */}
             {seccionActiva === "mascotas" && <MisMascotas />}
             {/* Renderiza el componente HistorialSolicitudes si la sección activa es "historial". */}
-            {seccionActiva === "historial" && <HistorialSolicitudes />}
-            {/* Renderiza un título si la sección activa es "solicitudesActivas" (no implementada en este código). */}
-            {seccionActiva === "solicitudesActivas" && (
-              <h5 className="titulos">Solicitudes Activas</h5>
+            {seccionActiva === "historial" && (
+              <h5 className="titulos">Historial de Solicitudes</h5>
             )}
+            {/* Renderiza un título si la sección activa es "solicitudesActivas" (no implementada en este código). */}
+            {seccionActiva === "solicitudesActivas" && <SolicitudesActivasUsuario/>}
           </div>
         </div>
       </Card.Body>
