@@ -18,13 +18,78 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
 
+//------------------------------------------------------------------------------------------
+
+//cosas para subir imagenes a la db
+import {uploadBytes,ref,getDownloadURL } from '@firebase/storage'
+import { storage } from '../firebase'
+import { db } from '../firebase'
+import { v4 } from "uuid";
+
+import { addDoc, collection, getDocs } from '@firebase/firestore'
+
+// import { uploadFile } from '../components/FuncionesPaginaGaleria'
+// import { uploadFile } from '../firebase'
+import { useState } from 'react'
+
+//-------------------------------------------------------------------------------------------------
+import { useEffect } from 'react'
 
 
+const Card_preg = ({ txtVal, fileURL }) => (
+  <div className="tarjetasparagaleria">
+    <h1>{txtVal}</h1>
+    <img src={fileURL} alt="Imagen de la galería" />
+  </div>
+);
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------------
 function Preguntas() {
+  // // ------------------------------------------------------------------------------------------------
+  //cosas para subir imagenes a la db
+  const [txt,setTxT] = useState('') //usada para subir texto
+  const [file,setFile] = useState('') // para la imagen
+  const [data,setData] = useState([]) //para llamar a la bd y mostrar
+
+  const handleSubmit = (e) => { //funcion para subir los datos a la bd
+    const imgs = ref(storage, 'ImagenesPreguntasFrec/' + v4()) //dictamos la ruta donde queremos que se suba la foto
+    uploadBytes(imgs,e.target.files[0]).then(data=>{// la subimo con esta funcion
+      getDownloadURL(data.ref).then(val=>{//con esto conseguimos el url de la imagen subida
+        setFile(val)//aqui se almacena
+      })
+    })
+
+  }
+  // configuracion para el boton del formulario de subir a galeria
+  const handleClick = async () =>{ //aqui es para el boton de subir a la bd
+    const valRef = collection(db,'PreguntasFrec')//la coleccion a la que se debe subir 
+    await addDoc(valRef,{txtVal:txt,fileURL:file})//con esto enlazamos la imagen en storage y el texto en firebase 
+    alert("¡Datos guados de manera exitosa!") //avisamos que los datos han sido subidos 
+  }
+
+  const getData = async ()=>{//con esto conseguimos la info de la bd
+    const valRef = collection(db,'PreguntasFrec')//firebase       AQUI CONSEGUIMOS LOS DATOS
+    const dataDB = await getDocs(valRef)//storage
+    const allData = dataDB.docs.map(val=>({...val.data(),id:val.id}))//hacemos el mapeo y seleccionamos
+    //lo que queremos ver y acceder
+    setData(allData)
+  }
+
+
+  useEffect(()=>{// aqui es como llamamos a los datos para que puedan verse mediante el useEffect
+    getData()
+  })
+
+    
   return (
     <>
     <main className='preguntasFrecbackground'>
-    <div className=''> {/* nombre para poder maniporarlo desde el css su apariencia */}
+    <div className='cardPreguntasFrec'> {/* nombre para poder maniporarlo desde el css su apariencia */}
     <div className='container col-md-10 mx-auto col-lg-12'> {/* parametros para la pagina */}
     <NavBar ></NavBar> {/* parte de encabezado de cada pagina */}
     <div className='flex caja_invisible '></div>
@@ -33,10 +98,33 @@ function Preguntas() {
     <div className="App d-flex justify-content-center align-items-center h-100"> 
       <Cards_preguntas />
     </div>
+    </div>
+    </div>
 {/* aqui termina la seccion de card */}
 
+{/* ----------------------------------------------------------------------------------------------------------- */}
+
+{/* aqui ira el epacio para subir una archivo y crear una pregunta */}
+    <div>
+      <div className='container col-md-10 mx-auto col-lg-12'>
+        <div>
+          <h1>¿Quieres hacer una pregunta sobre tu mascota?</h1>
+          <div className='contenedor_preguntas_frec'>
+            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agrega tu pregunta' /><br />
+            <input className="styled-file-input" type='file' onChange={(e) => handleSubmit(e)} /><br />
+            <button className="styled-button" onClick={handleClick}>Subir pre</button>
+          </div>
+          {/* Mapeo de datos en componentes de tarjeta y contenedor de tarjetas */}
+          <div className="card-container-perritos-automatico">
+            {data.map((value, index) => (
+              <Card key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+
+{/* termino de espacio para hacer una pregunta */}
 {/* -------------------------------------------------------------------------------------------------------- */}
 {/*                                            funcion de acordeon                                           */}
     

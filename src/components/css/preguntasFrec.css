@@ -1,16 +1,14 @@
-.preguntasFrecbackground{ /* para modificar el fondo */
+.preguntasFrecbackground{
     background-image: url('../../assets/fondito.webp');
-    height: 100vh;
+    background-position: fixed;
     background-repeat:repeat;
-    padding-top: 190px;
+    padding-top: 190px; /* para que el fondo sea completo */
 }
 
-
-/* .container{
-    display: flex;
-    flex-direction: column;
+.cardPreguntasFrec{
+    margin-bottom: 10rem;
 }
-  */
+
 
 .caja_invisible{/* fondo de la caja invisible */
     background-color: rgba(255, 255, 255, 0);

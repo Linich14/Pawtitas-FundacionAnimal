@@ -11,7 +11,7 @@ import { storage } from '../firebase'
 import { db } from '../firebase'
 import { v4 } from "uuid";
 
-import { addDoc, collection, getDoc, getDocs } from '@firebase/firestore'
+import { addDoc, collection, getDocs } from '@firebase/firestore'
 
 // import { uploadFile } from '../components/FuncionesPaginaGaleria'
 // import { uploadFile } from '../firebase'
@@ -19,14 +19,14 @@ import { useState } from 'react'
 
 //-------------------------------------------------------------------------------------------------
 import Cards from "../components/Cards";//componente que contiene la estructura para las tarjetas
-// elementos para los botones o grupo de botones al final de la pagina
 import { useEffect } from 'react'
 
 
-const Card = ({ txtVal, fileURL }) => (
+const Card = ({ txtVal, fileURL, txtVal2}) => (
   <div className="tarjetasparagaleria">
     <h1>{txtVal}</h1>
     <img src={fileURL} alt="Imagen de la galería" />
+    <p>{txtVal2}</p>
   </div>
 );
 
@@ -37,14 +37,15 @@ function Galeria() {
 // ------------------------------------------------------------------------------------------------
 //cosas para subir imagenes a la db
   const [txt,setTxT] = useState('') //usada para subir texto
+  const [txt2,setTxT2] = useState('') //usada para subir texto 2
   const [file,setFile] = useState('') // para la imagen
   const [data,setData] = useState([]) //para llamar a la bd y mostrar
 
   const handleSubmit = (e) => { //funcion para subir los datos a la bd
-    console.log(e.target.files[0])
+    //console.log(e.target.files[0])
     const imgs = ref(storage, 'ImagenesGaleria/' + v4()) //dictamos la ruta donde queremos que se suba la foto
     uploadBytes(imgs,e.target.files[0]).then(data=>{// la subimo con esta funcion
-      console.log(data,"imgs")
+      //console.log(data,"imgs")
       getDownloadURL(data.ref).then(val=>{//con esto conseguimos el url de la imagen subida
         setFile(val)//aqui se almacena
       })
@@ -54,8 +55,10 @@ function Galeria() {
 // configuracion para el boton del formulario de subir a galeria
   const handleClick = async () =>{ //aqui es para el boton de subir a la bd
     const valRef = collection(db,'Galeria')//la coleccion a la que se debe subir 
-    await addDoc(valRef,{txtVal:txt,fileURL:file})//con esto enlazamos la imagen en storage y el texto en firebase 
+    await addDoc(valRef,{txtVal:txt,txtVal2:txt2,fileURL:file})//con esto enlazamos la imagen en storage y el texto en firebase 
+    // se agrego txtVal2:txt2
     alert("¡Datos guados de manera exitosa!") //avisamos que los datos han sido subidos 
+
   }
 
   const getData = async ()=>{//con esto conseguimos la info de la bd
@@ -64,7 +67,7 @@ function Galeria() {
     const allData = dataDB.docs.map(val=>({...val.data(),id:val.id}))//hacemos el mapeo y seleccionamos
     //lo que queremos ver y acceder
     setData(allData)
-    console.log(dataDB)
+    // console.log(dataDB) este codigo da error
   }
 
 
@@ -78,7 +81,7 @@ function Galeria() {
       <NavBar ></NavBar>{/* parte de encabezado de cada pagina */}
       {/* el main es contenido principal */}
       <main className='galeriabackground'> 
-      <div className='cardgaleria'>{/* nombre para poder maniporarlo desde el css su apariencia */}
+      <div className='cardgaleria'>{/* nombre para poder manipurarlo desde el css su apariencia */}
         <div className='container col-md-10 mx-auto col-lg-12'>{/* parametros para la pagina */}
           <div className="App d-flex justify-content-center align-items-center h-100" >
             <Cards /> {/* hacemos uso de las tarjetas */}
@@ -94,14 +97,15 @@ function Galeria() {
         <div>
           <h1>¿Quieres ver a tu mascota en esta galería?</h1>
           <div className='contenedor de preguntas'>
-            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agregar texto' /><br />
+            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agregar titulo' /><br />
+            <input className='estilo-input' onChange={(e) => setTxT2(e.target.value)} placeholder='Añada un breve comentario' /><br />
             <input className="styled-file-input" type='file' onChange={(e) => handleSubmit(e)} /><br />
             <button className="styled-button" onClick={handleClick}>Subir a galería</button>
           </div>
           {/* Mapeo de datos en componentes de tarjeta y contenedor de tarjetas */}
           <div className="card-container-perritos-automatico">
             {data.map((value, index) => (
-              <Card key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
+              <Card key={index} txtVal={value.txtVal} txtVal2={value.txtVal2} fileURL={value.fileURL} />
             ))}
           </div>
         </div>
