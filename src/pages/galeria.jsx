@@ -42,10 +42,8 @@ function Galeria() {
   const [data,setData] = useState([]) //para llamar a la bd y mostrar
 
   const handleSubmit = (e) => { //funcion para subir los datos a la bd
-    //console.log(e.target.files[0])
     const imgs = ref(storage, 'ImagenesGaleria/' + v4()) //dictamos la ruta donde queremos que se suba la foto
     uploadBytes(imgs,e.target.files[0]).then(data=>{// la subimo con esta funcion
-      //console.log(data,"imgs")
       getDownloadURL(data.ref).then(val=>{//con esto conseguimos el url de la imagen subida
         setFile(val)//aqui se almacena
       })
@@ -67,7 +65,6 @@ function Galeria() {
     const allData = dataDB.docs.map(val=>({...val.data(),id:val.id}))//hacemos el mapeo y seleccionamos
     //lo que queremos ver y acceder
     setData(allData)
-    // console.log(dataDB) este codigo da error
   }
 
 

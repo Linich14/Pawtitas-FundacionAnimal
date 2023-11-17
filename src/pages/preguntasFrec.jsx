@@ -37,7 +37,7 @@ import { useEffect } from 'react'
 
 
 const Card_preg = ({ txtVal, fileURL }) => (
-  <div className="tarjetasparagaleria">
+  <div className="tarjetasparaPreg">
     <h1>{txtVal}</h1>
     <img src={fileURL} alt="Imagen de la galería" />
   </div>
@@ -102,22 +102,31 @@ function Preguntas() {
     </div>
 {/* aqui termina la seccion de card */}
 
+
+
+
+
+
+
+
+
+
 {/* ----------------------------------------------------------------------------------------------------------- */}
 
 {/* aqui ira el epacio para subir una archivo y crear una pregunta */}
-    <div>
+    <div className='container-ver-tu-mascota-preguntas-frec'>
       <div className='container col-md-10 mx-auto col-lg-12'>
         <div>
           <h1>¿Quieres hacer una pregunta sobre tu mascota?</h1>
           <div className='contenedor_preguntas_frec'>
             <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agrega tu pregunta' /><br />
             <input className="styled-file-input" type='file' onChange={(e) => handleSubmit(e)} /><br />
-            <button className="styled-button" onClick={handleClick}>Subir pre</button>
+            <button className="styled-button" onClick={handleClick}>Enviar</button>
           </div>
           {/* Mapeo de datos en componentes de tarjeta y contenedor de tarjetas */}
           <div className="card-container-perritos-automatico">
             {data.map((value, index) => (
-              <Card key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
+              <Card_preg key={index} txtVal={value.txtVal} fileURL={value.fileURL} />
             ))}
           </div>
         </div>
@@ -125,6 +134,17 @@ function Preguntas() {
     </div>
 
 {/* termino de espacio para hacer una pregunta */}
+
+
+
+
+
+
+
+
+
+
+
 {/* -------------------------------------------------------------------------------------------------------- */}
 {/*                                            funcion de acordeon                                           */}
     
