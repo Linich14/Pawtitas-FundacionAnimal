@@ -51,12 +51,11 @@ function Galeria() {
 
   }
 // configuracion para el boton del formulario de subir a galeria
-  const handleClick = async () =>{ //aqui es para el boton de subir a la bd
+  const handleClick = () =>{ //aqui es para el boton de subir a la bd
     const valRef = collection(db,'Galeria')//la coleccion a la que se debe subir 
-    await addDoc(valRef,{txtVal:txt,txtVal2:txt2,fileURL:file})//con esto enlazamos la imagen en storage y el texto en firebase 
+    addDoc(valRef,{txtVal:txt,txtVal2:txt2,fileURL:file})//con esto enlazamos la imagen en storage y el texto en firebase 
     // se agrego txtVal2:txt2
     alert("¡Datos guados de manera exitosa!") //avisamos que los datos han sido subidos 
-
   }
 
   const getData = async ()=>{//con esto conseguimos la info de la bd
@@ -67,10 +66,9 @@ function Galeria() {
     setData(allData)
   }
 
-
   useEffect(()=>{// aqui es como llamamos a los datos para que puedan verse mediante el useEffect
     getData()
-  })
+  }, [])// con el [], evitamos que se ejecute indefinidamente la funcion async.
 
 //-------------------------------------------------------------------------------------------------
   return (

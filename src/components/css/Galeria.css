@@ -39,12 +39,20 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 340px;
-    max-height: 380px;
+    max-height: 440px;
   }
   
   .tarjetasparagaleria h1 {
     margin-bottom: 8px;
     font-size: 1.5rem;
+    max-width: 320px;
+    max-height: 35px;
+  }
+  .tarjetasparagaleria p {
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    max-width: 320px;
+    max-height: 45px;
   }
   
   .tarjetasparagaleria img {
