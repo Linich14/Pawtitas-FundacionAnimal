@@ -62,6 +62,7 @@ function Galeria() {
     const valRef = collection(db,'Galeria')//firebase       AQUI CONSEGUIMOS LOS DATOS
     const dataDB = await getDocs(valRef)//storage
     const allData = dataDB.docs.map(val=>({...val.data(),id:val.id}))//hacemos el mapeo y seleccionamos
+    // console.log(file)
     //lo que queremos ver y acceder
     setData(allData)
   }
@@ -92,8 +93,8 @@ function Galeria() {
         <div>
           <h1>¿Quieres ver a tu mascota en esta galería?</h1>
           <div className='contenedor de preguntas'>
-            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agregar titulo' /><br />
-            <input className='estilo-input' onChange={(e) => setTxT2(e.target.value)} placeholder='Añada un breve comentario' /><br />
+            <input className='estilo-input' onChange={(e) => setTxT(e.target.value)} placeholder='Agregar titulo' maxLength={35}/><br />
+            <input className='estilo-input' onChange={(e) => setTxT2(e.target.value)} placeholder='Añada un breve comentario' maxLength={120}/><br />
             <input className="styled-file-input" type='file' onChange={(e) => handleSubmit(e)} /><br />
             <button className="styled-button" onClick={handleClick}>Subir a galería</button>
           </div>
