@@ -1,22 +1,37 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import {Link} from 'react-router-dom'
 import styled from "styled-components";
 import "boxicons";
 import PerroLogo from "../assets/perrologoV1.png";
-import Dwayne from "../assets/dwayne.jpg";
 import { UserAuth } from "./Autenticacion";
+import { doc, getDoc } from "@firebase/firestore";
+import { db } from "../firebase";
 
 function Navbar() {
   const { user, CerrarSesion} = UserAuth();
 
-  const [isLoggedIn, setLoggedIn] = useState(false);//setLoggeIn se usa para cambiar el estado
+
+  //funcion para obtener los datos del usuario logueado
+  const [usuario, setUsuario] = useState(null);
+   useEffect(() => {
+    const obtenerUsuario = async () => {
+      if (user && user.uid) {
+        const usuarioRef = doc(db, "Usuarios", user.uid);
+        const snapshot = await getDoc(usuarioRef);
+        if (snapshot.exists()) {
+          setUsuario(snapshot.data());
+        }
+      }
+    };
+    obtenerUsuario();
+  }, [user]);
+
+
   //Funcion para Iniciar sesion
-  const manejoIniciarSesion = () => {
-    setLoggedIn(true);
-  };
+
   //Funcion para Cerrar sesion
   const manejoCerrarSesion = async () => {
-    setLoggedIn(false);
+    
     CerrarSesion(); //aqui llame al cerrar sesion que esta en el navbar
   };
 
@@ -63,7 +78,7 @@ function Navbar() {
               // Usuario Logeado
               <>
                 <img
-                  src={Dwayne}
+                  src={usuario?.imagen}
                   alt="Imagen de Usuario"
                 />
                 {isMenuOpen && (
