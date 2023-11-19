@@ -41,7 +41,7 @@ function TuComponente() {
       <table>
         <thead>
           <tr>
-            <th>Cantidad</th>
+            <th><h2>Ultimas Donaciones Recibidas:</h2></th>
       
 
           </tr>
@@ -64,7 +64,7 @@ function TuComponente() {
       </table>
     </div>
     
-    <p>Total de Cantidad: {Number(totalCantidad)}</p> 
+    <p>Total de la Fundacion: {Number(totalCantidad)}</p> 
 
 </div>
   );
