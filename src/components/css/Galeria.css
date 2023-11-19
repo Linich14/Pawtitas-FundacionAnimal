@@ -39,20 +39,12 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 340px;
-    max-height: 440px;
+    max-height: 380px;
   }
   
   .tarjetasparagaleria h1 {
     margin-bottom: 8px;
-    font-size: 1.2rem;
-    max-width: 320px;
-    max-height: 40px;
-  }
-  .tarjetasparagaleria p {
-    margin-bottom: 8px;
-    font-size: 0.8rem;
-    max-width: 320px;
-    max-height: 45px;
+    font-size: 1.5rem;
   }
   
   .tarjetasparagaleria img {
@@ -71,6 +63,15 @@
 
   }
 
+
+
+
+  .container-de-perritos-automaticos {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
   
   .card-container-perritos-automatico {
     display: grid;

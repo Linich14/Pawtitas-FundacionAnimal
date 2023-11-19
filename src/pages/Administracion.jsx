@@ -8,9 +8,19 @@ import { UserAuth } from "../components/Autenticacion";
 import {Link} from 'react-router-dom'
 
 import SolicitudLista from "../components/solicitudLista";
+import S_ayudalista from "../components/s_ayudalista";
+import S_adoplista from "../components/S_adoplista";
 
 export default function Administracion() {
   const { user } = UserAuth();
+
+  const [contenidoSeleccionado, setContenidoSeleccionado] = useState('todas');
+
+  // Función para cambiar el contenido seleccionado
+  const cambiarContenido = (contenido) => {
+    setContenidoSeleccionado(contenido);
+  };
+
 
   //funcion para obtener los datos del usuario logueado
   const [usuario, setUsuario] = useState(null);
@@ -28,7 +38,30 @@ export default function Administracion() {
   }, [user]);
 
 
+
+
+
+
+
+
+    // Renderizar el componente seleccionado en base al estado
+    const renderizarContenido = () => {
+      switch (contenidoSeleccionado) {
+        case 'todas':
+          return <SolicitudLista />, <S_adoplista />, <S_ayudalista />;
+        case 'postulacion':
+          return <SolicitudLista />; 
+        case 'adopcion':
+          return <S_adoplista />;
+        case 'ayuda':
+          return <S_ayudalista />;
+        // Agrega más casos según sea necesario
+        default:
+          return <SolicitudLista />;
+      }
+    };
   
+
   return (
     <div className='adminparent'>
         <div className='admindiv1'>
@@ -38,21 +71,25 @@ export default function Administracion() {
             {usuario && usuario.permisos === 1 ? 
             <>
             <div className='adminmenu'>
-                <h2>Hola {usuario?.Nombre}</h2>
-                <img src={usuario?.imagen} alt="Imagen de Perfil" />
-                <button className="adminred">Todas</button>
-                <button className="adminred">S.Postulación</button>
-                <button className="adminred">S.Adopción</button>
-                <button className="adminred">S.Ayuda</button>
-                <button className="admingray"><Link to='/'>Home</Link></button>
-            </div> 
+              <h2>Hola {usuario?.Nombre}</h2>
+              <img src={usuario?.imagen} alt="Imagen de Perfil" />
+              <button className="adminred" onClick={() => cambiarContenido('todas')}>Todas</button>
+              <button className="adminred" onClick={() => cambiarContenido('postulacion')}>S.Postulación</button>
+              <button className="adminred" onClick={() => cambiarContenido('adopcion')}>S.Adopción</button>
+              <button className="adminred" onClick={() => cambiarContenido('ayuda')}>S.Ayuda</button>
+              <button className="admingray"><Link to='/'>Home</Link></button>
+            </div>
+
+
+
 
             <div className='admindashboard'>
                 <div className='dashboardtitulo'>
                      <h2>Solicitudes Pendientes...</h2>
                 </div>
                 <div className='dashboardcontenido'>
-                  <SolicitudLista/>
+                {renderizarContenido()}
+                
                 </div>
             </div> 
 

@@ -1,3 +1,10 @@
+body {
+  margin: 0;
+}
+
+
+
+
 .administracionbackground{
     display: grid;
     grid-template-columns: 1fr;
@@ -35,8 +42,7 @@
   background-image: url('../../assets/fondo1.webp');
   background-repeat:no-repeat;
   background-size: cover; 
-  margin-top: 90px;
-  padding-top: 4.5rem;
+  height: 100vh;
 }
 
 .admindiv2{
@@ -114,4 +120,8 @@
 }
 .dashboardcontenido{
  color: #164B60;
+ max-height: 400px; /* Altura máxima antes de activar el scroll */
+ overflow-y: auto; /* Añade scroll vertical si es necesario */
+ border: 1px solid #ccc; 
+ padding: 10px;
 }

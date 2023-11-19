@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { collection, addDoc } from "@firebase/firestore";
+import { doc, getDoc,setDoc,  collection, addDoc  } from '@firebase/firestore';
 import { db, serverTimestamp } from '../firebase';
 import { UserAuth } from "../components/Autenticacion";
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
@@ -9,6 +9,7 @@ import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 const timestamp = serverTimestamp();
 
 class AdoptionForm extends Component {
+  
   constructor(props) {
     super(props);
     this.state = {
@@ -22,35 +23,37 @@ class AdoptionForm extends Component {
       Animal_Tipo: '',
       Animal_Imagen: 'null',
       Animal_Ingreso: timestamp,
-      datos_usuario: '',
+      usuarioEmail: '',
+      name: '',
+      usuarioID: '',
+
     };
   }   
+  
 //funcion que se encarga de obtener los daos del usuario logeado
-  Autenticación() {
-    // Escucha los cambios en el estado de autenticación
-    auth.onAuthStateChanged((user) => {
-      this.Autenticación();
-      if (user) {//si el usuario está autenticado se crean tres constantes que contienen sus datos
-        const userEmail = user.email;//email
-        const userName = user.displayName;//nombre
-        const userId = user.uid;//id
+componentDidMount() {
+  this.unsubscribeAuth = auth.onAuthStateChanged((user) => {
+    if (user) {
+      const userEmail = user.email;
+      const userName = user.displayName;
+      const userId = user.uid;
 
-        // Actualiza el estado del componente con la información del usuario
-        this.setState({
-          datos_usuario: {
-            email: userEmail,
-            name: userName,
-            id: userId,
-            
-          },
-        });
-      } else {
-        // El usuario no está autenticado
-        console.log("Usuario no autenticado");
-      }
-    });
-  }
+      this.setState({
+  
+          usuarioEmail: userEmail,
+          name: userName,
+          usuarioID: userId,
 
+      });
+    } else {
+      console.log("Usuario no autenticado");
+    }
+  });
+}
+
+componentWillUnmount() {
+  this.unsubscribeAuth();
+}
 //funcion para subir imagenes a la base de datos
 
   subirImagen = async (e) => {
@@ -82,28 +85,62 @@ class AdoptionForm extends Component {
   }
 
   
-  manejoenvio = (e) => {
-    e.preventDefault(); // Evita que la página se actualice
-    
-    // Concatena la edad y la unidad en una sola cadena
+
+
+  manejoenvio = async (e) => {
+    e.preventDefault();
+  
     const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
   
-    // Actualiza el estado con la edad concatenada
+    const datosFormulario = {
+      Animal_Edad: edadConUnidad,
+      Animal_Sexo: this.state.Animal_Sexo,
+      Animal_Estado_Salud: this.state.Animal_Estado_Salud,
+      Animal_Datos: this.state.Animal_Datos,
+      Animal_Nombre: this.state.Animal_Nombre,
+      Animal_Raza: this.state.Animal_Raza,
+      usuarioID : this.state.usuarioID,
+      solicitudId: v4(),
+      animalId : v4(),
 
-    // Copia el estado actual a una nueva variable para no modificar el estado original
-    const datosFormulario = { ...this.state,
-                              Animal_Edad: edadConUnidad,
-                              
-                            };
+          };
 
+
+    // Verificar si el campo animalId está definido antes de agregarlo al documento
+    if (this.state.animalId) {
+      datosFormulario.animalId = this.state.animalId;
+    } else {
+      // Asignar un valor predeterminado o manejar el caso en que sea undefined
+      datosFormulario.animalId = v4(); // Cambia esto según tus necesidades
+    }
 
   
-    const datos = collection(db, "Animales");
-    addDoc(datos, datosFormulario);
-    console.log('Datos del formulario:', this.state);
+    try {
+      // Obtener la referencia de la colección principal SolicitudesAyuda
+      const solicitudesAyudaRef = doc(collection(db, 'SolicitudesDarAdopcion'));
+      
   
-    // Restaura los datos a como estaban antes.
-    this.setState({
+      const solicitudDocSnapshot = await getDoc(solicitudesAyudaRef);
+  
+      // Obtener la referencia de la subcolección SolicitudesDeAyuda
+  
+      if (solicitudDocSnapshot.exists()) {
+        // Si el documento ya existe, solo crear la subcolección
+        const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAdopcion');
+        await addDoc(subcoleccionRef, this.state);
+      } else {
+        // Si el documento no existe, crearlo y la subcolección
+        await setDoc(solicitudesAyudaRef, datosFormulario);
+        const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAdopcion');
+        await addDoc(subcoleccionRef, this.state);
+      }
+  
+  
+  
+      console.log('Datos del formulario : ' , this.state);
+  
+      // Restablecimiento de los campos del formulario a sus valores predeterminados
+      this.setState({
       Animal_Datos: '',
       Animal_Edad: '',
       unidad: '',
@@ -113,11 +150,19 @@ class AdoptionForm extends Component {
       Animal_Sexo: '',
       Animal_Tipo: '',
       Animal_Imagen: null,
-      datos_usuario: '',
+      usuarioEmail: '',
+      name: '',
+      usuarioID: '',
+      
 
-    });
-  }
-  
+      });
+    } catch (error) {
+      console.error('Error al enviar los datos del formulario:', error);
+    }
+  };
+
+
+
 
   render() {
     return (

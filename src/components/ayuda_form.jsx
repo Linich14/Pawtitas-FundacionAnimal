@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import {collection, addDoc} from "@firebase/firestore";
+import { doc, getDoc,setDoc,  collection, addDoc  } from '@firebase/firestore';
 import { db, serverTimestamp } from '../firebase';
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
 import { v4 } from "uuid";
@@ -16,24 +16,17 @@ class AyudaForm extends Component {
     this.state = {
 
       Ubicacion: '',
-
-
-
       Animal_Datos: '',
       Animal_Edad: '',
       Animal_Nombre:  'no definido',
       Animal_Sexo: '',
       Animal_Ingreso: timestamp,
-      Animal_Estado_Salud: '',
-
-
-
-      estadoanimal: '',
-      tipomascota: '',
-
+      Animal_Estado_Salud: '',   
+      Animal_Tipo: '',
       Animal_Imagen: '',
-
-      
+      usuarioEmail: '',
+      name: '',
+      usuarioID: '',
 
 
 
@@ -50,34 +43,30 @@ class AyudaForm extends Component {
 
 
 //funcion que se encarga de obtener los daos del usuario logeado
-  Autenticación() {
-    // Escucha los cambios en el estado de autenticación
-    auth.onAuthStateChanged((user) => {
-      if (user) {//si el usuario está autenticado se crean tres constantes que contienen sus datos
-        const userEmail = user.email;//email
-        const userName = user.displayName;//nombre
-        const userId = user.uid;//id
+componentDidMount() {
+  this.unsubscribeAuth = auth.onAuthStateChanged((user) => {
+    if (user) {
+      const userEmail = user.email;
+      const userName = user.displayName;
+      const userId = user.uid;
+
+      this.setState({
+  
+          usuarioEmail: userEmail,
+          name: userName,
+          usuarioID: userId,
+
+      });
+    } else {
+      console.log("Usuario no autenticado");
+    }
+  });
+}
 
 
-
-        // Actualiza el estado del componente con la información del usuario
-        this.setState({
-          datos_usuario: {
-            email: userEmail,
-            name: userName,
-            id: userId,
-          },
-        });
-      } else {
-        // El usuario no está autenticado
-        console.log("Usuario no autenticado");
-      }
-    });
-  }
-
-
-
-
+componentWillUnmount() {
+  this.unsubscribeAuth();
+}
 
 
 //funcion para subir imagenes a la base de datos
@@ -103,50 +92,86 @@ class AyudaForm extends Component {
   };
 
   // Método para manejar el envío del formulario
-  manejoenvio = (e) => {
-    e.preventDefault();//evita que la pagina se actualice 
-    // Registro de los datos del formulario en la consola
+// ...
+// ...
 
+manejoenvio = async (e) => {
+  e.preventDefault();
 
-        // Concatena la edad y la unidad en una sola cadena
-    const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
-  
-    // Actualiza el estado con la edad concatenada
+  const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
 
-
-    // Copia el estado actual a una nueva variable para no modificar el estado original
-    const datosFormulario = { ...this.state,
-                              Animal_Edad: edadConUnidad,
-                            
-                            };
+  const datosFormulario = {
+    Animal_Edad: edadConUnidad,
     
-     const datos = collection(db,"Animales");
-    addDoc(datos,this.state,datosFormulario) 
-    console.log('Datos del formulario:', this.state);
+    Animal_Sexo: this.state.Animal_Sexo,
+    Animal_Estado_Salud:this.state.Animal_Estado_Salud,
+    Ubicacion: this.state.Ubicacion,
+    Animal_Datos: this.state.Animal_Datos,
+    solicitudID: v4(),
+    usuarioID : this.state.usuarioID,
+    animalId : v4(),
+    
+  };
 
+
+    // Verificar si el campo animalId está definido antes de agregarlo al documento
+    if (this.state.animalId) {
+      datosFormulario.animalId = this.state.animalId;
+    } else {
+      // Asignar un valor predeterminado o manejar el caso en que sea undefined
+      datosFormulario.animalId = v4(); // Cambia esto según tus necesidades
+    }
+
+
+  try {
+    // Obtener la referencia de la colección principal SolicitudesAyuda
+    const solicitudesAyudaRef = doc(collection(db, 'SolicitudesAyuda'));
+    
+
+    const solicitudDocSnapshot = await getDoc(solicitudesAyudaRef);
+
+    // Obtener la referencia de la subcolección SolicitudesDeAyuda
+
+    if (solicitudDocSnapshot.exists()) {
+      // Si el documento ya existe, solo crear la subcolección
+      const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAyuda');
+      await addDoc(subcoleccionRef, this.state );
+    } else {
+      // Si el documento no existe, crearlo y la subcolección
+      await setDoc(solicitudesAyudaRef, datosFormulario);
+      const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAyuda');
+      await addDoc(subcoleccionRef, this.state);
+    }
+
+
+
+    console.log('Datos del formulario : ' , this.state);
 
     // Restablecimiento de los campos del formulario a sus valores predeterminados
     this.setState({
-
-
-
       Ubicacion: '',
-      
-      estadoanimal: '',
-      tipomascota: '',
-      Animal_Imagen: null,
-
-      unidad:'',
       Animal_Datos: '',
       Animal_Edad: '',
-      Animal_Nombre: '',
+      Animal_Nombre: 'no definido',
       Animal_Sexo: '',
       Animal_Ingreso: timestamp,
-
       Animal_Estado_Salud: '',
+      Animal_Tipo: '',
+      Animal_Imagen: null,
+      usuarioEmail: '',
+      name: '',
+      usuarioID: '',
+
 
     });
+  } catch (error) {
+    console.error('Error al enviar los datos del formulario:', error);
   }
+};
+
+// ...
+
+// ...
 
   render() {
     return (
@@ -198,14 +223,6 @@ class AyudaForm extends Component {
 
 
             <br />
-
-
-
-
-
-
-
-
 
             <label>Estado de salud:</label>
               <select
@@ -271,8 +288,8 @@ class AyudaForm extends Component {
             <div>
             <label>Tipo de mascota:</label>
               <select
-                name="tipomascota"
-                value={this.state.tipomascota}
+                name="Animal_Tipo"
+                value={this.state.Animal_Tipo}
                 onChange={this.actualizar}
                 required
               > 
@@ -287,18 +304,7 @@ class AyudaForm extends Component {
             </div>
 
 
-            <div>
-              <label>Estado de mascota:</label>
-
-              <input
-                type="text"
-                name="estadoanimal"
-                value={this.state.estadoanimal}
-                onChange={this.actualizar}
-                required
-              />
-
-            </div>
+  
 
 
             <label>Datos de Animal</label>
