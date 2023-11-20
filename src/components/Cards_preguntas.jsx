@@ -9,21 +9,21 @@ import image3 from '../assets/perro6.webp'
 const cards_preguntas = [ // asignamos y creamos las tarjetas dandoles los atributos
   {
     id: 1,
-    title: "Pregunta frecuente 1",
+    title: "¿Es posible adoptar gatos?",
     image: image1, //las imagenes que importamos antes
-    text:'Amo a mi nueva mascota'
+    text:'¡Por supuesto!, es posible adotar y dar en adopción gatos.'
   },
   {
     id: 2,
-    title: "Pregunta frecuente 2",
+    title: "¿Es posible adoptar Perritos?",
     image: image2,
-    text:'las opiniones son muy importantes para todos.'
+    text:'¡Por supuesto!, es posible adotar y dar en adopción a perros.'
   },
   {
     id: 3,
-    title: "Pregunta frecuente 3",
+    title: "¿Que animales se pueden adoptar?",
     image: image3,
-    text:'Este centro de animales me encanta'
+    text:'En este centro de ayuda solo trabajamos a animales de compañia tradicionales como perros y gatos.'
   },
 ];
 
