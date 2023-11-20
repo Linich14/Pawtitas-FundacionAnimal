@@ -13,29 +13,12 @@ import FAQ from './pages/preguntasFrec';
 import Adopcion from './pages/adopcion'
 import RecuperarPassword from './pages/subpages/RecuperarPassword';
 import Donar from './pages/Donar'
-import Donar_Fundacion from './pages/Donar_Fundacion'
+import DonarFundacion from './pages/Donar_Fundacion'
 import Adopform from './pages/form_adop'
 import FormularioAyuda from './pages/form_ayuda'
 import { Autentificador } from './components/Autenticacion';
 import RutaProtegida from './components/ProteccionRutas';
 import Administracion from './pages/Administracion';
-
-// ...
-
-/*
-
-<Route path="/Galeria" element={ <RutaProtegida>    <Galeria />    </RutaProtegida>    } />
-es un ejemplo de ruta protegida para que un no-usuario no pueda acceder
-deben añadir el <RutaProtegida> <AquivalapaginaSegura> </RutaProtegida>  
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-);
-
-*/
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -58,7 +41,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
         <Route path='/Ayuda' element={<RutaProtegida><Postular/></RutaProtegida>}/>
         <Route path='/Form_adop' element={<RutaProtegida><Adopform/></RutaProtegida>}/>
         <Route path='/Form_ayuda' element={<RutaProtegida><FormularioAyuda/></RutaProtegida>}/>
-        <Route path='/Donar_Fundacion' element={<Donar_Fundacion/>}/>
+        <Route path='/Donar_Fundacion' element={<DonarFundacion/>}/>
         <Route path='/Administracion' element={<RutaProtegida><Administracion/></RutaProtegida>}/>
       </Routes>
       </Autentificador>

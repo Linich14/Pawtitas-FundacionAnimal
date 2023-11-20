@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 
 import Acordion from '../components/Acordion_preguntas'
-import Cards_preguntas from '../components/Cards_preguntas'//importamos el elemento que contiene
+import Cardspreguntas from '../components/CardsPreguntas'//importamos el elemento que contiene
 // las tarjetas para esta pagina
 
 //importamos elementos directamente de react 
@@ -33,7 +33,7 @@ function Preguntas() {
 
 {/* aqui comienza la seccion de card */}
     <div className="App d-flex justify-content-center align-items-center h-100"> 
-      <Cards_preguntas />
+      <Cardspreguntas />
     </div>
     </div>
     </div>
@@ -106,7 +106,7 @@ function Preguntas() {
         </Col>
       </Row>
     </Container>
-  );
+  
   
 
 {/* -------------------------------------------------------------------------------------------------------- */}

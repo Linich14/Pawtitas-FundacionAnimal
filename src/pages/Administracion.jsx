@@ -33,7 +33,7 @@ export default function Administracion() {
           setUsuario(snapshot.data());
         }
       }
-    };
+    }
     obtenerUsuario();
   }, [user]);
 

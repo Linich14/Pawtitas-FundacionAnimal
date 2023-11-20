@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { doc, getDoc,setDoc,  collection, addDoc  } from '@firebase/firestore';
 import { db, serverTimestamp } from '../firebase';
-import { UserAuth } from "../components/Autenticacion";
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
 import { v4 } from "uuid";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';

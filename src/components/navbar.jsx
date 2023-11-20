@@ -41,6 +41,7 @@ function Navbar() {
   
   //Funcion para alternar el estado del menu
   const toggleMenu = () => {
+   
     setMenuOpen(!isMenuOpen);//cambia el valor de isMenuOpen (abierto/cerrado)
   };
 
@@ -74,24 +75,36 @@ function Navbar() {
             </Link>
 
           <div className="UserRL" onClick={toggleMenu}>
-            { user && 
-              // Usuario Logeado
-              <>
-                <img
-                  src={usuario?.imagen}
-                  alt="Imagen de Usuario"
-                />
-                {isMenuOpen && (
-                  <UserMenu>
-                    <ul>
-                      <li><Link to='/Perfil' className="buttonColor">Mi Perfil</Link></li>
-                      <li onClick={manejoCerrarSesion}>
-                         <button>Cerrar Sesión</button></li>
-                    </ul>
-                  </UserMenu>
-                )}
-              </>
-            }
+                    {user && (
+                        <>
+                          {(usuario?.imagen!=="Vacia") ? (
+                            <img src={usuario?.imagen} alt="Usuario" />
+                          ) : (
+                            <box-icon
+                              className="iconuser"
+                              name="user-circle"
+                              size="md"
+                              color="#F2E3C9"
+                              type="solid"
+                              animation="tada-hover"
+                            ></box-icon>
+                          )}
+                          {isMenuOpen && (
+                            <UserMenu>
+                              <ul>
+                                <li>
+                                  <Link to="/Perfil" className="buttonColor">
+                                    Mi Perfil
+                                  </Link>
+                                </li>
+                                <li onClick={manejoCerrarSesion}>
+                                  <button>Cerrar Sesión</button>
+                                </li>
+                              </ul>
+                            </UserMenu>
+                          )}
+                        </>
+                      )}
             {
               !user &&
               // Usuario sin logear

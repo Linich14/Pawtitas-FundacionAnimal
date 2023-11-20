@@ -48,11 +48,8 @@ function TuComponente() {
           
           {datos.map((documento, index) => (
             <tr key={index}>
-              <td>{documento.Cantidad}</td>
-              
-
-     
-
+              <td className="centroDonar">${documento.Cantidad} CLP</td>
+            
             </tr>
             
             
@@ -64,7 +61,7 @@ function TuComponente() {
       </table>
     </div>
     
-    <p>Total de la Fundacion: {Number(totalCantidad)}</p> 
+    <p>Total de la Fundacion: $ {Number(totalCantidad)} CLP</p> 
 
 </div>
   );

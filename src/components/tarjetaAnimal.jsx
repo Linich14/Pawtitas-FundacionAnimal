@@ -178,7 +178,7 @@ const AnimalCard = ({ animalId }) => {
         <CustomModal isOpen={modalIsOpen2} onRequestClose={closeModal2} >
           <div className='containerModal'>
             <div>
-              <p className="infoSoli">Para poder solicitar la Adopcion de {animalData.Animal_Nombre} deveras saber que pasarar por un proceso de selecion, una vez terminado este proceso, se contactara con la persona selecionada a travez del correo electronico.</p>
+              <p className="infoSoli">Apenas confirmes el envio de solicitud para: {animalData.Animal_Nombre}. Tu solicitud pasara por los Administradores para decidir si eres un postulante adecuado para este animal.</p>
             </div>
             <div className="botones">
               <button onClick={closeModal2}>Cancelar Solicitud</button>

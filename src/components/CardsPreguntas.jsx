@@ -1,12 +1,12 @@
 //elementos que utilizaremos e importamos
 import React from "react";
-import Card_preguntas from "./Card_preguntas";
+import CardPreguntas from "./CardPreguntas";
 //imagenes que utilizaremos 
 import image1 from "../assets/gato1.webp";
 import image2 from '../assets/postimg1.webp'
 import image3 from '../assets/perro6.webp'
 
-const cards_preguntas = [ // asignamos y creamos las tarjetas dandoles los atributos
+const cardspreguntas = [ // asignamos y creamos las tarjetas dandoles los atributos
   {
     id: 1,
     title: "¿Es posible adoptar gatos?",
@@ -27,13 +27,13 @@ const cards_preguntas = [ // asignamos y creamos las tarjetas dandoles los atrib
   },
 ];
 
-function Cards_preguntas() { //aqui utilizamos lo que creamos arriba
+function Cardspreguntas() { //aqui utilizamos lo que creamos arriba
   return (
     <div className="container d-flex justify-content-center align-items-center h-100">
       <div className="row">
-        {cards_preguntas.map(({ title, image, url, id, text}) => ( // le damos tambien los parametros
+        {cardspreguntas.map(({ title, image, url, id, text}) => ( // le damos tambien los parametros
           <div className="col-md-4" key={id}>
-            <Card_preguntas imageSource={image} title={title} url={url} text={text} />
+            <CardPreguntas imageSource={image} title={title} url={url} text={text} />
           </div>
         ))}
       </div>
@@ -41,4 +41,4 @@ function Cards_preguntas() { //aqui utilizamos lo que creamos arriba
   );
 }
  
-export default Cards_preguntas; //exportamos
+export default Cardspreguntas; //exportamos
