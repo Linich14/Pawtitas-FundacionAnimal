@@ -8,8 +8,8 @@ import { UserAuth } from "../components/Autenticacion";
 import {Link} from 'react-router-dom'
 
 import SolicitudLista from "../components/solicitudLista";
-import S_ayudalista from "../components/s_ayudalista";
-import S_adoplista from "../components/S_adoplista";
+import Sayudalista from "../components/Solayudalista";
+import Sadoplista from "../components/Soladoplista";
 
 export default function Administracion() {
   const { user } = UserAuth();
@@ -48,13 +48,13 @@ export default function Administracion() {
     const renderizarContenido = () => {
       switch (contenidoSeleccionado) {
         case 'todas':
-          return <SolicitudLista />, <S_adoplista />, <S_ayudalista />;
+          return <SolicitudLista />, <Sadoplista />, <Sayudalista />;
         case 'postulacion':
           return <SolicitudLista />; 
         case 'adopcion':
-          return <S_adoplista />;
+          return <Sadoplista />;
         case 'ayuda':
-          return <S_ayudalista />;
+          return <Sayudalista />;
         // Agrega más casos según sea necesario
         default:
           return <SolicitudLista />;

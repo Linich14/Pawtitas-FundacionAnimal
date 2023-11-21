@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { db } from '../firebase';
 import { collection, query, getDocs } from '@firebase/firestore';
-import VerificarSolicitud from "./TarjetaAdop";
+import VerificarSolicitud from "./TarjetaAyuda";
 
-const S_adoplista = () => {
+const Sayudalista = () => {
   const [solicitudIds, setSolicitudIds] = useState([]);
 
   useEffect(() => {
-    const solicitudesRef = collection(db, 'SolicitudesDarAdopcion');
+    const solicitudesRef = collection(db, 'SolicitudesAyuda');
     const consulta = query(solicitudesRef);
 
     getDocs(consulta).then((querySnapshot) => {
@@ -31,4 +31,4 @@ const S_adoplista = () => {
   );
 };
 
-export default S_adoplista;
+export default Sayudalista;

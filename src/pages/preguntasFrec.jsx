@@ -71,8 +71,8 @@ function Preguntas() {
             <Card.Body>
               <Card.Title>¿Quienes somos ?</Card.Title>
               <Card.Text>
-                Somos una organizacion sin fines de lucro que nacio por la necesidad de darle una solucion a el problema
-                de animales sin familia.
+                Somos una organizacion sin fines de lucro que nacio por la necesidad de darle una solucion al problema
+                de animales sin hogar.
               </Card.Text>
             </Card.Body>
           </Card>
@@ -85,7 +85,7 @@ function Preguntas() {
             <Card.Body>
               <Card.Title>¿Que clase de Animales tratamos ?</Card.Title>
               <Card.Text>
-                En este centro de ayudas estamos principalmente destinados a tratar con nimales domesticos tradicionales
+                En este centro de ayudas estamos principalmente destinados a tratar con animales domesticos tradicionales
                 tales como perros y gatos.
               </Card.Text>
             </Card.Body>
@@ -96,7 +96,7 @@ function Preguntas() {
           <Card border="secondary">
             <Card.Header>Acerca de nosotros</Card.Header>
             <Card.Body>
-              <Card.Title>¿Como es que logramos mantenernos en nestra lavor?</Card.Title>
+              <Card.Title>¿Como es que logramos mantenernos en nuestra labor?</Card.Title>
               <Card.Text>
                 Al ser una fundación sin fines de lucro, nuestro principal sustento para cuidar de los animales son 
                 las donaciones que nos hace la comunidad.

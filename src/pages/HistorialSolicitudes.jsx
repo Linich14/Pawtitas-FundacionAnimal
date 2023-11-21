@@ -1,7 +1,7 @@
 // Importa React, useState y useEffect desde React
 import React, { useState, useEffect } from "react";
 // Importa funciones específicas de Firestore y la instancia de la base de datos
-import { doc, collection, getDocs } from "@firebase/firestore";
+import {  collection, getDocs } from "@firebase/firestore";
 import { db } from "../firebase";
 // Importa el componente UserAuth para manejar la autenticación
 import { UserAuth } from "../components/Autenticacion";
