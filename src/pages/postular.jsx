@@ -10,7 +10,7 @@ function Postular(){
   return(
     <div className="App">
     <NavBar />
-    <div class="seccionps">
+    <div className="seccionps">
           
           <div className="image-button">
             

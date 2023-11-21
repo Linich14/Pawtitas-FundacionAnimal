@@ -18,12 +18,16 @@ async function fetchDocumentData() {
 
 function TuComponente() {
   const [datos, setDatos] = useState([]);
-
+  const [totalCantidad, setTotalCantidad] = useState(0); 
+  
   useEffect(() => {
     async function fetchData() {
       const documentos = await fetchDocumentData();
       if (documentos) {
         setDatos(documentos);
+        
+        const total = documentos.reduce((total, documento) => total + documento.Cantidad, 0);
+        setTotalCantidad(total);
       }
     }
 
@@ -37,17 +41,15 @@ function TuComponente() {
       <table>
         <thead>
           <tr>
-            <th>Cantidad</th>
+            <th><h2>Ultimas Donaciones Recibidas:</h2></th>
       
-            <th>Nombre</th>
+
           </tr>
           
           {datos.map((documento, index) => (
             <tr key={index}>
-              <td>{documento.Cantidad}</td>
-              
-              <td>{documento.Nombre}</td>
-
+              <td className="centroDonar">${documento.Cantidad} CLP</td>
+            
             </tr>
             
             
@@ -58,6 +60,9 @@ function TuComponente() {
        
       </table>
     </div>
+    
+    <p>Total de la Fundacion: $ {Number(totalCantidad)} CLP</p> 
+
 </div>
   );
 }

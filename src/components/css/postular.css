@@ -7,7 +7,7 @@ body {
 
 
 .seccionps{
-background-image: url('/src/assets/fondo1.webp'); 
+background-image: url('../../assets/fondo1.webp'); 
 background-size: cover;
 background-position: center;
 height: 100vh; 

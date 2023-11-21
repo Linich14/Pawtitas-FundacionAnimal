@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import Modal from 'react-modal';
 import styled from "styled-components";
 import "boxicons";
-import { db } from '../firebase';
-import { doc, getDoc,  collection, addDoc} from '@firebase/firestore';
+import { db, serverTimestamp } from '../firebase';
+import { doc, getDoc,setDoc,  collection, addDoc  } from '@firebase/firestore';
 import { UserAuth } from "./Autenticacion";
 
 
@@ -13,28 +13,53 @@ const AnimalCard = ({ animalId }) => {
   const { user} = UserAuth();
   
   const enviarSolicitudAdopcion = async () => {
-    // Verificar que el usuario este conectado
+    // Verificar que el usuario esté conectado
     if (!user) {
       return null;
     }
-    
-    //datos a enviar a firebase
+  
+    const timestamp = serverTimestamp();
+  
+    // Datos a enviar a Firebase a la coleccion de cada animal
     const enviarSolicitud = {
       usuarioEmail: user.email,
       usuarioID: user.uid,
       animalNombre: animalData.Animal_Nombre,
       animalId: animalId,
+      fechaSolicitud: timestamp,
+      animalImagen: animalData.Animal_Imagen,
     };
-    
-    try {
-      // registrar la solicitud en firebase
-      const docRef = await  addDoc(collection(db,'SolicitudesAdopcion'), enviarSolicitud);
-        alert("Solicitud enviada con exito \nNumero de solicitud; " + docRef.id);
-    } catch (error){
-      console.log("error");
-    }
-  };
   
+    //datos a enviar a la tabla que crea la solicitud, este se crea con el id del animal
+    const enviarDatosAnimal = {
+      animalId: animalId,
+      animalNombre: animalData.Animal_Nombre,
+    };
+  
+    try {
+      const solicitudDocRef = doc(collection(db, 'SolicitudesAdopcion'), animalId);
+
+      //Toma los datos actuales para poder comparar mas adelante
+      const solicitudDocSnapshot = await getDoc(solicitudDocRef);
+      
+      if (solicitudDocSnapshot.exists()) {
+        // Si el documento ya existe, solo crear la subcolección
+        const subcoleccionRef = collection(solicitudDocRef, 'solicitudesDelAnimal');
+        await addDoc(subcoleccionRef, enviarSolicitud);
+      } else {
+        // Si el documento no existe, crearlo y la subcolección
+        await setDoc(solicitudDocRef, enviarDatosAnimal);
+        const subcoleccionRef = collection(solicitudDocRef, 'solicitudesDelAnimal');
+        await addDoc(subcoleccionRef, enviarSolicitud);
+      }
+  
+      alert("Solicitud enviada con éxito");
+    } catch (error) {
+      console.error("Error al enviar la solicitud", error);
+    }
+    closeModal2();
+  };
+
 
   // Funcion que controla la ventana modal. libreria react-modal
 
@@ -67,7 +92,15 @@ const AnimalCard = ({ animalId }) => {
 
     getDoc(animalDocRef).then((doc) => {  
       if (doc.exists()) {
-        setAnimalData(doc.data());
+        const animalData = doc.data();
+        
+        // Convierte el Timestamp a una fecha legible
+        const fechaDeIngreso = animalData.Animal_Ingreso.toDate();
+    
+        setAnimalData({
+          ...animalData,
+          Animal_Ingreso: fechaDeIngreso.toLocaleDateString(), // Aquí asignamos la fecha legible
+        });
       } else {
         console.log("No se encontraron datos para el animal con ID: " + animalId);
       }
@@ -98,7 +131,7 @@ const AnimalCard = ({ animalId }) => {
                     {!user && "Inicie Sesion para Adoptar"}
                 </button>
                 <button className='contador'>
-                    1d:12h:14m:06s
+                    Ingreso  {animalData.Animal_Ingreso}
                 </button>
             </div>
         </div>
@@ -145,7 +178,7 @@ const AnimalCard = ({ animalId }) => {
         <CustomModal isOpen={modalIsOpen2} onRequestClose={closeModal2} >
           <div className='containerModal'>
             <div>
-              <p className="infoSoli">Para poder solicitar la Adopcion de {animalData.Animal_Nombre} deveras saber que pasarar por un proceso de selecion, una vez terminado este proceso, se contactara con la persona selecionada a travez del correo electronico.</p>
+              <p className="infoSoli">Apenas confirmes el envio de solicitud para: {animalData.Animal_Nombre}. Tu solicitud pasara por los Administradores para decidir si eres un postulante adecuado para este animal.</p>
             </div>
             <div className="botones">
               <button onClick={closeModal2}>Cancelar Solicitud</button>

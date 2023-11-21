@@ -1,8 +1,11 @@
 import React from "react";
 import { Accordion } from 'react-bootstrap'
+import '../components/css/ac_pre_fre.css'
+
 
 const Acordion = () => {
     return(
+        <div className="acordeon-preguntas-frec">
         <Accordion className=" container mt-5 p-3">
             <Accordion.Item eventKey="0" className="item">
                 <Accordion.Header>¿Puedo Registrar mas de un Animal? </Accordion.Header>
@@ -57,6 +60,7 @@ Posteriormente el Ministerio Público revisará la denuncia y tomará las accion
                 </Accordion.Body>
             </Accordion.Item>
         </Accordion>
+        </div>
     );
 }
 

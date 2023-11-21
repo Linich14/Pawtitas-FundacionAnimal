@@ -11,12 +11,3 @@ export function uploadFile(file) {
     })
   }    
 
-// const storageRef = ref(storage, 'imagenesGaleria/' + v4() + '/' + file.name);
-
-//   // Sube el archivo a la carpeta especificada
-//   uploadBytes(storageRef, file).then(snapshot => {
-//     console.log('Archivo subido con éxito:', snapshot);
-//   }).catch(error => {
-//     console.error('Error al subir el archivo:', error);
-//   });
-// }

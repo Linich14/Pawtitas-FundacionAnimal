@@ -5,30 +5,43 @@ import { db, serverTimestamp } from '../firebase';
 import { auth } from '../firebase'; // Asegúrate de importar 'auth' desde tu archivo de configuración de Firebase
 import { v4 } from "uuid";
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-const timestamp = serverTimestamp();
 
-class AdoptionForm extends Component {
+const timestamp = serverTimestamp();
+class AyudaForm extends Component {
+  
   
   constructor(props) {
     super(props);
+    // Inicialización del estado del componente con valores predeterminados
     this.state = {
+
+      Ubicacion: '',
       Animal_Datos: '',
       Animal_Edad: '',
-      unidad:'',
-      Animal_Estado_Salud: '',
-      Animal_Nombre: '',
-      Animal_Raza: '',
+      Animal_Nombre:  'no definido',
       Animal_Sexo: '',
-      Animal_Tipo: '',
-      Animal_Imagen: 'null',
       Animal_Ingreso: timestamp,
+      Animal_Estado_Salud: '',   
+      Animal_Tipo: '',
+      Animal_Imagen: '',
       usuarioEmail: '',
       name: '',
       usuarioID: '',
 
+
+
     };
-  }   
-  
+  }
+
+  // Método para manejar cambios en los campos de entrada
+  actualizar = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+
+
 //funcion que se encarga de obtener los daos del usuario logeado
 componentDidMount() {
   this.unsubscribeAuth = auth.onAuthStateChanged((user) => {
@@ -50,21 +63,23 @@ componentDidMount() {
   });
 }
 
+
 componentWillUnmount() {
   this.unsubscribeAuth();
 }
-//funcion para subir imagenes a la base de datos
 
-  subirImagen = async (e) => {
+
+//funcion para subir imagenes a la base de datos
+  subirImagen = async (e) => {//esta funcion toma un parametro, que va a ser la imagen
     const file = e.target.files[0];//toma el primer archivo seleccionado por el usuario
-    const storage = getStorage(); // Obtener una referencia al almacenamiento de Firebase
-    const storageRef = ref(storage, 'Animal_Image/'+ v4() + '/' + file.name); // Crear una referencia al archivo en Firebase Storage
+    const storage = getStorage(); // Obtiene una referencia al almacenamiento de Firebase
+    const storageRef = ref(storage, 'Animal_Image/'+ v4() + '/' + file.name); // se crea una referencia al archivo en Firebase Storage
   
     try {
-      // Subir el archivo al almacenamiento de Firebase
+      // se sube el archivo al almacenamiento de Firebase
       const snapshot = await uploadBytes(storageRef, file);
   
-      // Obtener la URL de descarga del archivo
+      // se obtiene la URL de descarga del archivo
       const downloadURL = await getDownloadURL(snapshot.ref);
   
       // Actualiza el estado del componente con la URL de la imagen
@@ -76,33 +91,27 @@ componentWillUnmount() {
     }
   };
 
-  
-  actualizar = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-  }
+  // Método para manejar el envío del formulario
+// ...
+// ...
 
-  
+manejoenvio = async (e) => {
+  e.preventDefault();
 
+  const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
 
-  manejoenvio = async (e) => {
-    e.preventDefault();
-  
-    const edadConUnidad = `${this.state.Animal_Edad} ${this.state.unidad}`;
-  
-    const datosFormulario = {
-      Animal_Edad: edadConUnidad,
-      Animal_Sexo: this.state.Animal_Sexo,
-      Animal_Estado_Salud: this.state.Animal_Estado_Salud,
-      Animal_Datos: this.state.Animal_Datos,
-      Animal_Nombre: this.state.Animal_Nombre,
-      Animal_Raza: this.state.Animal_Raza,
-      usuarioID : this.state.usuarioID,
-      solicitudId: v4(),
-      animalId : v4(),
-
-          };
+  const datosFormulario = {
+    Animal_Edad: edadConUnidad,
+    
+    Animal_Sexo: this.state.Animal_Sexo,
+    Animal_Estado_Salud:this.state.Animal_Estado_Salud,
+    Ubicacion: this.state.Ubicacion,
+    Animal_Datos: this.state.Animal_Datos,
+    solicitudID: v4(),
+    usuarioID : this.state.usuarioID,
+    animalId : v4(),
+    
+  };
 
 
     // Verificar si el campo animalId está definido antes de agregarlo al documento
@@ -113,65 +122,70 @@ componentWillUnmount() {
       datosFormulario.animalId = v4(); // Cambia esto según tus necesidades
     }
 
-  
-    try {
-      // Obtener la referencia de la colección principal SolicitudesAyuda
-      const solicitudesAyudaRef = doc(collection(db, 'SolicitudesDarAdopcion'));
-      
-  
-      const solicitudDocSnapshot = await getDoc(solicitudesAyudaRef);
-  
-      // Obtener la referencia de la subcolección SolicitudesDeAyuda
-  
-      if (solicitudDocSnapshot.exists()) {
-        // Si el documento ya existe, solo crear la subcolección
-        const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAdopcion');
-        await addDoc(subcoleccionRef, this.state);
-      } else {
-        // Si el documento no existe, crearlo y la subcolección
-        await setDoc(solicitudesAyudaRef, datosFormulario);
-        const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAdopcion');
-        await addDoc(subcoleccionRef, this.state);
-      }
-  
-  
-  
-      console.log('Datos del formulario : ' , this.state);
-  
-      // Restablecimiento de los campos del formulario a sus valores predeterminados
-      this.setState({
+
+  try {
+    // Obtener la referencia de la colección principal SolicitudesAyuda
+    const solicitudesAyudaRef = doc(collection(db, 'SolicitudesAyuda'));
+    
+
+    const solicitudDocSnapshot = await getDoc(solicitudesAyudaRef);
+
+    // Obtener la referencia de la subcolección SolicitudesDeAyuda
+
+    if (solicitudDocSnapshot.exists()) {
+      // Si el documento ya existe, solo crear la subcolección
+      const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAyuda');
+      await addDoc(subcoleccionRef, this.state );
+    } else {
+      // Si el documento no existe, crearlo y la subcolección
+      await setDoc(solicitudesAyudaRef, datosFormulario);
+      const subcoleccionRef = collection(solicitudesAyudaRef, 'SolicitudesDeAyuda');
+      await addDoc(subcoleccionRef, this.state);
+    }
+
+
+
+    console.log('Datos del formulario : ' , this.state);
+
+    // Restablecimiento de los campos del formulario a sus valores predeterminados
+    this.setState({
+      Ubicacion: '',
       Animal_Datos: '',
       Animal_Edad: '',
-      unidad: '',
-      Animal_Estado_Salud: '',
-      Animal_Nombre: '',
-      Animal_Raza: '',
+      Animal_Nombre: 'no definido',
       Animal_Sexo: '',
+      Animal_Ingreso: timestamp,
+      Animal_Estado_Salud: '',
       Animal_Tipo: '',
       Animal_Imagen: null,
       usuarioEmail: '',
       name: '',
       usuarioID: '',
-      
-
-      });
-    } catch (error) {
-      console.error('Error al enviar los datos del formulario:', error);
-    }
-  };
 
 
+    });
+  } catch (error) {
+    console.error('Error al enviar los datos del formulario:', error);
+  }
+};
 
+// ...
+
+// ...
 
   render() {
     return (
       <section className="seccion_formulario">
         <div className="cont_formularioadop">
-          <h2>Formulario de Adopción</h2>
+          <h2>Formulario de Ayuda</h2>
 
-          <form onSubmit={this.manejoenvio}> {/*cuando se envia el formulario se ejecuta la funcion*/ }
+          <form onSubmit={this.manejoenvio}>
             <div>
-              <label>Edad:</label>
+
+            <br />
+
+
+            <label>Edad Estimada:</label>
               <input
                 min="0"
                 type="number"
@@ -181,7 +195,7 @@ componentWillUnmount() {
                 required
               />
 
-            <select
+          <select
             name="unidad"
             value={this.state.unidad}
             onChange={this.actualizar}
@@ -190,9 +204,27 @@ componentWillUnmount() {
             <option value="meses">meses</option>
             <option value="años">años</option>
           </select>
-              <br />
 
-              <label>Estado de salud:</label>
+
+            <br />
+          
+
+            <label>Ubicacion:</label>  
+              <input
+                type="text"
+                name="Ubicacion"
+                value={this.state.Ubicacion}
+                onChange={this.actualizar}
+                required
+              />
+
+
+
+
+
+            <br />
+
+            <label>Estado de salud:</label>
               <select
 
                 name="Animal_Estado_Salud"
@@ -208,31 +240,13 @@ componentWillUnmount() {
                 <option value="Bien">Bien</option>
                 
               </select>
+
+
+
+
               <br />
-
-              <label htmlFor="imagen">Subir Imagen:</label>
-              <input
-                type="file"
-                id="imagen"
-                name="Animal_Imagen"
-                accept="image/*"
-                onChange={this.subirImagen}                
-                required
-              />
-              <br />
-
-              <label>Nombre:</label>
-              <input
-                type="text"
-                name="Animal_Nombre"
-                value={this.state.Animal_Nombre}
-                onChange={this.actualizar}
-                required
-              />
-            </div>
-            <br />
-
-            <div>
+              
+              
               <label>sexo:</label>
               <select
                 name="Animal_Sexo"
@@ -243,48 +257,76 @@ componentWillUnmount() {
                 <option value="">...</option>
                 <option value="Macho">Macho</option>
                 <option value="Hembra">Hembra</option>
-              </select>
-            </div>
+              </select>  
 
-            <div>
-              <label>Raza:</label>
+
+            
+            <br />
+
+
+
+
+
+
+
+
+            <label htmlFor="imagen">Subir Imagen:</label>
               <input
-                type="text"
-                name="Animal_Raza"
-                value={this.state.Animal_Raza}
-                onChange={this.actualizar}
+                type="file"
+                id="imagen"
+                name="Animal_Imagen"
+                accept="image/*"
+                onChange={this.subirImagen}                
                 required
               />
+            <br />
+
             </div>
+            <br />
+
 
             <div>
-              <label>Tipo de Mascota:</label>
+            <label>Tipo de mascota:</label>
               <select
                 name="Animal_Tipo"
                 value={this.state.Animal_Tipo}
                 onChange={this.actualizar}
-              >
+                required
+              > 
                 <option value="">...</option>
                 <option value="Perro">Perro</option>
                 <option value="Gato">Gato</option>
                 <option value="Otro">Otro</option>
+
               </select>
+
+
             </div>
 
-            <br />
-            <div>
-              <label>Datos de Animal</label>
+
+  
+
+
+            <label>Datos de Animal</label>
               <textarea
                 name="Animal_Datos"
                 value={this.state.Animal_Datos}
                 onChange={this.actualizar}
               />
-            </div>
-            <button id='enviar' type="submit">Enviar Solicitud</button>
 
+
+            
+            
+
+
+            <br />
+
+
+            <button id='enviar' type="submit">Enviar Solicitud</button>
+            
             <Link to="/ayuda">
-              <button type="button" id='atras'>Atrás</button>
-            </Link>
+              <button type="submit" id='atras'>Atrás</button>
+            </Link>      
           </form>
         </div>
       </section>
@@ -292,4 +334,4 @@ componentWillUnmount() {
   }
 }
 
-export default AdoptionForm;
+export default AyudaForm;

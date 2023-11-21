@@ -7,15 +7,15 @@ body {
 
 
 .donar_fund{
-background-image: url('/src/assets/perros_donarfund.webp'); 
-background-size: cover;
-background-position: inherit;
-height: 100vh; 
-display: flex;
-flex-direction: row  ;
-justify-content: start;
-align-items: center;
-gap: 20px;
+  background-image: url('../../assets/perros_donarfund.webp'); 
+  background-size: cover;
+  background-position: inherit;
+  height: 100vh; 
+  display: flex;
+  flex-direction: row  ;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
 
 
 }

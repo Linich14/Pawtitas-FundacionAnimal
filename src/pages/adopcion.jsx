@@ -3,7 +3,7 @@ import styled from "styled-components";
 import NavBar from "../components/navbar";
 import Footer from "../components/Footer";
 import FondoBackGround from "../assets/fondito.webp";
-import ReactPaginate from "react-paginate";
+
 import AnimalList from "../components/AnimalList";
 
 
@@ -72,42 +72,3 @@ const AdopcionCss = styled.main`
   }
 `;
 
-const PaginationCss = styled(ReactPaginate)`
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  list-style:none;
-  color:#164b60;
-  
-  a{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-inline:0.4rem;
-    max-width:3.1rem;
-    min-width:3rem;
-    max-height:3.1rem;
-    min-height:3rem;
-    border:1px solid #164b60;
-    border-radius:0.5rem;
-    background-color:#F2F3F4;
-  }
-  .active a{
-    color:#f2e3c9;
-    background-color:#164b60;
-  }
-
-`
-          {/* <PaginationCss
-            previousLabel ={<box-icon name='first-page' animation='fade-left-hover' color='#164b60' ></box-icon>}
-            nextLabel={<box-icon name='last-page' animation='fade-right-hover' color='#164b60' ></box-icon>}
-            breakLabel={"..."}
-            breakClassName={"break-me"}
-            pageCount={Math.ceil(dataPerros.length / perrosPorPagina)} //indica el numero de paginas que tendra
-            marginPagesDisplayed={1}//Indica la cantidad de paginas que se muestran al inicio y final
-            pageRangeDisplayed={1}//Indica cuantas paginas se muestran desde la que ya esta seleccionada
-            onPageChange={handlePageChange}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activeClassName={"active"}
-          />   */}

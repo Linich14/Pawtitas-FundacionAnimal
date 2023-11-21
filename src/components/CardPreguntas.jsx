@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 // importamos los estilos
 import "../components/css/cardspreguntas.css";
 
-function Card_preguntas({ imageSource, title, text, url }) { //agregamos los parametros que son lo que iremos
+function Cardpreguntas({ imageSource, title, text, url }) { //agregamos los parametros que son lo que iremos
   //modificando en cada caso
   return (
     <div className="card text-center bg-dark animate__animated animate__fadeInUp"> {/* centramos las tajetas */}
@@ -31,11 +31,11 @@ function Card_preguntas({ imageSource, title, text, url }) { //agregamos los par
   );
 }
  
-Card_preguntas.propTypes = {
+Cardpreguntas.propTypes = {
   title: PropTypes.string.isRequired,
   text: PropTypes.string,
   url: PropTypes.string,
   imageSource: PropTypes.string
 };
 
-export default Card_preguntas;
+export default Cardpreguntas;

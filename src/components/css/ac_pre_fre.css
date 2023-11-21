@@ -1,0 +1,6 @@
+.acordeon-preguntas-frec{
+    background-image: url('../../assets/fondito.webp');
+    background-position: fixed;
+    background-repeat:repeat;
+    padding-top: 190px; /* para que el fondo sea completo */
+}

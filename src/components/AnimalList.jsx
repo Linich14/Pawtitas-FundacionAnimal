@@ -30,8 +30,8 @@ const AnimalList = ({ terminoDeBusqueda }) => {
           // Filtro de busqueda 
           return (
             animalData.Animal_Nombre.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
-            animalData.Animal_Edad.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
-            animalData.Animal_Tipo.toLowerCase().includes(terminoDeBusqueda.toLowerCase())
+             animalData.Animal_Edad.toLowerCase().includes(terminoDeBusqueda.toLowerCase()) ||
+             animalData.Animal_Tipo.toLowerCase().includes(terminoDeBusqueda.toLowerCase())
           );
         }
       
@@ -56,4 +56,4 @@ const AnimalList = ({ terminoDeBusqueda }) => {
   );
 };
 
-export default AnimalList;
+export default AnimalList; 

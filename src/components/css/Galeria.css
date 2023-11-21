@@ -1,15 +1,15 @@
 .galeriabackground{/* fonod de la pagina */
     background-image: url('../../assets/fondito.webp');
-    height: 100vh;
+    background-position: fixed;
     background-repeat:repeat;
     padding-top: 190px; /* para que el fondo sea completo */
 }
 
+.cardgaleria{
+    margin-bottom: 10rem;
+}
 
-/* .container{
-    display: flex;
-    flex-direction: column;
-} */
+
  
 
 .caja_invisible{
@@ -22,13 +22,84 @@
     background-repeat:repeat;
 
 }
-/*
-.container > div{
-    margin-left: 35%;
-    width: 550px;
-    height: 20vh;
-    text-align: center;
-    line-height: 75px;
-    font-size: 30px;
-}
-*/
+
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px;
+  }
+
+
+
+  /* otras targetas */
+  .tarjetasparagaleria {
+    border: 1px solid #ccc;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 340px;
+    max-height: 460px;
+  }
+  
+  .tarjetasparagaleria h1 {
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+    max-width: 290px;
+    max-height: 45px;
+  }
+  
+  .tarjetasparagaleria img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: 320px;
+    height: 300px;
+  }
+
+  .tarjetasparagaleria p {
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    max-width: 300px;
+    max-height: 50px;
+  }
+
+  .container-ver-tu-mascota-galeria{
+    padding-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container-de-perritos-automaticos {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-container-perritos-automatico {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 16px;
+  }
+  
+  /* Estilos para los inputs y botón */
+  .estilo-input {
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .styled-button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  

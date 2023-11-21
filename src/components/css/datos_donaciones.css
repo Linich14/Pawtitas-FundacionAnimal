@@ -9,8 +9,8 @@
     width: 100%; /* Establece el ancho al 100% del contenedor */
 }
 
-.tabla_donaciones_ th {
-    
+.centroDonar {
+    text-align: center;
 }
 
 .tabla_donaciones_ td {
