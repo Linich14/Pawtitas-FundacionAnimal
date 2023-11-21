@@ -1,15 +1,20 @@
+
 import React, { useState, useEffect } from "react";
 import { doc, collection, getDocs, getDoc } from "@firebase/firestore";
 import { db } from "../firebase";
 import { UserAuth } from "../components/Autenticacion";
 import "../components/css/HistorialSolicitudes.css";
 
+// Función principal del componente SolicitudesActivasUsuario
 function SolicitudesActivasUsuario() {
+  // Obtiene la información del usuario autenticado
   const { user } = UserAuth();
+  // Estados para almacenar la lista de solicitudes, la mascota seleccionada y mostrar el modal de detalles
   const [solicitudes, setSolicitudes] = useState([]);
   const [selectedAnimal, setSelectedAnimal] = useState(null);
   const [showDetailsModal, setShowDetailsModal] = useState(false);
 
+  // Función para ver los detalles de una mascota
   const verDetallesMascota = async (animalId) => {
     try {
       const animalRef = doc(db, "Animales", animalId);
@@ -17,6 +22,7 @@ function SolicitudesActivasUsuario() {
 
       if (animalDoc.exists()) {
         const animalData = animalDoc.data();
+        // Actualiza el estado con los detalles de la mascota y muestra el modal
         setSelectedAnimal(animalData);
         setShowDetailsModal(true);
       } else {
@@ -27,6 +33,7 @@ function SolicitudesActivasUsuario() {
     }
   };
 
+  // Efecto que se ejecuta al montar o actualizar el componente para obtener las solicitudes del usuario
   useEffect(() => {
     const obtenerSolicitudes = async () => {
       if (user) {
@@ -44,6 +51,7 @@ function SolicitudesActivasUsuario() {
               const solicitudData = solicitud.data();
 
               if (solicitudData.usuarioID === user.uid) {
+                // Agrega la solicitud a la lista de solicitudes
                 solicitudesArray.push({
                   id: solicitud.id,
                   animalId: solicitudData.animalId,
@@ -56,6 +64,7 @@ function SolicitudesActivasUsuario() {
             });
           }
 
+          // Actualiza el estado con la lista de solicitudes
           setSolicitudes(solicitudesArray);
         } catch (error) {
           console.error("Error al obtener las solicitudes:", error);
@@ -63,9 +72,11 @@ function SolicitudesActivasUsuario() {
       }
     };
 
+    // Llama a la función para obtener las solicitudes
     obtenerSolicitudes();
-  }, [user]);
+  }, [user]); // Se ejecuta cada vez que cambia el usuario
 
+  // Estructura del componente con la lista de solicitudes y el modal de detalles
   return (
     <div>
       <h2 className="titulos">Solicitudes Activas</h2>
@@ -76,6 +87,7 @@ function SolicitudesActivasUsuario() {
           {solicitudes.map((solicitud) => (
             <div className="solicitud-container" key={solicitud.id}>
               <div className="solicitud-info">
+                {/* Muestra la información de la solicitud */}
                 <strong>Solicitud ID:</strong> {solicitud.id}
               </div>
               <div className="solicitud-info">
@@ -85,6 +97,7 @@ function SolicitudesActivasUsuario() {
                 <strong>Fecha de la Solicitud:</strong>{" "}
                 {solicitud.fechaSolicitud.toLocaleDateString()}
               </div>
+              {/* Botón para ver detalles de la mascota */}
               <button variant="primary" onClick={() => verDetallesMascota(solicitud.animalId)}>
                 Ver Detalles de Mascota
               </button>
@@ -92,11 +105,13 @@ function SolicitudesActivasUsuario() {
           ))}
         </div>
       )}
-{showDetailsModal && (
+      {/* Muestra el modal de detalles si showDetailsModal es true */}
+      {showDetailsModal && (
         <div className="detalle-mascota-solicitud">
           <h2>Detalles de la Mascota</h2>
           {selectedAnimal && (
             <div>
+              {/* Muestra los detalles de la mascota */}
               <p>
                 <strong>Nombre del Animal:</strong> {selectedAnimal.Animal_Nombre}
               </p>
@@ -124,11 +139,13 @@ function SolicitudesActivasUsuario() {
               </p>
             </div>
           )}
+          {/* Botón para cerrar los detalles */}
           <button variant="primary" onClick={() => setShowDetailsModal(false)}>Cerrar Detalles</button>
         </div>
       )}
     </div>
   );
 }
+
 
 export default SolicitudesActivasUsuario;

@@ -37,35 +37,45 @@ const VerificarSolicitud = ({ solicitudId }) => {
   //Solicitudes aprobadas
   const aceptarSolicitud = async () => {
     try {
-      //llamamos a los datos de las colecciones de cada solicitud
-      const subcoleccionesRef = collection(db, 'SolicitudesAdopcion', solicitudId, 'solicitudesDelAnimal');
-      const subcoleccionesQuery = await getDocs(subcoleccionesRef);
-  
-      //Guardamos los datos a SolicitudesAprobadas
-      //iteramos en cada elemento   
-      subcoleccionesQuery.forEach(async (doc) => {
-        const data = doc.data();
-        const datosGuardar = {
-          usuarioID: data.usuarioID,
-          usuarioEmail: data.usuarioEmail,
-          animalId: data.animalId,
-          animalNombre: data.animalNombre,
-        };
-  
-        // Agregar los datos a SolicitudesAprobadas
-        const solicitudesAprobadasRef = collection(db, 'SolicitudesAprobadas');
-        await addDoc(solicitudesAprobadasRef, datosGuardar);
-      });
-  
-      // Después de eliminar todos los documentos de la subcolección, ahora eliminamos el documento principal 'SolicitudesAdopcion'
-      const solicitudAdopcionRef = doc(db, 'SolicitudesAdopcion', solicitudId);
-      await deleteDoc(solicitudAdopcionRef);
-  
+      if (subcoleccionesData.length > 0) {
+        const primerSubcoleccion = subcoleccionesData[0];
+        const usuarioId = primerSubcoleccion.data.usuarioID;
+        const animalId = primerSubcoleccion.data.animalId;
+
+        // Obtener detalles del animal desde la colección "Animales"
+        const animalRef = doc(db, 'Animales', animalId);
+        const animalDoc = await getDoc(animalRef);
+
+        if (animalDoc.exists()) {
+          const animalData = animalDoc.data();
+
+          // Guardar detalles de la mascota en MisMascotas
+          const misMascotasRef = collection(db, 'Usuarios', usuarioId, 'MisMascotas');
+          await addDoc(misMascotasRef, {
+            Animal_Datos: animalData.Animal_Datos,
+            Animal_Edad: animalData.Animal_Edad,
+            Animal_Estado_Salud: animalData.Animal_Estado_Salud,
+            Animal_Imagen: animalData.Animal_Imagen,
+            Animal_Nombre: animalData.Animal_Nombre,
+            Animal_Raza: animalData.Animal_Raza,
+            Animal_Sexo: animalData.Animal_Sexo,
+            Animal_Tipo: animalData.Animal_Tipo,
+            unidad: animalData.unidad,
+          });
+           // Eliminar el animal de la tabla "Animales"
+          //await deleteDoc(animalRef);
+        }
+
+        // Eliminar la solicitud de adopción
+        const solicitudAdopcionRef = doc(db, 'SolicitudesAdopcion', solicitudId);
+        await deleteDoc(solicitudAdopcionRef);
+      } else {
+        console.error("No hay subcolecciones disponibles.");
+      }
     } catch (error) {
-      console.error("Error", error);
+      console.error("Error al aceptar la solicitud:", error);
     }
   };
-  
 
   //Elimina el id de la coleccion
   const rechazarSolicitud = async (subcoleccionId) => {

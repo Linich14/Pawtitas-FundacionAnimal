@@ -1,27 +1,68 @@
+/* Estilos para cada solicitud */
 .solicitud-container {
-    background-image: url('../../assets/fondito.webp');
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 20px;
-    max-width: 300px; 
-    margin: 0 auto; 
-  }
-  
-  .solicitud-info {
-    margin-bottom: 10px;
-    text-align: center; 
-  }
-  
-  .solicitud-info strong {
-    font-weight: bold;
-    margin-right: 5px;
-  }
-  
-  .titulos {
-    text-align: center;
-    font-family: Arial Black;
-    color: white;
-    font-weight: bold;
-    font-size: 30px;
-    margin-top: 20px;
-  }  
+  background-image: url('../../assets/fondito.webp');
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin-bottom: 20px;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.solicitud-info {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.solicitud-info strong {
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+/* Estilos para el contenedor principal */
+.solicitudes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px; /* Espacio entre las solicitudes */
+}
+
+/* Estilos para el modal de detalles */
+.detalle-mascota-solicitud {
+  background-image: url('../../assets/fondito.webp');
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+/* Estilos para los títulos */
+.titulos {
+  text-align: center;
+  font-family: Arial Black;
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
+  margin-top: 20px;
+}
+
+/* Estilos para los botones en las solicitudes y el modal */
+.solicitud-container button,
+.detalle-mascota-solicitud button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.solicitud-container button {
+  background-color: #007bff;
+  color: white;
+}
+
+.detalle-mascota-solicitud button {
+  background-color: #007bff;
+  color: white;
+}
